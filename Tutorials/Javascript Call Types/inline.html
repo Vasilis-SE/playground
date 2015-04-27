@@ -1,0 +1,24 @@
+<!-- Inline javascript code call. The code is placed inside the 
+body tag of the html page.-->
+<html>
+	<head>
+		<title> JavaScript Tutorials - Inline Call</title>
+	</head>
+	<body>
+		<p id="welcomeMessage"> Welcome to our page ! </p>
+		<script type="text/javascript">
+			document.getElementById('welcomeMessage').style.fontSize = "32px";
+			document.getElementById('welcomeMessage').style.color = "green";
+			document.getElementById('welcomeMessage').style.textAlign = "center";
+		</script>
+		
+		First Name : <input id="fname" type="text" /> <br /> <br />
+		Last Name : <input id="lname" type="text" />
+		
+		<script type="text/javascript">
+			document.getElementById('fname').value = "Enter First Name";
+			document.getElementById('lname').value = "Enter Last Name";
+		</script>
+		
+	</body>
+</html>
