@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title> JavaScript Tutorials - Switch / Case Statement </title>
+		
+		<script type="text/javascript">
+			function CheckString(){
+				var stringMess = document.getElementsById('str').value;
+				var n = stringMess.length;
+				
+				if(stringMess === ''){
+					document.getElementsById('resultText').innerHTML = "Fields are empty!";
+				}
+				else{
+					switch(n){
+						case 10 : 
+							document.getElementsById('resultText').innerHTML = "Stirng is 10 characters";	
+						break;
+					}
+				}
+			
+			}
+		</script>
+	</head>
+	<body>
+		Enter String : <input id="str" type="text" /> <br /> <br />
+		<button type="button" OnClick="CheckString()"> Check </button> <br /> <br />
+		<p id="resultText">  </p>
+	
+	</body>
+</html>

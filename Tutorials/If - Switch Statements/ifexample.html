@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title> JavaScript Tutorials - If Statement </title>
+		
+		<script type="text/javascript">
+			function Calculation(){
+				var firstNum = document.getElementById('firstNum').value;
+				var secondNum = document.getElementById('secondNum').value;
+				var calcType = document.getElementById('calcs').value;
+				
+				if(firstNum === '' || secondNum === ''){
+					document.getElementById('resultText').innerHTML = "Form field are empty!";	
+				}
+				else{
+					if(calcType == "add"){
+						var result = +firstNum + +secondNum;
+						document.getElementById('resultText').innerHTML = "The Result is : "+result;
+					}
+					else if (calcType == "sub"){
+						var result = firstNum - secondNum;
+						document.getElementById('resultText').innerHTML = "The Result is : "+result;
+					}
+					else if (calcType == "times"){
+						var result = firstNum * secondNum;
+						document.getElementById('resultText').innerHTML = "The Result is : "+result;
+					}
+					else if (calcType == "div"){
+						if(secondNum == 0){
+							document.getElementById('resultText').innerHTML = "Can't divide with zero";
+						}
+						else{
+							var result = firstNum / secondNum;
+							document.getElementById('resultText').innerHTML = "The Result is : "+result;
+						}
+					}
+					
+					
+				}
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		First Number : <input id="firstNum" type="text" /> <br/> <br/>
+		Second Number : <input id="secondNum" type="text" /> <br/> <br/>
+		Select The Calculation : <select id="calcs">
+									<option value="add"> Addition </option>
+									<option value="sub"> Subtraction </option>
+									<option value="times"> Multiplication </option>
+									<option value="div"> Division </option>
+								 </select>
+		<button type="button" OnClick="Calculation()"> Submit </button>
+		<p id="resultText"> </p>
+	
+	</body>
+</html>
