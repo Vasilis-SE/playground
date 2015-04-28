@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title> JavaScript Tutorials - For Loop </title>
+		
+		<script type="text/javascript">
+			function EvenNumbersCheck(){
+				var number = document.getElementById('number').value;
+				var result = "";
+				var i = 0;
+				do{
+					if((i%2) == 0)
+						result = result + "<br/>" + i + " is even!";
+					else
+						result = result + "<br/>" + i + " is not even!";
+					i++;
+				}while(i <= number);
+				
+				document.getElementById('messageArea').innerHTML =  result;
+			}
+		</script>
+		
+	</head>
+	<body>
+		Give your message : <input type="number" id="number" />
+		<button type="button" OnClick="EvenNumbersCheck()" > Check </button>
+		<p id="messageArea"> </p>
+	</body>
+</html>

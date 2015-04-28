@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title> JavaScript Tutorials - For Loop </title>
+		
+		<script type="text/javascript">
+			function GetEvenNumbers(){
+				var number = document.getElementById('number').value
+				var result = "";
+				
+				var i = 0;
+				while(i <= number){
+					if((i % 2) == 0)
+						result = result + i + " ";
+
+					i = i + 1;
+				}
+				
+				document.getElementById('messageArea').innerHTML = "The even numbers until "+number+" are "+result;
+			}
+		</script>
+		
+	</head>
+	<body>
+		Give a number : <input type="number" id="number" />
+		<button type="button" OnClick="GetEvenNumbers()" > Get Even Number </button>
+		<p id="messageArea"> </p>
+	</body>
+</html>

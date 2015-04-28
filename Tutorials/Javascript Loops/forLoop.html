@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title> JavaScript Tutorials - For Loop </title>
+		
+		<script type="text/javascript">
+			function FactorialProcess(){
+				var number = document.getElementById('number').value;
+				var i;
+				var result = 1;
+				for(i=1; i<=number; i++){
+					result = result * i;
+				}
+				document.getElementById('messageArea').innerHTML = "The factorial of : "+number+" is "+result;
+			}
+		</script>
+		
+	</head>
+	<body>
+		Give a number : <input type="number" id="number" />
+		<button type="button" OnClick="FactorialProcess()" > Find Factorial </button>
+		<p id="messageArea"> </p>
+	</body>
+</html>
