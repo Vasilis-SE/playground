@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - Image Zoom In/Out </title>
+		<script type="text/javascript">
+			function ImageZoomIn(){
+				var img = document.getElementById('image'); 
+				var width = img.clientWidth;
+				var height = img.clientHeight;
+				
+				document.getElementById('image').style.height = height + 50;
+				document.getElementById('image').style.width = width + 50;
+			}
+			
+			function ImageZoomOut(){
+				var img = document.getElementById('image'); 
+				var width = img.clientWidth;
+				var height = img.clientHeight;
+				
+				document.getElementById('image').style.height = height - 50;
+				document.getElementById('image').style.width = width - 50;
+			}
+		</script>
+	</head>
+	<body>
+		<img border="2px" id="image" src="Serializable-Network.jpg"> <br /> <br />
+		<button id="zoomIn" OnClick="ImageZoomIn()"> Zoom In </button> 
+		<button id="zoomOut" OnClick="ImageZoomOut()"> Zoom Out </button>
+	</body>
+</html>
