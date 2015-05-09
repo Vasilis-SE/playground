@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title> Javascript Tutorial - Dates </title>
+		<script type="text/javascript">
+			
+			//In this method the date function returns the full date from the system.
+			function ShowDate(){
+				document.getElementById('dateField').innerHTML = "Full Date : "+Date();
+			}
+			
+			//This method returns the date as year - month
+			function ShortDates(){
+				var month = document.getElementById('month').value;
+				var year = document.getElementById('year').value;
+				var fullDate = year+"-"+month;
+				var date = new Date(fullDate);
+				
+				document.getElementById('dateField').innerHTML = "Short Date : "+date;
+			}
+			
+			//This method returns the dates as year - month - day year
+			function LongDates(){
+				var day = document.getElementById('lday').value;
+				var month = document.getElementById('lmonth').value;
+				var year = document.getElementById('lyear').value;
+
+				var date = new Date(year+"/"+month+"/"+day);
+
+				document.getElementById('dateField').innerHTML = "Long Date : "+date;
+			}
+		</script>
+	</head>
+	<body>
+		<p id="dateField"> </p> <br /> 
+		<hr>
+		<button id="fullDate" OnClick="ShowDate()"> Show Date </button> <br /><br />
+		<hr>
+		Month : <input type="number" id="month" /> <br /><br />
+		Year : <input type="number" id="year" /> <br /><br />
+		<button id="shortDate" OnClick="ShortDates()"> Show Date </button> <br /><br />
+		<hr>
+		Day : <input type="number" id="lday" /> <br /><br />
+		Month : <input type="number" id="lmonth" /> <br /><br />
+		Year : <input type="number" id="lyear" /> <br /><br />
+		<button id="longDate" OnClick="LongDates()"> Show Date </button> 
+
+	</body>
+</html>
