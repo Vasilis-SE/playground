@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - Data Conversions </title>
+		<script type="text/javascript">
+			function DataToString(value, idElement){
+				document.getElementById(idElement).innerHTML = value.toString();
+			}
+			
+			function DataToInteger(value, idElement){
+				document.getElementById(idElement).innerHTML = parseInt(value);
+			}
+			
+			function DataToFloat(value, idElement){
+				document.getElementById(idElement).innerHTML = parseFloat(value);
+			}
+		</script>
+	</head>
+	<body>
+		<table border="2px" cellpadding="8px">
+			<tr>
+				<td> Values </td>
+				<td> ToString </td>
+				<td> ToInt </td>
+				<td> ToDouble </td>
+			</tr>
+			<tr>
+				<td> 15 </td>
+				<td id="r1d1"> <script> this.DataToString(15, 'r1d1') </script> </td>
+				<td id="r1d2"> <script> this.DataToInteger(15, 'r1d2') </script> </td>
+				<td id="r1d3"> <script> this.DataToFloat(15, 'r1d3') </script> </td>
+			</tr>
+			<tr>
+				<td> 1.5 </td>
+				<td id="r2d1"> <script> this.DataToString(1.5, 'r2d1') </script> </td>
+				<td id="r2d2"> <script> this.DataToInteger(1.5, 'r2d2') </script> </td>
+				<td id="r2d3"> <script> this.DataToFloat(1.5, 'r2d3') </script> </td>
+			</tr>
+			<tr>
+				<td> "17.88" </td>
+				<td id="r3d1"> <script> this.DataToString("17.88", 'r3d1') </script> </td>
+				<td id="r3d2"> <script> this.DataToInteger("17.88", 'r3d2') </script> </td>
+				<td id="r3d3"> <script> this.DataToFloat("17.88", 'r3d3') </script> </td>
+			</tr>
+			<tr>
+				<td> true </td>
+				<td id="r4d1"> <script> this.DataToString(true, 'r4d1') </script> </td>
+				<td id="r4d2"> <script> this.DataToInteger(true, 'r4d2') </script> </td>
+				<td id="r4d3"> <script> this.DataToFloat(true, 'r4d3') </script> </td>
+			</tr>
+			<tr>
+				<td> false </td>
+				<td id="r5d1"> <script> this.DataToString(false, 'r5d1') </script> </td>
+				<td id="r5d2"> <script> this.DataToInteger(false, 'r5d2') </script> </td>
+				<td id="r5d3"> <script> this.DataToFloat(false, 'r5d3') </script> </td>
+			</tr>
+			<tr>
+				<td> "14" </td>
+				<td id="r6d1"> <script> this.DataToString("14", 'r6d1') </script> </td>
+				<td id="r6d2"> <script> this.DataToInteger("14", 'r6d2') </script> </td>
+				<td id="r6d3"> <script> this.DataToFloat("14", 'r6d3') </script> </td>
+			</tr>
+		</table>
+		<p id="result"> </p>
+	</body>
+</html>
