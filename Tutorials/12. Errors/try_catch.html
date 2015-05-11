@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - Try/Catch </title>
+		<script type="text/javascript">
+			function ConvertDataToStirng(){
+				try{
+					var data = document.getElementById('textData').value;
+					
+					//On purpose the function toString is written wrong so that the
+					//catch part will catch the error.
+					document.getElementById('result').innerHTML = data.toStringgg();
+				}
+				catch(ex){
+					document.getElementById('result').innerHTML = ex;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		Type Something : <input type="text" id="textData"/> 
+		<button id="convBtn" OnClick="ConvertDataToStirng()"> Convert </button> 
+		<br /> <br/>
+		<b> Result : </b> <span id="result"> </span>
+	</body>
+</html>

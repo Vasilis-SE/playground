@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - Throws </title>
+		<script type="text/javascript">
+			
+			//The throw statement is used to generate a custome error 
+			//message. That way we can control the flow of the program
+			function DataInputCheck(value1, value2){
+				try{
+					if(value1.toString() == "" || value2.toString() == "") 
+						throw "Empty Fields!";
+					
+					if(isNaN(value1) || isNaN(value2))
+						throw "Invalid data type!";
+						
+					return true;
+				}
+				catch(ex){
+					document.getElementById('result').innerHTML = ex;
+					return false;
+				}
+			}
+			
+			function AdditionProcess(){
+				var num1 = document.getElementById('data1').value;
+				var num1 = document.getElementById('data2').value;
+				
+				var check = DataInputCheck(num1, num2);
+				
+				if(check)
+					document.getElementById('result').innerHTML = num1 + num2;
+			}
+		</script>
+	</head>
+	<body>
+		Give a Number : <input type="text" id="data1" /> +
+		Give a Number : <input type="text" id="data2" />
+		<br/> <br/>
+		<button id="chkBtn" OnClick="AdditionProcess()"> Go ! </button>
+		<br/> <br/>
+		<b> Results : </b> <span id="result"> </span>
+	</body>
+</html>
