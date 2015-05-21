@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - Debugging </title>
+		<script type="text/javascript">
+			function DataCheck(num1, num2){
+				var check = true;
+				try{
+					if(num1.toString() == "" || num2.toString() == "")
+						throw "Empty Field In The Form";
+						
+					if(isNaN(num1) || isNaN(num2))
+						throw "Invalid Data Type Given";
+				}
+				catch(ex){
+					document.getElementById('result').innerHTML = ex;
+					check = false;
+				}
+				
+				//By pressing the F12 the debugger of the web browser opens
+				console.log(check)
+				return check;
+			}
+			
+			function CalculateAddtion(){
+				var number1 = document.getElementById('num1').value;
+				var number2 = document.getElementById('num2').value;
+				var result = DataCheck(number1, number2);
+				
+				if(result){
+					answer = parseInt(number1) + parseInt(number2);
+					document.getElementById('result').innerHTML = answer;
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<p> 
+			Open the debuger by pressing <br/>
+			the F12 button (in most of the browsers),<br/> 
+			to see the data check result! 
+		</p>
+		
+		<input type="number" id="num1" />
+		<input type="number" id="num2" />
+		<br /> <br />
+		<button id="addBtn" OnClick="CalculateAddtion()"> Calculate </button>
+		<br /> <br />
+		<span id="result"> </span>
+	</body>
+</html>

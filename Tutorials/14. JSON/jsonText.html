@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title> Javascript Tutorials - JSON </title>
+		
+		<style type="text/css">
+			#result {
+				font-Size : 20px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function IntegrityDataGivenCheck(name, password){
+				try{
+					if(name.toString() == "" || password.toString() == "")
+						throw "Empty Fields Given!";
+				}
+				catch(ex){
+					document.getElementById('result').innerHTML = ex;
+					document.getElementById('result').style.color = 'red';
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function GrandAccess(){
+				//JSON basically is use to store and show data of a server,
+				//so for simplicity reasons we can create a JSON string
+				//(a string with JSON form) and then convert it into an 
+				//object.
+				var jsonObj = '{ "accounts" : [' +
+						'{"name" : "jonathan", "password" : "12345"},' +
+						'{"name" : "beil", "password" : "4324"},' +
+						'{"name" : "anna", "password" : "dsf324dsa"} ]}';
+				
+				//Converting the string JSON to JSON Object.
+				var obj = JSON.parse(jsonObj);
+				
+				var name = document.getElementById('name').value;
+				var password = document.getElementById('paswd').value;
+				var result = IntegrityDataGivenCheck(name, password);
+
+				var accessResult = false;
+				if(result){
+					for(i = 0; i < 3; i++){
+						if((name.toString() === obj.accounts[i].name) && 
+						(password.toString() === obj.accounts[i].password))
+							accessResult = true;		
+					}
+				
+					if(accessResult){
+						document.getElementById('result').innerHTML = "Access Granted!";
+						document.getElementById('result').style.color = 'green';
+					}
+					else{
+						document.getElementById('result').innerHTML = "Access Denied!";
+						document.getElementById('result').style.color = 'red';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		Enter Name : <input type="text" id="name" /> 
+		Enter Password : <input type="text" id="paswd" />
+		<br /> <br />
+		<button id="sbmtBtn" OnClick="GrandAccess()"> Sign In </button>
+		<br /> <br />
+		<span id="result"> </span>
+	</body>
+</html>
