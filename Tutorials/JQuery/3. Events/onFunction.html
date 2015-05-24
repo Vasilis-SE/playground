@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - On Function </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$("p").on({
+					mouseenter: function(){
+						$(this).css('color', 'green');
+					},
+					mouseleave: function(){
+						$(this).css('color', 'black');
+					},
+					dblclick: function(){
+						$(this).css('font-size', '30px');
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p>
+			In JQuery there is a helpfull function which is the function on. With this funciton we can attach multiple events in a certain HTML object. This paragraph is attach with a MouseEnter event, a Double Click and a MouseLeave.
+		</p>
+
+	</body>
+</html>
