@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - Fade Functions </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<style type="text/css">
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			table td{
+				table-layout: fixed;
+				width: 200px;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$("#img1").hide();
+
+				$("#button1").click(function(){
+					$("#img1").fadeIn(3500);	
+				});
+
+				$("#button2").click(function(){
+					$("#img2").fadeOut(3500);	
+				});
+
+				$("#button3").click(function(){
+					$("#img3").fadeToggle(3500);	
+				});
+
+				$("#button4").click(function(){
+					$("#img4").fadeTo(3500, 0.15);	
+				});
+
+			});
+		</script>
+
+	</head>
+	<body>
+		<h2> Fade Function Examples </h2>
+		<table cellpadding="20px">
+			<tr>
+				<td> <img src="connections.png" id="img1" /> </td>
+				<td> <img src="open.png" id="img2" /> </td>
+				<td> <img src="wdd.png" id="img3" /> </td>
+				<td> <img src="Web-Development.jpg" id="img4" /> </td>
+			</tr>
+			<tr>
+				<td> <button id="button1"> Click Me! </button> </td>
+				<td> <button id="button2"> Click Me! </button> </td>
+				<td> <button id="button3"> Click Me! </button> </td>
+				<td> <button id="button4"> Click Me! </button> </td>
+			</tr>
+			<tr>
+				<td> 
+					The fadeIn function makes visible a previously hiden html object. It can take up to two parametres which the first one is the delay of the fadeIn and the second is a name of a function which we want to be excecuted when the object is fully fadded in. Both of those parametres are optional. The above image has a fadeIn delay of 3500 millisecond.
+				</td>
+				<td> 
+					The fadeOut function makes a previously visible html object to be hidden. It can take up to two parametres which the first one is the delay of the fadeIn and the second is a name of a function which we want to be excecuted when the object is fully fadded in. Both of those parametres are optional. The above image has a fadeOut delay of 3500 millisecond. 
+				</td>
+				<td>  
+					The fadeToggle switches an object to visible and hidden status. If an object is visible then it will become hidden else if the object is hidden then it will become visible again. The above image has a fadeToggle function with fade delay of 3500 milliseconds.
+				</td>
+				<td>  
+					The fadeTo function makes an object hidden to a certain opacity value. The value can be between 0 and 1. The value 0 is referes to completely faded object while 1 as completely visible. This function can take up to three parametres, 1st the duration, 2nd the opacity value, 3rd a function name whose code we want to be excecuted when the object has been completely faddedTo.
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
