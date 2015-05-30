@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - Slide Functions </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<style type="text/css">
+			#img1{
+				height: 170px;
+				width: 170px;
+			}
+			#titleDiv{
+				width: 150px;
+				height: 20px;
+				background-color: lightgreen;
+				border:2px;
+				border-style: solid;
+			}
+			#slidePart{
+				width: 150px;
+				height: 120px;
+				background-color: purple;
+				margin-left: 2px;
+				color: lightgrey;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#slidePart").hide();
+
+				$("#img1").click(function(){
+					$(this).slideUp();
+				});
+
+				$("#titleDiv").click(function(){
+					$("#slidePart").slideToggle();
+				});
+
+			});
+
+
+		</script>
+	</head>
+	<body>
+		<h2> Slide Functions </h2>
+		<table>
+			<tr>
+				<td> <img src="open.png" id="img1" /> </td>
+				<td> This image has an event onClick that when it ocures the html objects slides on the way that the event ocured. This image has a slide event that goes up wards.</td>				
+			</tr>
+			<tr>
+				<td> 
+					<div id="titleDiv"> 
+						<center> Click Me! </center>
+					</div>
+					<div id="slidePart">
+						<center> Hello There! </center>
+					</div>
+				</td>
+				<td> Onother usefull jquery function is the slide toggle. With this function an object slides to up and down. That means that if an object is slided up wards then it slides down wards else the oposite happens. </td>				
+			</tr>
+		</table>
+		
+	</body>
+</html>
