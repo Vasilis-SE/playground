@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - Animated </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		
+		<style type="text/css">
+			#wrapper{
+				width: 800px;
+				border: 3px;
+				border-style: solid;
+				border-radius: 12px;
+				height: 300px;
+			}
+
+			#firstDiv{
+				background-color: lightgreen;
+				width: 300px;
+				float: left;
+			}
+
+			#textDiv{
+				width: 400px;
+				float: left;
+			}
+
+		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#firstDiv").click(function(){
+					var div = $("#firstDiv");
+					div.animate({height: '300px', opacity: '0.8'});
+					div.animate({width: '400px', opacity: '0.8'});
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+		<h2> Queue Function </h2>
+		<div id="wrapper">
+			<div id="firstDiv">
+				<center> Click Here To Expand! </center>
+			</div>
+
+			<div id="textDiv">
+				JQuery provides functions to queue events. That means that a HTML object can change css attributes one by one. For example the div next to the text has two queueing events. The first one mekes the div bigger and the second makes the div wider.
+			</div>
+		</div>
+
+	</body>
+</html>
