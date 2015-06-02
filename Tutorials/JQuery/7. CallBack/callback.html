@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - CallBack Functions </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		
+		<style type="text/css">
+			#firstDiv{
+				width: 370px;
+				height: 370px;
+				border: 3px;
+				border-style: solid;
+				border-radius: 10px;
+				background-color: #707098;
+				border-color: black;
+			}
+			p{
+				color: lightgrey;
+				font-size: 20px;
+				padding: 8px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#firstBtn").click(function(){
+					
+					//In a callback function the code to be executed after the animations
+					//is placed on the function of the animation.					
+					$("#firstDiv").hide(5000, function(){
+						alert("The animation has been completed successfully!");
+					});
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		<div id="firstDiv">
+			<p>
+				JQuery provides a type of functions called CallBack functions.
+				The callback function are the same with the normal function 
+				except the fact that a line of code or a block of code inside
+				of the will be executed after the animation of the object is
+				fully completed. That way there wont be any errors or code
+				executed before a certain critical task is finished. In that 
+				example we have a div element which will be hidden and after the
+				animation is fully completed a alert message will be shown.
+			</p>
+		</div>
+		<button id="firstBtn"> Start Animation </div>
+	</body>
+</html>
