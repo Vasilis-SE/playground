@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - Add HTML Elements </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	
+		<style type="text/css">
+			#dataTable{
+				border: 3px;
+				border-style: solid;
+				border-radius: 10px;
+			}
+			td{
+				border: 2px;
+				border-style: solid;
+			}
+			#img1{
+				width: 120px;
+				height: 120px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#appendBtn").click(function(){
+					$("#textToAppend").append("<b> This is the appended part </b>");
+				});
+				
+				$("#prependBtn").click(function(){
+					$("#textToPrepend").prepend("<b> This is the prepended part </b>");
+				});
+				
+				$("#afterBtn").click(function(){
+					$("#img1").after("after");		
+				});
+				
+				$("#befBtn").click(function(){
+					$("#img1").before("before");
+				});
+			
+			});
+		</script>
+		
+	</head>
+	<body>
+		<table id="dataTable">
+		<tr>
+			<td> Append Method </td>
+			<td> Prepend Method </td>
+			<td> Before / After Method </td>
+		</tr>
+		
+		<tr>
+			<td> <p id="textToAppend"> This is a simple paragraph text. <p> </td>
+			<td> <p id="textToPrepend"> This is a simple paragraph text. <p> </td>
+			<td> <img src="open.png" id="img1" /> </td>
+		</tr>
+		
+		<tr>
+			<td> 
+				Append method appends a certain text / HTML element into the document.
+				That means that it places it at the end of the element.
+			</td>
+			<td>
+				Prepend method prepends a certain text / HTML element into the document.
+				That means that it puts it at the beginning of the element.
+			</td>
+			<td>  
+				Before and After methods do exactly the same thing as the previous 
+				two.
+			</td>
+		</tr>
+		
+		<tr>
+			<td> <button id="appendBtn"> Append </button> </td>
+			<td> <button id="prependBtn"> Prepend </button> </td>
+			<td> <button id="afterBtn"> After </button> <button id="befBtn"> Before </button> </td>
+		</tr>
+		
+		</table>
+	
+	</body>
+</html>
