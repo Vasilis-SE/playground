@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title> JQuery Tutorials - Dimensions </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<style type="text/css">
+			#tableData1, #tableData2, #tableData3{
+				border: 3px;
+				border-style: solid;
+				border-radius: 10px;
+			}
+			#firstDiv, #secondDiv, #thirdDiv{
+				width: 120px;
+				height: 120px;
+				background-color: lightgreen;
+			}
+			#thirdDiv{
+				border: 2px;
+				border-style: solid;
+			}
+			#thirdDiv, #secondDiv{
+				padding: 15px;
+			}
+			.textPart{
+				width: 350px;
+			}
+		</style>
+
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$("#normalDimBtn").click(function(){
+ 					var csstxt = "";
+    				csstxt += "Width: " + $("#firstDiv").width() + "</br>";
+    				csstxt += "Height: " + $("#firstDiv").height();
+   				 	$("#firstDiv").html(csstxt);
+				});	
+
+				$("#innerDimBtn").click(function(){
+					var csstxt = "";
+    				csstxt += "Width: " + $("#secondDiv").innerWidth() + "</br>";
+    				csstxt += "Height: " + $("#secondDiv").innerHeight();
+   				 	$("#secondDiv").html(csstxt);
+				});	
+
+				$("#outerDimBtn").click(function(){
+					var csstxt = "";
+    				csstxt += "Width: " + $("#thirdDiv").outerWidth() + "</br>";
+    				csstxt += "Height: " + $("#thirdDiv").outerHeight();
+   				 	$("#thirdDiv").html(csstxt);
+				});	
+
+			});
+		</script>
+
+	</head>
+	<body>
+		<table id="tableData1">
+			<tr>
+				<td> 
+					<div id="firstDiv">
+						height / weight dimensions. 120 x 120 dimensions
+					</div>
+				</td>
+				<td class="textPart"> 
+					Weight ang Height methods in jequery return the dimensions of a DOM object. It does not include any other attribute such as borders, padding etc.<br/>
+					<button id="normalDimBtn"> Click </button>
+				</td>
+			</tr>
+		</table>
+		
+		<br/><br/>
+		<hr>
+		<br/><br/>
+
+		<table id="tableData2">
+			<tr>
+				<td> 
+					<div id="secondDiv">
+						innerWidth / innerHeight dimensions. 120 x 120 dimensions with 15 pixel padding.
+					</div>
+				</td>
+				<td class="textPart"> 
+					InnerWidth and InnerHeight in JQuery return the dimensions of a DOM object along with any padding that is refered to the object. In this example there is a div object with 120 x 120 dimensions and 15 padding. That means that the current dimensions of this object is 120 + (15 (padding left) + 15 (padding wright)) = 150 height and 150 width (150 x 150).<br/>
+					<button id="innerDimBtn"> Click </button>
+				</td>
+			</tr>
+		</table>
+		
+		<br/><br/>
+		<hr>
+		<br/><br/>
+
+		<table id="tableData3">
+			<tr>
+				<td> 
+					<div id="thirdDiv">
+						outerWidth / outerHeight dimensions. 120 x 120 dimension with 2 pixel border and 15 pixel padding.
+					</div>
+				</td>
+				<td class="textPart"> 
+					outerWidth and outerHeight in JQuery return the dimensions of a DOM object along with any padding or border that maybe refered to the object. In this example there is a div object with 120 x 120 dimensions and 15 padding and 2 pixel border. That means that the current dimensions of this object is 120 + (15 (padding left) + 15 (padding wright)) + (2 (pixel top) + 2 (pixel bottom)) = 154 height. The same goes for width.<br/>
+					<button id="outerDimBtn"> Click </button>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
