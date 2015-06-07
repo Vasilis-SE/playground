@@ -1,0 +1,3 @@
+AJAX is not a new programming language. <br/>
+AJAX is a technique for creating fast and dynamic web pages. <br/>
+This text comes from a file uploaded on the server.
