@@ -24,8 +24,11 @@
     					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
     				}
   				}
-  				
-				xmlhttp.open("GET","ajax_info.txt",true);
+
+  				//In order to send data to the server we need to use the open() method and the send() method. The open method uses three parameters the first one is the type of transfer GET / POST the second is the url to the specific file/script and the third is a true / false value that represends the type of tranfer. The type of transfer can be either asychronous or syncronous (that means that the data can be transfered from server to client only when the page is refreshed).
+				xmlhttp.open("GET","ajax_info.txt", true);
+				
+				//The send method can take a parameter type string which is used only for data transfers type POST.
 				xmlhttp.send();
 			} 
 		</script>

@@ -1,0 +1,9 @@
+<br/> <br/>
+<table border="2px">
+	<tr>
+		<td> In this example we use Jquery and ajax together </td>
+	</tr>
+	<tr>
+		<td> Working with those two can be very beneficial! </td>
+	</tr>
+</table>
