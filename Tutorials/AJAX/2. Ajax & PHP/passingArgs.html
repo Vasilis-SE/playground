@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title> Ajax Tutorials - Passing Parameters </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<style type="text/css">
+			#dataTable{
+				border: 3px;
+				border-radius: 10px;
+				border-style: solid;
+			}
+			td{
+				border: 1px;
+				border-style: solid;
+				width: 150px;
+			}
+			
+
+		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$("#resultBtn").click(function(){
+					var xmlhttp;
+
+					if (window.XMLHttpRequest){
+						// code for IE7+, Firefox, Chrome, Opera, Safari
+  						xmlhttp=new XMLHttpRequest();
+  					}
+					else{
+						// code for IE6, IE5
+  						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  					}
+
+  					xmlhttp.onreadystatechange=function(){
+  						if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+
+    						document.getElementById("result").innerHTML = xmlhttp.responseText;
+    					}
+  					}
+
+  					var firstName = $("#fname").val();
+  					var lastName = $("#lname").val();
+
+  					xmlhttp.open("GET", "/ajax/ajax.php?fname="+firstName+"&lname="+lastName+"", true);
+  					xmlhttp.send();
+				});
+
+			});
+		</script>
+
+	</head>
+	<body>
+		
+		<table id="dataTable">
+			<tr>
+				<td> 
+					Despite the data transferm method (POST / GET) used on ajax send() function, we can give some parameters to the URL part of the function so that will reach the server side. 
+				</td>
+				<td> 
+					First Name: <input type="text" id="fname" /> <br /> <br />
+					Last Name : <input type="text" id="lname" />
+				</td>
+				<td> <span id="result"> </span> </td>
+			</tr>
+			<tr>
+				<td colspan="3"> <button id="resultBtn"> Click Me </button> </td>
+			</tr>
+		</table>
+
+	</body>
+</html>
