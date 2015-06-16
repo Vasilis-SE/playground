@@ -1,0 +1,144 @@
+<html>
+	<head>
+		<title> Ajax Tutorials - Form Data To PHP </title>
+		<link rel="stylesheet" type="text/css" href="style.css"> </link>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#sbtBtn").click(function(){
+					var firstName = $("#fname").val();
+					var lastName = $("#lname").val();
+					var password = $("#password").val();
+					var rePass = $("#repassword").val();
+					var emailAddr = $("#emailAddress").val();
+					var emailServ = $("#emailService").val();
+					var terms = $("#terms").val();
+					
+					var xmlhttp;
+
+					if (window.XMLHttpRequest){
+						// code for IE7+, Firefox, Chrome, Opera, Safari
+  						xmlhttp=new XMLHttpRequest();
+  					}
+					else{
+						// code for IE6, IE5
+  						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  					}
+
+  					xmlhttp.onreadystatechange=function(){
+  						if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+							$("#answerPart").show();
+							
+							document.getElementById("result").innerHTML = xmlhttp.responseText;
+							if(xmlhttp.responseText == "Successfull Form Submition!"){
+								$("#result").css("color", "lightgreen");
+							}
+							else{
+								$("#result").css("color", "red");
+							}
+    					}
+  					}
+
+  					xmlhttp.open("POST", "/ajax/ajaxScript.php", true);
+  					
+					//The difference between GET and POST methods on ajax is that in POST we need
+					//firstly to refer the type of data that we are going to transfer with the 
+					//setRequestHeader function and then with the .send method set the data we want
+					//to transfer from client to server.
+					xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+					xmlhttp.send("fname="+firstName+"&lname="+lastName+
+						"&password="+password+"&repass="+rePass+"&emailAddr="+emailAddr+
+						"&emailServ="+emailServ+"&terms="+terms);
+				});
+				
+			});
+		</script>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+		
+			<div id="upperPart">
+				<div id="banner"> <span id="bannerName"> Ajax Uber Form </span> </div>
+				<div id="menu"> 
+					<table id="menuTable">
+						<tr>
+							<td> <a href="#" id="home"> Home </a> </td>
+							<td> <a href="#" id="profile"> Profile </a> </td>
+							<td> <a href="#" id="news"> News </a> </td>
+							<td> <a href="#" id="about"> About </a> </td>
+							<td> <a href="#" id="register"> Register </a> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="mainPart">
+				<div id="form"> 
+					<table id="tableData">
+						<tr>
+							<td> First Name : </td>
+							<td colspan="3"> <input type="text" id="fname" /> </td>
+						</tr>
+						
+						<tr>
+							<td> Last Name : </td>
+							<td colspan="3"> <input type="text" id="lname" /> </td>
+						</tr>
+						
+						<tr>
+							<td> Password : </td>
+							<td colspan="3"> <input type="password" id="password" /> </td>
+						</tr>
+						
+						<tr>
+							<td> Re-Type Password : </td>
+							<td colspan="3"> <input type="password" id="repassword" /> </td>
+						</tr>
+						
+						<tr>
+							<td> Email : </td>
+							<td> <input type="text" id="emailAddress" />  </td>
+							<td> @ </td>
+							<td> 
+								<select id="emailService">
+									<option value="gmail.com" > gmail.com </option>
+									<option value="gmail.gr" > gmail.gr </option>
+									<option value="yahoo.com" > yahoo.com </option>
+									<option value="yahoo.gr" > yahoo.gr </option>
+									<option value="outlook.com" > outlook.com </option>
+									<option value="outlook.gr" > outlook.gr </option>
+									<option value="hotmail.com" > hotmail.com </option>
+									<option value="hotmail.gr" > hotmail.gr </option>
+								</select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td> I agree with the terms & conditions </td>
+							<td colspan="3"> <input type="checkbox" id="terms" /> </td>
+						</tr>
+						
+						<tr>
+							<td colspan="4"> <button id="sbtBtn" /> Submit Form </button> </td>
+						</tr>
+						
+					</table>
+					
+					 
+					
+				</div>
+				<div id="answer"> 
+					<div id="answerPart" hidden> <span id="result"> </span> </div>
+				</div>
+			</div>
+			
+			<div id="lowerPart">
+				<span id="lowerMsg"> This web page is an example of Ajax framework connecting with a PHP script. </span>
+			</div>
+		
+		</div>
+	</body>
+</html>
