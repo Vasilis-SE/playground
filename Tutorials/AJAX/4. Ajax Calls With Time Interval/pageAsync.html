@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title> Ajax Tutorial - Asyncronous Data Transfer </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		<style type="text/css">
+			#wrapper{
+				width: 800px;
+				height: 500px;
+				
+				border: 3px;
+				border-style: solid;
+				border-radius: 10px;
+				
+				margin: 0 auto;
+			}
+			#textPart{
+				width: 300px;
+				height: 500px;
+				background: lightgreen;
+				border-radius: 5px;
+				float: left;
+			}
+			#dataPart{
+				width: 500px;
+				height: 500px;
+				background: black;
+				border-radius: 5px;
+				float: left;
+			}
+			#gameTable{
+				color: lightgrey;
+				border-color: grey;
+				margin: 0 auto;
+			}
+
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+			
+				var ajax_call = function(){
+					var xmlhttp;
+
+					if (window.XMLHttpRequest){
+						// code for IE7+, Firefox, Chrome, Opera, Safari
+  						xmlhttp=new XMLHttpRequest();
+  					}
+					else{
+						// code for IE6, IE5
+  						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  					}
+
+  					xmlhttp.onreadystatechange=function(){
+  						if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+							$("#dataPart").html(xmlhttp.responseText);	
+    					}
+  					}
+
+					xmlhttp.open("GET","gameScript.php", true);
+					xmlhttp.send();
+				};
+				var interval = 1000*60*1;
+				setInterval(ajax_call, interval);
+				
+			});
+		</script>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+			
+			<div id="textPart">
+				This example demonstrates the usage of ajax code that communicates
+				with a php script at a certain amount of time. <br/><br/>
+				Here a javascript method is called every minute with the help of 
+				the build in function interval which automatacaly calls our method
+				every minute. <br/><br/>
+				Then a php script is called which pick a random row from our game
+				database, sets the game data table and echoes the result back into
+				our html page. <br/> <br/>
+				This method of showing data is widely used by many web pages to 
+				refresh the content of a web page without refreshing it. <br/> <br/>
+				Some times there might be a small delay on the loading of the data
+				that happens due to the fact that the data returned by the script
+				contain an image which slows the process of transfer.
+			</div>
+			
+			<div id="dataPart">
+				
+			</div>
+			
+		</div>
+	</body>
+</html>
