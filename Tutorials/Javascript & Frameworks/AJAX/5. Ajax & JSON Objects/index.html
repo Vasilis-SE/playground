@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<title> Ajax Tutorials - Ajax & JSON </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		<style type="text/css">
+			#result{
+				font-size: 22px;	
+			}
+			#textPart{
+				width: 600px;
+				
+			}
+		</style>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+			
+				$("#sbmtBtn").click(function(){
+					$.post("jsonDataManage.php",{
+						firstName : $("#fname").val(),
+						lastName : $("#lname").val(),
+						password : $("#passwd").val(),
+						rePassword : $("#rePasswd").val()
+					},
+					function(data, status){
+						var result = JSON.parse(data);
+						$("#result").html(result['message']);
+						
+						if(result['color'] == 1)
+							$("#result").css('color', 'lightgreen');
+						else if(result['color'] == 0)
+							$("#result").css('color', 'red');
+					}); 
+						
+				});
+	
+			});
+
+		</script>
+		
+	</head>
+	<body>
+		<table id="tableData">
+			<tr>
+				<td> Enter First Name : </td>
+				<td> <input type="text" id="fname" /> </td>
+			</tr>
+			<tr>
+				<td> Enter Last Name : </td>
+				<td> <input type="text" id="lname" /> </td>
+			</tr>
+			<tr>
+				<td> Enter Password : </td>
+				<td> <input type="password" id="passwd" /> </td>
+			</tr>
+			<tr>
+				<td> Repeat Password : </td>
+				<td> <input type="password" id="rePasswd" /> </td>
+			</tr>
+			<tr>
+				<td colspan="2"> <button id="sbmtBtn"> Submit Form </button> </td>
+			</tr>	
+		</table>
+		<div id="resultPart">
+			<span id="result"> </span>
+		</div>
+		<div id="textPart">
+			In this example we use JSON object for the transfer of data between 
+			the client and the server (the page and a php script). In the part of
+			the page and before the call to the php script an JSON object is created
+			with content of key value pairs and is send to the coresponding php script.
+			There the php script check the integrity of the data (empty fields, password
+			mismatch etc.) and creates a JSON object with content a message and an integer
+			which will describe the color that the font will be (0 = red (error) , 1 = 
+			light green (no error)). After the JSON object is initialized the build in 
+			function <b> json_encode </b> is called which will encode the data array into a JSON
+			object. When the data return from the php script in the javascript section a
+			function <b> JSON.parse </b> is called in order to convert the JSON object into
+			a normal javascript object.
+		</div>
+	</body>
+</html>
