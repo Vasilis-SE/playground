@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> HTML 5 Tutorials - Creating New Elements </title>
+		<meta charset="UTF-8"/>
+		
+		<script type="text/javascript">
+			document.createElement("imba");
+			document.createElement("powerMan");
+		</script>
+		
+		<style type="text/css">
+			#wrapper{
+				width: 700px;
+				border: 3px;
+				border-style: solid;
+				border-radius: 10px;
+			}
+			imba{
+				font-size: 20px;
+				color: red;
+				font-style: italic;
+			}
+			powerMan{
+				font-weight: bold;
+				color: brown;
+				font-family: verdana;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+			One of the best key features that HTML 5 provides is the 
+			creation of new elements/tags by the user. Those new elements/tags
+			can be taught by the programmer their certain behaviour. To do that the
+			only thing that we must do is create a selector on css section with
+			the name of the new tag that we want to create. After that we can 
+			define its style attributes inside the block of the css selector and 
+			every time we use the certain tag its going to corespond the same
+			way we taught it to. The only extra thing that we can add (but its not
+			necessary) is the document.createElement("name of new tag") inside script 
+			tags. This javascript code is being used to satisfy the needs of internet
+			explorer 6.<br/> <br/>
+			In this example we have created two new tags <imba> one is imba which makes the font 
+			20pixels, the color red, and underlined </imba> and the other tag is <powerMan> powerMan which makes
+			the text bold, brown and verdana. </powerMan> <br/> <br/>
+			Another way to solve the problems of internet explorer is to add in 
+			script tags the shiv code (<a href="http://www.w3schools.com/html/html5_browsers.asp"> Shiv Code Example </a>)
+			that way IE knows all the new elements.
+		</div>
+	</body>
+</html>
