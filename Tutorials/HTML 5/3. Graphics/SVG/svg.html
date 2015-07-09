@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> HTML 5 Tutorials - SVG Graphics </title>
+		<meta charset="UTF-8" />
+		
+		<style type="text/css">
+			#wrapper{
+				width: 700px;
+			}
+			.svgWorkspace{
+				width: 195px;
+				height: 130px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+			<h2> Scalable Vector Graphics (SVG) </h2>
+			
+			SVG is a new element added to HTML 5. Like canvas it 
+			provides a number of methods to draw paths, circles,
+			texts and other graphics into the web page. The main
+			difference between canvas and svg is that svg does not
+			require any use of javascript code all its methods are
+			basically html parameters.
+			<hr>
+			A simple circle with yellow fill and green border color.
+			<svg class="svgWorkspace">
+				<circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+			</svg>
+			<hr>
+			A box with rounded edges, color fill red with half the opacity
+			and borders grey.
+			<svg class="svgWorkspace">
+			<rect x="5" y="5" rx="10" ry="10" width="100" height="100"
+				style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+			</svg>
+			<hr>
+			Eclipse object with gradient background and a text.
+			<svg class="svgWorkspace">
+				<defs>
+					<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+						<stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+						<stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+					</linearGradient>
+				</defs>
+				<ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+				<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+				Sorry, your browser does not support inline SVG.
+			</svg>
+
+			
+			
+			
+		</div>
+	</body>
+</html>

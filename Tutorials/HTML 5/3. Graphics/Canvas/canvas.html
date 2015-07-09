@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> HTML 5 Tutorials - Canvas </title>
+		<meta charset="UTF-8" />
+		
+		<style type="text/css">
+			.canvasClass{
+				width: 300px;
+				height: 150px;
+				border: 1px;
+				border-style: solid;
+			}
+			#wrapper{
+				width: 800px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="wrapper">
+			<h2> Canvas </h2>
+
+			Canvas elements is a new element added to HTML 5. With this
+			element we can draw certain things inside of it such as 
+			lines, images, texts and more. This tag in order to draw those
+			things we need to use javascript code.
+			<hr>
+			Draw a line inside the canvas : 
+			<canvas id="canvasOne" class="canvasClass"> Your browser does not support the HTML5 canvas tag. </canvas>
+			<script>
+				var c = document.getElementById("canvasOne");
+				var ctx = c.getContext("2d");
+				
+				//Move the 'pen' to draw the line to (0,0)
+				ctx.moveTo(0,0);
+				//The line will drawn until (300,150)
+				ctx.lineTo(300,150);
+				//draw the line
+				ctx.stroke();
+			</script>
+			<hr>
+			Draw text inside the canvas :
+			<canvas id="canvasTwo" class="canvasClass"> Your browser does not support the HTML5 canvas tag. </canvas>
+			<script>
+				var c = document.getElementById("canvasTwo");
+				var ctx = c.getContext("2d");
+				ctx.font = "30px Verdana";
+				
+				//Sets the text that will be drawn, the width that it will 
+				//start and the height that it will start.
+				ctx.strokeText("Canvas Tag!", 10, 75);
+			</script>
+			<hr>
+			Draw a gradient rectangular : 
+			<canvas id="canvasThree" class="canvasClass"> Your browser does not support the HTML5 canvas tag. </canvas>
+			<script>
+				var c = document.getElementById("canvasThree");
+				var ctx = c.getContext("2d");
+				
+				//Create gradient
+				var grd = ctx.createLinearGradient(0,0,300,0);
+				grd.addColorStop(0, "black");
+				grd.addColorStop(1, "white");
+				
+				//Fill the canvas with the gradient
+				ctx.fillStyle = grd;
+				ctx.fillRect(0,0,300,150);
+				
+			</script>
+			
+		</div>
+	</body>
+</html>
