@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> HTML 5 Tutorials - Multimedia </title>
+		<meta charset="UTF-8" />
+		
+		<link rel="stylesheet" type="text/css" href="mainStyle.css" />
+		
+		
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="upperPart">
+				<div id="banner"> </div>
+				<div id="menu"> 
+					<table id="menuTable">
+						<tr>
+							<td> <a href="index.html"> Home </a> </td>
+							<td> <a href="videosMul.html"> Video </a> </td>
+							<td> <a href="#"> Audio </a> </td>
+							<td> <a href="#"> Plug-ins </a> </td>
+							<td> <a href="#"> YouTube </a> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="mainPart">
+				<table id="contentTable">
+					<tr>
+						<td class="textTitle"> Videos & HTML </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							In the past there wasn't any standard / technology for 
+							showing videos inside a web page and the only way was top
+							be played with a plug-in such as flash player. Now with HTML 5
+							there is a new element called video in which we can specify
+							a standard way to embed a video inside our web page.
+							
+							<video width="320" height="240" controls>
+								<source src="When mom isn't home... Funny Vine.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> How it works ? </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							The attribute controls that is located inside the element
+							video add controls into the video such as play button, stop
+							button, volume button and more. The attributes width and height
+							indicate the width and height of the specific video, bare in
+							mind that we must keep the analogies of the video otherwise
+							it might look corrupted. The line :  
+							<u>source src="When mom isn't home... Funny Vine.mp4" type="video/mp4"</u>
+							sets the source path of the video, we can use this particular line
+							multiple times with each time the extension of the video changes
+							(supposed that we have the video on the extension that we set).
+							That way if a browser doesn't support lets say MP4 videos then
+							it moves on the next line which maybe OGG and maybe is supported
+							by the browser.
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> AutoPlay & Controls </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							As we already said the controls attribute inside the video 
+							element set controls into the video such as play, stop, 
+							volume, size buttons and more. On the other hand there is
+							also the attribute autoplay, this attributes sets no controls
+							into the video but makes it start automatically whenever the
+							page is fully loaded.
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> Track Attribute </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							With HTML 5 besides all the above attributes that have been 
+							added in order to make the embed of videos easier there is also
+							an element called track. With track we can set a certain file 
+							into the video which will be subtitles or even a text that 
+							we want to be shown at a certain time. In this example we wont
+							use any subtitles for our video but there is a very helpful
+							documentation of this element on W3CSchools 
+							('<a href="http://www.w3schools.com/tags/tag_track.asp"> Track Tutorial </a>')
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="lowerPart">
+				<span> &copy; Alcatraz Design, All rights reserved </span>
+			</div>
+		</div>
+	</body>
+</html>
