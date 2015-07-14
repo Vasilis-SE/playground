@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> HTML 5 Tutorials - Multimedia </title>
+		<meta charset="UTF-8" />
+		
+		<link rel="stylesheet" type="text/css" href="mainStyle.css" />
+
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="upperPart">
+				<div id="banner"> </div>
+				<div id="menu"> 
+					<table id="menuTable">
+						<tr>
+							<td> <a href="index.html"> Home </a> </td>
+							<td> <a href="videosMul.html"> Video </a> </td>
+							<td> <a href="audioMul.html"> Audio </a> </td>
+							<td> <a href="plugins.html"> Plug-ins </a> </td>
+							<td> <a href="youtube.html"> YouTube </a> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="mainPart">
+				<table id="contentTable">
+					<tr>
+						<td class="textTitle"> YouTube Videos </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							On the multimedia videos we have seen how to embed a video inside
+							our web page using the HTML 5 element video. There another easier
+							and less time consuming way by using YouTube videos instead.
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> Advantages Of YouTube Videos </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							<ul>
+								<li> Less time consuming. </li>
+								<li> You don't have to convert your video multiple times in 
+									order to be recognized by a wide variety of web browsers.
+								</li>
+								<li> Faster web page load. The reason that we have an embedded
+									video inside our web page means that the compiler of the page
+									need time to display it.
+								</li>
+								<li> Less burden for your server. An embedded video needs to be
+									located with the files of the web page so it is necessary to
+									upload it into our server in order to be found by the compiler
+									that is hard space consuming. On the other hand youtube videos
+									doesn't consume any space on your server.</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> YouTube Video ID </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							The only thing that you need to use in order to include a youtube 
+							video inside your web page is the video id. This ID can be found
+							in multiple places. First of all at the end of the URL : <br/>
+							<img src="img1.jpg" /> <br/> Another way to be found is through the 
+							common share tab of the video : <img src="img3.jpg" /> <br/>Lastly
+							youtube provides the whole HTML code for us to embed the youtube
+							video in our web page : <img src="img2.jpg" style="width:670px" /> <br/>
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> IFrame Example </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							<iframe width="420" height="315" 
+								src="https://www.youtube.com/embed/3-GoMSIVX9c?controls=1" 
+							frameborder="0" allowfullscreen></iframe>
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> YouTube Parameters </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							There are some parameters that can be used inside the
+							URL link of the youtube video in order to achive a certain
+							goal. Those parameters are : autohide, autoplay, controls,
+							loop and playlist. The first four parameters can take a 
+							value which determine their state for example the parameter
+							autoplay if it is setted with value 0 then that means that 
+							the video wont play automatically when the web page is fully
+							loaded. For more information on the parameters and their 
+							values you can read the documentation of W3CSchools (
+							<a href="http://www.w3schools.com/html/html_youtube.asp"> YouTube Parameters </a>).
+						</td>
+					</tr>
+					<tr>
+						<td class="textTitle"> Object & Embed Elements </td>
+					</tr>
+					<tr>
+						<td class="textContent"> 
+							We can achive the same goal of embedding a youtube video in our
+							web page by using the object element or even the embed element.
+							The only thing that changes is that we don't use the src attribute
+							as we used inside the iframe element but we use a new attribute 
+							called data.
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="lowerPart">
+				<span> &copy; Alcatraz Design, All rights reserved </span>
+			</div>
+		</div>
+	</body>
+</html>
