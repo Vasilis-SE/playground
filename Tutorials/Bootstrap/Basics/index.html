@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Basics </title>
+		
+		<!-- Meta link that helps with the mobile rendering (touching and zooming) of the page -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+	</head>
+	<body style="font-family: Verdana;">
+		
+		<div style="width: 80%; margin: 0 auto; margin-top: 10px; ">
+			<div style="width: 80%;margin: 0 auto;">
+				In order for a bootstrap page to work properly also in mobile phones and be adaptive
+				there are two class selectors from bootstrap qhich are :
+				<ul>
+					<li>
+						'container' --> Which provides a <b> responsive fixed width container </b> which will bind
+						the data of the web page.
+					</li>
+					<li> 
+						'container-fluid' --> Which provides a <b> full width container </b> spanning to the entire 
+						width of the viewport.
+					</li>
+				</ul>  <br/>
+				Your web page must follow one of those two options of containers in order to work properly to mobile
+				pages. 
+				<br/> <br/>
+				<span style="color: red; border: 2px solid red; border-radius: 5px;"> 
+					<b> ! Important, </b> Don't forget that the container tha you will choose must be the outer one who will
+					bind the whole page.
+				</span>
+				<br/> <br/>
+				<span style="color: red; border: 2px solid red; border-radius: 5px;"> 
+					<b> ! Important, </b> Bootstrap containers are not nestable, meaning that you cant put a 
+					container inside another...
+				</span>
+				<br/><br/>
+				You will notice by using bootstrap and the containers that the styling 
+				of each HTML element inside the bootstrap container is different from the simple HTML tags.
+				Thats because the bootstrap library changes the styling of all HTML objects... 
+			</div>
+		</div>
+		
+		<div class="container">
+			<hr>
+			<h1> Bootstrap is great ! </h1>
+			<p> Messages and stuff ... </p>
+			<span style="color: green; border: 2px solid green; border-radius: 5px;"> 
+				This is a fixed width container which uses the bootstrap class selector 'container'
+			</span>
+		</div>
+	
+		<div class="container-fluid">
+			<hr>
+			<h1> Bootstrap is great ! </h1>
+			<p> Messages and stuff ... </p>
+			<span style="color: green; border: 2px solid green; border-radius: 5px;"> 
+				This is a full width container which uses the bootstrap class selector 'container-fluid'
+			</span>
+		</div>
+	
+	
+	</body>
+</html>
