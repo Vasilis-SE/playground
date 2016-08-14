@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Images  </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	</head>
+	<style>
+		.imageGallery:hover{
+			opacity: 0.6;
+		}
+	
+	</style>
+	<body style="font-family: Verdana; background: lightgrey;">
+	
+		<div class="container" style="background: white; border-raius: 5px;">
+			<h2> Bootstrap Images </h2>
+			<p> Bootstrap provides a number of class selectors in order to change the appearance of an image.
+				It can make a image more rounder, with radius or even as a thumbnail.</p>
+			<ul>
+				<li> <b> Basic Image Classes </b> </li>
+				<li> Rounded Corners : uses the class .img-rounded <br/>
+					<img src="new_york.jpg" class="img-rounded" width="304" height="236"/>
+				</li>
+				<li> Circle : uses the class .img-circle <br/>
+					<img src="new_york.jpg" class="img-circle" width="304" height="236"/>
+				</li>
+				<li> Tumbnail : uses the class .img-thumbnail <br/>
+					<img src="new_york.jpg" class="img-thumbnail" width="304" height="236"/>
+				</li>
+			</ul>
+			
+			<hr>
+			
+			<h4> Responsive Images </h4>
+			<p> Responsive images uses the class .img-responsive in order to change the size of an image
+				dynamically when the size of the browser page changes.</p>
+			<p> <span style="font-size: 13px; color: grey;"> <i> Resize the page and see the results ... </i> </span> </p> 
+			<img src="miami.jpg" class="img-responsive" />
+			
+			<hr>
+			
+			<h4> Image Gallery </h4>
+			<p> By using bootstrap grid with the .img-thumbnail class one can achieve an image gallery. </p>
+			<div class="row">
+				<div class="col-md-4 imageGallery">
+					<a href="miami.jpg">
+						<img src="miami.jpg" class="img-thumbnail" width="304" height="236" />
+					</a>
+				</div>
+				<div class="col-md-4 imageGallery">
+					<a href="new_york.jpg">
+						<img src="new_york.jpg" class="img-thumbnail" width="304" height="236"/>
+					</a>
+				</div>
+				<div class="col-md-4 imageGallery">
+					<a href="texas_park.jpg">
+						<img src="texas_park.jpg" class="img-thumbnail" width="304" height="236"/>
+					</a>
+				</div>
+			</div>
+			
+			<hr>
+			
+			<h4> Responsive Embeds </h4>
+			<p> You can embed videos, slide shows with bootstrap that will dynamically change their size when
+				the size of the browser changes. In order to do that we use the classes .embed-responsive and
+				.embed-responsive-16by9 in a div that will bind the iframe element and inside the iframe element
+				we use the class .embed-responsive-item to describe that the particular item is a responsive item.</p>
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/AbHSB8ZopUE" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<br/><br/><br/><br/>
+		</div>
+		
+	</body>
+</html>
