@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - HTML Tables </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+	</head>
+	<body style="background: lightgrey; font-family: Verdana;">
+
+		<!-- Page Wrapper -->
+		<div class="container" style="background: white; border-radius: 5px;">
+		
+			<h2> Bootstrap Tables </h2>
+			<p> Bootstrap provides an amount of classes that will style a HTML table element. In every
+				table class the compiler will try to fit the table as best as it can in the page and
+				the columns to have the appropriate width.</p>
+			
+			<hr/>
+			
+			<h4> The .table class </h4>
+			<p> 
+				The .table class is the classic class selector that bootstrap provides for table elements.
+				It will style a table making only visible the rows. <br/>
+				<div style="color: red; border: 2px solid red; padding: 5px; border-radius: 5px;">
+					<b> !Important, </b> In order for each and every class selector to work in a table there
+					must <b> always </b> be the class .table inside in order to be bootstrap compatible...
+				</div>
+			</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th> Title </th>
+						<th> Company </th>
+						<th> Genre </th>
+						<th> Rate </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> Skyrim </td>
+						<td> Bethesda Softworks </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> World Of Warcraft </td>
+						<td> Blizzard </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> Gothic 2 </td>
+						<td> JoWooD Entertainment </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<hr/>
+			
+			<h4> The .table-striped class </h4>
+			<p> The .table-striped class will render a table in which there are two colours that will change
+				in any line, a zebra styled table.</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th> Title </th>
+						<th> Company </th>
+						<th> Genre </th>
+						<th> Rate </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> Skyrim </td>
+						<td> Bethesda Softworks </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> World Of Warcraft </td>
+						<td> Blizzard </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> Gothic 2 </td>
+						<td> JoWooD Entertainment </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<hr/>
+			
+			<h4> The .table-bordered class </h4>
+			<p> The .table-bordered class will render a table with borders in every side, every row and every
+				cell.</p>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th> Title </th>
+						<th> Company </th>
+						<th> Genre </th>
+						<th> Rate </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> Skyrim </td>
+						<td> Bethesda Softworks </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> World Of Warcraft </td>
+						<td> Blizzard </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> Gothic 2 </td>
+						<td> JoWooD Entertainment </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<hr/>
+			
+			<h4> The .table-hover class </h4>
+			<p> The .table-hover class is a class which will render a table in which by hovering over a row
+				the color of the row changes... </p>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th> Title </th>
+						<th> Company </th>
+						<th> Genre </th>
+						<th> Rate </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> Skyrim </td>
+						<td> Bethesda Softworks </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> World Of Warcraft </td>
+						<td> Blizzard </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr>
+						<td> Gothic 2 </td>
+						<td> JoWooD Entertainment </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<hr/>
+			
+			<h4> The Contextual Classes  </h4>
+			<p> The contextual classes use the simple .table class, but in every row a class of either :  
+				<ul>
+					<li> <span style="color: green;"> success </span> -> For displaying a success message. </li>
+					<li> <span style="color: red;"> danger </span> -> For displaying a error message.</li>
+					<li> <span style="color: blue;"> info </span> -> For displaying a info message. </li>
+				</ul>
+			</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th> Title </th>
+						<th> Company </th>
+						<th> Genre </th>
+						<th> Rate </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger">
+						<td> Skyrim </td>
+						<td> Bethesda Softworks </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr class="success">
+						<td> World Of Warcraft </td>
+						<td> Blizzard </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+					<tr class="info">
+						<td> Gothic 2 </td>
+						<td> JoWooD Entertainment </td>
+						<td> RPG </td>
+						<td> 5.0 / 5.0 </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<hr/>
+			
+			<h4> The Responsive Tables  </h4>
+			<p> The responsive tables uses a class .table-responsive inside a div element that will then
+				bind the whole table. That way for small devices the user can scroll horizontally the table
+				without the compiler making the columns too small in order to fit to the actual screen.
+			</p>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th> Title </th>
+							<th> Company </th>
+							<th> Genre </th>
+							<th> Rate </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> Skyrim </td>
+							<td> Bethesda Softworks </td>
+							<td> RPG </td>
+							<td> 5.0 / 5.0 </td>
+						</tr>
+						<tr>
+							<td> World Of Warcraft </td>
+							<td> Blizzard </td>
+							<td> RPG </td>
+							<td> 5.0 / 5.0 </td>
+						</tr>
+						<tr>
+							<td> Gothic 2 </td>
+							<td> JoWooD Entertainment </td>
+							<td> RPG </td>
+							<td> 5.0 / 5.0 </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div> <!-- End Of Page Wrapper -->
+	
+	</body>
+</html>
