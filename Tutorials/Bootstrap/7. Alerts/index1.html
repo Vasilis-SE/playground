@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials 1 - Alerts  </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+	<body style="font-family: Verdana; background: lightgrey;">
+
+		<div class="container" style="background: white; border-radius: 5px;">
+			<h2> Bootstrap Alerts </h2>
+			<p> As with the coloured table rows that we saw in a previous example the same idea is used
+				in alerts. There are <span style="color: red;"> danger </span> alerts that point out an
+				error, there are the <span style="color: blue;"> info </span> alerts that point out an
+				info message box, the <span style="color: yellow;"> warning </span> alerts to warn for 
+				something and lastly the <span style="color: green;"> success </span> alerts to show a
+				successful process.</p> <br/> <br/>
+			
+			<p> There is the main class .alert that is always used to define that the div is an alert 
+				message box followed by either : 
+				<ul>
+					<li style="text-decoration: bold; color: green;">alert-success</li>
+					<li style="text-decoration: bold; color: blue;">alert-info</li>
+					<li style="text-decoration: bold; color: yellow;">alert-warning</li>
+					<li style="text-decoration: bold; color: red;">alert-danger</li>
+				</ul>
+			</p>
+			
+			<div class="alert alert-success">
+				<strong>Success!</strong> Indicates a successful or positive action.
+			</div>
+			<div class="alert alert-info">
+				<strong>Info!</strong> Indicates a info action.
+			</div>
+			<div class="alert alert-warning">
+				<strong>Warning!</strong> Indicates a warning action.
+			</div>
+			<div class="alert alert-danger">
+				<strong>Danger!</strong> Indicates a non successful or bad action.
+			</div>
+			<br/>
+			<p> You can also have alert message boxes with a closing 'X' button on them just by
+				using an a tag inside the alert and giving to it the attributes :
+				<ul>
+					<li> class="close" </li>
+					<li> data-dismiss="alert" </li>
+					<li> aria-label="close" </li>
+				</ul>
+				<div style="border: 2px solid red; border-radius: 5px; color: red; padding: 10px;
+					align: 0 auto;">
+					There is no need to use any javascript for the closing process. From the moment
+					you use the above three attributes the 'X' can close the alert.
+				</div>
+			</p>
+			<div class="alert alert-success">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> Indicates a successful or positive action.
+			</div>
+			<div class="alert alert-info">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Info!</strong> Indicates a info action.
+			</div>
+			<div class="alert alert-warning">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Warning!</strong> Indicates a warning action.
+			</div>
+			<div class="alert alert-danger">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Danger!</strong> Indicates a non successful or bad action.
+			</div> <br/>
+			
+			<p> You can also add fading effect to the alerts simple by using the two classes
+				provided by bootstrap .in and .fade inside the class definition of the div element.</p>
+			
+			<div class="alert alert-success fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> Indicates a successful or positive action.
+			</div>
+			<div class="alert alert-info fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Info!</strong> Indicates a info action.
+			</div>
+			<div class="alert alert-warning fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Warning!</strong> Indicates a warning action.
+			</div>
+			<div class="alert alert-danger fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Danger!</strong> Indicates a non successful or bad action.
+			</div>
+			<br/>
+			
+		</div>
+		
+	</body>
+</html>
