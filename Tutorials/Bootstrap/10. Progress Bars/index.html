@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Progress Bars </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body style="font-family: Verdana; background: lightgrey;">
+
+		<div class="container" style="background: white; border-radius: 5px;">
+			<h2> Bootstrap - Progress Bars Tutorial </h2>
+			<p> 
+				Bootstrap provides a number of different progress bars for usage, each having its
+				own colour, text and even animation. Progress bars are used to show the progress
+				of a certain task to the user. 
+			</p>
+			<div class="alert alert-warning"> 
+				<strong> Warning !, </strong>  Progress bars are not supported in Internet 
+				Explorer 9 and earlier (because they use CSS3 transitions and animations
+				to achieve some of their effects).
+			</div>
+			<div class="alert alert-info"> 
+				<strong> Info !, </strong> Ofcourse in order to make a bootstrap progress bar function
+				and really display the progress of a task in real time then you need to use javascript.
+			</div>
+			
+			<hr>
+			
+			<h4> Normal Progress Bar </h4>
+			<p> Using the class .progress-bar in an outer div and setting its role, now value, value min
+				and value max.</p>
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="70"
+					aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					<span class="sr-only">70% Complete</span>
+				</div>
+			</div>
+			
+			<hr>
+			
+			<h4> Progress Bar With Text </h4>
+			<p> You can display the percentage text to a progress bar simply by removing the sr-only
+				class from the inner span element.</p>
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="70"
+					aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					<span >70% Complete</span>
+				</div>
+			</div>
+			
+			<hr>
+			
+			<h4> Coloured Progress Bars </h4>
+			<p> The same principal with the tables, alerts etc. is applied here. So you can have
+				<ul> 
+					<li> Successful Progress Bars </li>
+					<li> Info Progress Bars </li>
+					<li> Warning Progress Bars </li>
+					<li> Danger Progress Bars</li>
+				</ul></p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+					aria-valuemin="0" aria-valuemax="100" style="width:40%">
+					40% Complete (success)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+					aria-valuemin="0" aria-valuemax="100" style="width:50%">
+					50% Complete (info)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+					aria-valuemin="0" aria-valuemax="100" style="width:60%">
+					60% Complete (warning)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+					aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					70% Complete (danger)
+				</div>
+			</div>
+						
+			<hr>
+			
+			<h4> Stripped Progress Bars </h4>
+			<p> Displaying progress bars in a stripped style.</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+					aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+					40% Complete (success)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+					aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+					50% Complete (info)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+					aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+					60% Complete (warning)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+					aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					70% Complete (danger)
+				</div>
+			</div>
+						
+			<hr>
+			
+			<h4> Animated Progress Bars </h4>
+			<p> Displaying progress bars that is stripes are animated. Simply use the class .active
+			on the outer div that binds the progress bar.</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar"
+					aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+					40%
+				</div>
+			</div>
+			
+			<div class="progress">
+				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+					aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+					40% Complete (success)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+					aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+					50% Complete (info)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+					aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+					60% Complete (warning)
+				</div>
+			</div>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+					aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					70% Complete (danger)
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
