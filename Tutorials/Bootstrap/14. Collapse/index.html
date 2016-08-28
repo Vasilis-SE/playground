@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Collapse Items </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body style="font-family: Verdana; background: lightgrey;">
+
+		<div class="container" style="background: white; border-radius: 5px;">
+			<h2> Collapse Items </h2>
+			<p> In bootstrap we can make certain items collapse such as panels text with the press of
+				a button and more without the use of javascript or jquery.</p>
+			<hr>
+			<h4> Button Text Collapse </h4>
+			<p> By using two html attributes inside the button element <code> data-toggle="collapse" </code> 
+				<code> data-target="#demo" </code> we can define that way that the button will trigger
+				a collapse event and it will be on the element with id demo which is the element that
+				holds that info to be collapsed.</p>
+			<button data-toggle="collapse" data-target="#demo">Collapsible</button>
+			<div id="demo" class="collapse">
+				Some text will go here...
+			</div>
+			<hr>
+			<h4> Collapse Panel </h4>
+			<div class="panel-group">
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse9">Collapsible panel</a>
+				  </h4>
+				</div>
+				<div id="collapse9" class="panel-collapse collapse">
+				  <div class="panel-body">Panel Body</div>
+				  <div class="panel-footer">Panel Footer</div>
+				</div>
+			  </div>
+			</div>
+			<hr>
+			<h4> Collapse List Group </h4>
+			<div class="panel-group">
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse0">Collapsible list group</a>
+				  </h4>
+				</div>
+				<div id="collapse0" class="panel-collapse collapse">
+				  <ul class="list-group">
+					<li class="list-group-item">One</li>
+					<li class="list-group-item">Two</li>
+					<li class="list-group-item">Three</li>
+				  </ul>
+				  <div class="panel-footer">Footer</div>
+				</div>
+			  </div>
+			</div>
+			<hr>
+			<h4> Collapse Accordion </h4>
+			<p> </p>
+			<div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+					Collapsible Group 1</a>
+				  </h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse in">
+				  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+				  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+				  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				  commodo consequat.</div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+					Collapsible Group 2</a>
+				  </h4>
+				</div>
+				<div id="collapse2" class="panel-collapse collapse">
+				  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+				  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+				  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				  commodo consequat.</div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+					Collapsible Group 3</a>
+				  </h4>
+				</div>
+				<div id="collapse3" class="panel-collapse collapse">
+				  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+				  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+				  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				  commodo consequat.</div>
+				</div>
+			  </div>
+			</div>
+			
+			
+			
+			
+			
+			<br/>
+		</div> <!-- End Wrapper -->
+	</body>
+</html>
