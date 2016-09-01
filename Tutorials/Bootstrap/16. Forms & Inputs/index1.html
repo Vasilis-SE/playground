@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Forms & Inputs </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body style="font-family: Verdana; background: lightgrey;">
+
+		<div class="container" style="background: white; border-radius: 5px;">
+			<h2> Bootstrap Forms </h2>
+			<p> In bootstrap we define an area which is a form by using the class
+			<code> form-control </code>. Each form element with that class has a
+			100% width. There are three types of forms and how they align with the
+			group, those are : 
+			<ul> 
+				<li> <code> .form-group </code> </li>
+				<li> <code> .form-inline </code> </li>
+				<li> <code> .form-horizontal </code> </li>
+			</ul></p>
+			<br/>
+			<h4> Form Group </h4>
+			<form>
+			  <div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+			<br/>
+			<h4> Form Inline </h4>
+			<form class="form-inline">
+			  <div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+			<br/>
+			<h4> Form Horizontal </h4>
+			<form class="form-horizontal">
+			  <div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email:</label>
+				<div class="col-sm-10">
+				  <input type="email" class="form-control" id="email" placeholder="Enter email">
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">Password:</label>
+				<div class="col-sm-10"> 
+				  <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+				</div>
+			  </div>
+			  <div class="form-group"> 
+				<div class="col-sm-offset-2 col-sm-10">
+				  <div class="checkbox">
+					<label><input type="checkbox"> Remember me</label>
+				  </div>
+				</div>
+			  </div>
+			  <div class="form-group"> 
+				<div class="col-sm-offset-2 col-sm-10">
+				  <button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			  </div>
+			</form>
+			
+			<h2> Bootstrap Inputs </h2>
+			
+			<h4> Input type text </h4>
+			<div class="form-group">
+			  <label for="usr">Name:</label>
+			  <input type="text" class="form-control" id="usr">
+			</div>
+			
+			<h4> Input type password </h4>
+			<div class="form-group">
+			  <label for="pwd">Password:</label>
+			  <input type="password" class="form-control" id="pwd">
+			</div>
+			
+			<h4> Text area </h4>
+			<div class="form-group">
+			  <label for="comment">Comment:</label>
+			  <textarea class="form-control" rows="5" id="comment"></textarea>
+			</div>
+			
+			<h4> Check boxes </h4>
+			<div class="checkbox">
+			  <label><input type="checkbox" value="">Option 1</label>
+			</div>
+			<div class="checkbox">
+			  <label><input type="checkbox" value="">Option 2</label>
+			</div>
+			<div class="checkbox disabled">
+			  <label><input type="checkbox" value="" disabled>Option 3</label>
+			</div>
+			
+			<h4> Radio buttons </h4>
+			<div class="radio">
+			  <label><input type="radio" name="optradio">Option 1</label>
+			</div>
+			<div class="radio">
+			  <label><input type="radio" name="optradio">Option 2</label>
+			</div>
+			<div class="radio disabled">
+			  <label><input type="radio" name="optradio" disabled>Option 3</label>
+			</div>
+
+			<h4> Select </h4>
+			<div class="form-group">
+			  <label for="sel1">Select list:</label>
+			  <select class="form-control" id="sel1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			  </select>
+			</div>
+			
+			<h2> Input States </h2>
+			<p> Input fields can have different states on which they operate, those
+				states are : 
+				<ul>
+					<li> <b> INPUT FOCUS - </b> The outline of the input is removed and a box-shadow is applied on focus </li>
+					<li> <b> DISABLED INPUTS - </b> Add a disabled attribute to disable an input field </li>
+					<li> <b> DISABLED FIELDSETS -  </b> Add a disabled attribute to a fieldset to disable all controls within </li>
+					<li> <b> READONLY INPUTS - </b> Add a readonly attribute to an input to prevent user input </li>
+					<li> <b> VALIDATION STATES -  </b> Bootstrap includes validation styles for error, warning, and success messages. To use, add .has-warning, .has-error, or .has-success to the parent element </li>
+					<li> <b> ICONS - You can add feedback icons with the .has-feedback class and an icon </li>
+					<li> <b> HIDDEN LABELS - </b> Add a .sr-only class on non-visible labels </li>
+				</ul>
+			</p>
+			
+			<form class="form-horizontal">
+			  <div class="form-group">
+				<label class="col-sm-2 control-label">Focused</label>
+				<div class="col-sm-10">
+				  <input class="form-control" id="focusedInput" type="text" value="Click to focus">
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+				<div class="col-sm-10">
+				  <input class="form-control" id="disabledInput" type="text" disabled>
+				</div>
+			  </div>
+			  <fieldset disabled>
+				<div class="form-group">
+				  <label for="disabledTextInput" class="col-sm-2 control-label">Fieldset disabled</label>
+				  <div class="col-sm-10">
+					<input type="text" id="disabledTextInput" class="form-control">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="disabledSelect" class="col-sm-2 control-label"></label>
+				  <div class="col-sm-10">
+					<select id="disabledSelect" class="form-control">
+					  <option>Disabled select</option>
+					</select>
+				  </div>
+				</div>
+			  </fieldset>
+			  <div class="form-group has-success has-feedback">
+				<label class="col-sm-2 control-label" for="inputSuccess">
+				Input with success and icon</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="inputSuccess">
+				  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+			  </div>
+			  <div class="form-group has-warning has-feedback">
+				<label class="col-sm-2 control-label" for="inputWarning">
+				Input with warning and icon</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="inputWarning">
+				  <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+				</div>
+			  </div>
+			  <div class="form-group has-error has-feedback">
+				<label class="col-sm-2 control-label" for="inputError">
+				Input with error and icon</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="inputError">
+				  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				</div>
+			  </div>
+			</form>
+						
+			<h2> Input Sizing </h2>
+			<p> Input elements can be sized using specific bootstrap classes.
+				You can set the height of an input field by using the following :
+				<ul>
+					<li> <code> .input-lg </code> </li>
+					<li> <code> .input-sm </code> </li>
+				</ul>
+				You can also set the width of an input element with the following :
+				<ul>
+					<li> <code> .col-lg-* </code> </li>
+					<li> <code> .col-sm-* </code> </li>
+				</ul>
+				
+				<div class="alert alert-warning"> 
+					<strong> Important !, </strong> The more splited into smaller parts
+					a bootstrap grid is the more smaller the width of the elements will
+					become.
+				</div>
+				
+				
+			</p>
+			
+			
+			
+			<br/>
+		</div> <!-- End Wrapper -->
+	</body>
+</html>
