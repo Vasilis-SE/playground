@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bootstrap Tutorials - Tooltips & Popovers </title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body style="font-family: Verdana; background: lightgrey;">
+
+		<div class="container" style="background: white; border-radius: 5px;">
+			<h2> Bootstrap - Tooltips & Popovers </h2>
+
+			<h4> Tootips </h4>
+			</p> Tooltips are small message-boxes that appear to the user when he hovers on a 
+				object. Tooltips can be applied by putting two parameters in a element the 
+				<code> data-toggle </code> and the <code> title </code>. The first parameters
+				takes the value tooltip to define that the particular object has a tooltip text
+				and the title is basically the text that will appear on the tooltip. After putting
+				all the tooltips in the required elements the only thing necessary is to enable them
+				through javascript or jQuery. </p>
+			
+				<div class="well">
+					$(document).ready(function(){ <br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('[data-toggle="tooltip"]').tooltip(); <br/>
+					});
+				</div>
+			
+				<input type="text" name="username" id="username" class="form-control"
+					data-toggle="tooltip" title="Enter a valid username..."/>
+			
+				<a href="#" data-toggle="tooltip" title="This is a link..."> Click </a>
+			
+				<p> You can also define the placement of a tooltip by simply using the attribute 
+					<code> data-placement </code> with values : top, right, bottom, left. </p>
+			
+				<a href="#" data-toggle="tooltip" data-placement="top" title="This is a link..."> Click </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" data-toggle="tooltip" data-placement="right" title="This is a link..."> Click </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="This is a link..."> Click </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" data-toggle="tooltip" data-placement="left" title="This is a link..."> Click </a>
+				
+				<script>
+					$(document).ready(function(){
+						$('[data-toggle="tooltip"]').tooltip();
+					});
+				</script>
+		
+				<h4> Popovers </h4>
+				<p> Popovers are similar to tooltips, they are basically a pop up box that appears when the
+					user clicks on a element. The difference is that the popover can contain more content and
+					can be styled. The way to create a popover is to use the <code> data-toggle </code> and giving it 
+					the value of popover. Also in order to use a popover at the end we need to enable all of them
+					through javascript or jQuery.</p>
+		
+				<div class="well"> 
+					$(document).ready(function(){ <br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('[data-toggle="popover"]').popover(); <br/>
+					});
+				</div>
+		
+				<a href="#" data-toggle="popover" title="Popover Header" 
+					data-content="Some content inside the popover"> Toggle popover</a>
+		
+				<p> And again you can place the popovers in whatever direction you want to. </p>
+				
+				<a href="#" title="Header" data-toggle="popover" data-placement="top" data-content="Content">Click</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" title="Header" data-toggle="popover" data-placement="bottom" data-content="Content">Click</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" title="Header" data-toggle="popover" data-placement="left" data-content="Content">Click</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" title="Header" data-toggle="popover" data-placement="right" data-content="Content">Click</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+				<p> You can also define the way that a popover will close.</p>
+				<p> Example of a popover with the attribute <code> data-trigger </code> which is set to 
+					focus, and that means that it will close wherever you click on it.</p>
+				<a href="#" title="Dismissible popover" data-toggle="popover" data-trigger="focus" 
+					data-content="Click anywhere in the document to close this popover">Click me</a>
+		
+				<p> Example of a popover with the attribute <code> data-trigger </code> which is set to 
+					hover, and that means that it will close whenever hover outside of the element.</p>
+				<a href="#" title="Header" data-toggle="popover" data-trigger="hover" 
+					data-content="Some content">Hover over me</a>
+		
+		
+		
+		
+				<script>
+					$(document).ready(function(){
+						$('[data-toggle="popover"]').popover(); 
+					});
+				</script>
+						
+		
+			<br/><br/>
+		</div> <!-- End Wrapper -->
+	</body>
+</html>
