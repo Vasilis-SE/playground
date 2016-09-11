@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Bootstrap Site </title>
+		<title> AgencyZ | Home </title>
 		
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,8 @@
 
 		<!-- CSS Libraries -->
 		<link rel="stylesheet" href="/bootstrap/css/structure.css">
+		<link rel="stylesheet" href="/bootstrap/css/generalStyle.css">
+		<link rel="stylesheet" href="/bootstrap/css/font-awesome.min.css">
 		
 	</head>
 	<body style="font-family: Verdana;">
@@ -47,32 +49,32 @@
 		</div> <!-- End of carousel -->
 
 		<!-- Page wrapper -->
-		<div class="container-fluid">
+		<div class="container-fluid" style="padding: 0px;">
 			
 			<div id="headerArea"> 
 				<?php include_once('inc.Header.php'); ?>
 			</div>
 			
 			<div id="mainArea">
-				<div style="width: 100%; height: 30%; left: 0; float: left; right: 0;">
+				<div style="width: 100%; left: 0; float: left; right: 0; margin-top: 15%;">
+					<p style="font-size: 30px; padding: 10px;"> Find The Best Destination For Your Hollydays </p>
 				</div>
 				
 				
-				<div style="width: 100%; height: 70%; left: 0; float: left; right: 0; background: #82d6fc;">
+				<div style="width: 100%; height: 400px; left: 0; float: left; right: 0; background: #82d6fc;">
 				</div>
 				
 				
-				<div style="width: 100%; height: 30%; left: 0; float: left; right: 0;">
+				<div style="width: 100%; height: 300px; left: 0; float: left; right: 0;">
 				</div>
 				
-				<div style="width: 100%; height: 70%; left: 0; float: left; right: 0; background: #b3ffb3;
-					    margin-top: 25%;">
+				<div style="width: 100%; height: 400px; left: 0; float: left; right: 0; background: #b3ffb3;">
 				</div>
 			</div>
 			
 			
-			<div id="footerArea" style="width: 100%; height: 30%; position: absolute; left: 0; right: 0; 
-				margin-top: 100%; top: 100%; margin-top: 100%;"> 
+			<div id="footerArea" style="width: 100%; position: inherited; left: 0; right: 0; 
+				float: left;"> 
 				
 				<?php require_once('inc.Footer.php'); ?>
 			</div>

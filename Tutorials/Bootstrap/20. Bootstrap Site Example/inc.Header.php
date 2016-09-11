@@ -26,22 +26,38 @@
 					<li><a href="#"> Contact </a></li>									
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li>
 						<div class="dropdown">
 							<a class="dropdown-toggle" type="button" data-toggle="dropdown">
 								<span style="color: #9d9d9d; text-decoration: none; display: block; padding-top: 15px;
-									padding-bottom: 15px; cursor: pointer;" class="glyphicon glyphicon-log-in"> 
+									padding-bottom: 15px; cursor: pointer; margin-left: 15px;" class="glyphicon glyphicon-log-in"> 
 									<span id="loginGlyph" style="margin-left: -8px; font-family: Verdana;"> Login </span> 
 								</span> 
 							</a>
-							<form method="POST" name="formLogin" id="formLogin">
-								<ul class="dropdown-menu">
-									<li> <input type="text" id="" name="" class="" /> </li>
-									<li> <input type="password" id="" name="" class="" /> </li>
-									<li> <button type="submit" class="btn btn-primary"> Login </button> </li>
-								</ul>
-							</form>
+							
+							<!-- Login Dropdown Menu -->
+							<ul class="dropdown-menu" id="loginDropdown">
+							
+								<li> 
+									<div class="form-group" style="padding-left: 5px; padding-right: 5px;">
+										<label for="usr">Username:</label>
+										<input type="text" id="usernameField" name="usernameField" class="form-control" /> 
+									</div>
+								</li>
+								
+								<li> 
+									<div class="form-group" style="padding-left: 5px; padding-right: 5px;">
+										<label for="usr">Password:</label>
+										<input type="password" id="passwordField" name="passwordField" class="form-control" /> 
+									</div>
+								</li>
+								
+								<li> <button type="submit" class="btn btn-primary" style="margin-left: 5px;"> Login </button> </li>
+
+							</ul>
+							<!-- End Of Login Dropdown Menu -->
+							
 						</div>
 					</li>
 				</ul>
