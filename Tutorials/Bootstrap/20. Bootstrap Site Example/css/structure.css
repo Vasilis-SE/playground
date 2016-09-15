@@ -54,6 +54,7 @@ body {
 	background: #3e4141;
 	z-index: 10;
 	text-align: center;
+	left: 0;
 } 
 
 .carousel-inner > .item > img {
