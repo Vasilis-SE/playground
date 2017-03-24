@@ -1,5 +1,5 @@
 <?php
-	echo "Legnth : ".$_SERVER['CONTENT_LENGTH'];
+	echo "Length : ".$_SERVER['CONTENT_LENGTH'];
 	
 	$tmp_file = $_FILES['fileField']['tmp_name'];
 	$fileName = $_FILES['fileField']['name'];
