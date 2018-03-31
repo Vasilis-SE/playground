@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title> Angular Tutorial V2 </title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <style>
+            .container {
+                margin: 40px auto;
+            }
+            #colorList {
+                padding: 25px;
+            }
+            .selected-color-row {
+                padding: 15px;
+                color: #EEE;
+            }
+            .selected-color-text {
+                font-size: 16px;
+                font-weight: 700;
+            }
+            .selected-color-remove {
+                font-size: 30px;
+                line-height: 20px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+
+
+        <div ng-app="colorApp" ng-controller="colorAppController" class="container">
+
+            <div class='row'>
+                <div class="col-md-4">
+                    <div class="row"> Select Name : </div>
+                    <div class="row">
+                        <select id="colorSelector" class="form-control" name="colorSelector"
+                            ng-model="colorSelector"
+                            ng-change="selectColor()">
+
+                            <option value=""> Select a color... </option>
+                            <option value="blue"> Blue </option>
+                            <option value="red"> Red </option>
+                            <option value="green"> Green </option>
+                            <option value="yellow"> Yellow </option>
+                            <option value="brown"> Brown </option>
+                            <option value="black"> Black </option>
+                            <option value="orange"> Orange </option>
+                            <option value="grey"> Grey </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-8" id="colorList"> </div>
+            </div>
+
+        </div> <!-- Container -->
+
+
+        <!-- Angular lib -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+
+            // Create application object
+            var colorApp = angular.module('colorApp', []);
+            var selectedArr = [];
+
+            colorApp.controller("colorAppController", function( $scope ) {
+
+                // Binds a function to the element with directive ng-change
+                $scope.selectColor = function() {
+                    var selectedColor = $scope.colorSelector;
+                    var selectedColorText = $("option[value='" + selectedColor + "']").text();
+
+                    if( selectedColor != "" || typeof selectedColor != "undefined"  ) {
+
+                        if( jQuery.inArray( selectedColor, selectedArr ) === -1 ) {
+                            selectedArr.push( selectedColor );
+
+                            var htmlBuff = "<div class='row selected-color-row' data-color='" + selectedColor + "' style='background:" + selectedColor + ";'>" +
+                                "<div class='col-md-10 selected-color-text'> " + selectedColorText + " </div>" +
+                                "<div class='col-md-2 selected-color-remove' data-color='" + selectedColor + "'> &times; </div>" +
+                            "</div>";
+
+                            $("#colorList").append( htmlBuff );
+                        }
+
+                    }
+                };
+
+            }); // Color controller.
+
+            $("body").on("click", ".selected-color-remove", function() {
+                var selectedColor = $(this).attr("data-color");
+                var index = selectedArr.indexOf( selectedColor );
+                selectedArr.splice( index, 1 );
+
+                $(".selected-color-row[data-color='" + selectedColor + "']").remove();
+            });
+
+
+        </script>
+    </body>
+</html>
