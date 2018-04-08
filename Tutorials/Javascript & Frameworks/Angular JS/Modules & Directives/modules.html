@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title> Angular Tutorial V3 </title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <style>
+            #resultArea {
+                background: #24567f;
+                color: #EEE;
+                padding: 20px;
+                margin-top: 20px;
+                border-radius: 6px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Angular JS Modules </h1>
+
+        <div id="modulesApp" ng-app="modulesApp" ng-controller="modulesAppController" class="container">
+            <div class="alert alert-default">
+                Modules in Angular JS define an application and are basically a container for the application.
+                A module can contain many controllers. Modules are created with JS by using the agular.module.
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"> First Name : </div>
+                <div class="col-md-8"> <input id="fname" class="form-control" ng-model="fname" /> </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"> Last Name : </div>
+                <div class="col-md-8"> <input id="lname" class="form-control" ng-model="lname" /> </div>
+            </div>
+
+            <div class="row" id="resultArea">
+                Your name is : <br/>
+                <div ng-bind="fname + ' ' + lname "> </div>
+            </div>
+
+        </div> <!-- /modulesApp -->
+
+        <!-- Angular lib -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            var app = angular.module("modulesApp", []);
+
+            app.controller("modulesAppController", function( $scope ) {
+                $scope.fname = "John";
+                $scope.lname = "Doe";
+            });
+
+        </script>
+    </body>
+</html>
