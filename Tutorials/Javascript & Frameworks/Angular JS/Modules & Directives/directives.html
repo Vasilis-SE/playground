@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title> Angular Tutorial Directives </title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <style>
+            .container {
+                background: #4950a2;
+                padding: 10px;
+                color: #EEE;
+            }
+            .exampleHeader {
+                font-size: 18px;
+                text-align: center;
+                margin-bottom: 10px;
+                font-weight: bold;
+                border-bottom: 2px solid #BBB;
+            }
+            .valuesField {
+                background: #ffffd7;
+                padding: 15px;
+                border-radius: 5px;
+                border: 1px solid #f5f5cc;
+                color: #404040;
+            }
+            .resultsFiled {
+                text-indent: 30px;
+                background: #f9b740;
+                color: #EEE;
+                padding: 10px 0px 10px 0px;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+            .subHeader {
+                font-size: 16px;
+                text-align: center;
+                margin: 10px;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Angular JS Directives </h1>
+
+        <div class="alert alert-info">
+            Directives are used to add functionality to an application. Angular has a set of
+            built in directives for more info press <a class="linkBtn" href="https://www.w3schools.com/angular/angular_ref_directives.asp"> Here </a>
+        </div>
+
+        <div class="alert alert-info">
+            Directives are extended HTML attributes that start with the `ng` prefix.
+        </div>
+
+        <div id="directivesApp" ng-app="directivesApp" ng-controller="directivesAppController" class="container">
+
+            <div class="container">
+                <div class="exampleHeader"> ng-repeat Directive </div>
+                <div class="alert alert-info">
+                    ng-repeat repeats an HTML element. It can also be used on array of objects...
+                </div>
+
+                <div class="valuesField"> ['Jani','Hege','Kai', 'Kate', 'John'] </div>
+                <div class="resultsFiled">
+                    <table> <tr ng-repeat="x in names"> <td> {{ x }} </td> </tr> </table>
+                </div>
+
+                <div class="subHeader"> Multiple Dimension Array ( or Object ) </div>
+
+                <div class="valuesField">
+                    [ <br/>
+                        { name: "John", country: "UK", balance: 30.50 }, <br/>
+                        { name: "Steve", country: "Sweeden", balance: 29 }, <br/>
+                        { name: "Alexandra", country: "Greeece", balance: 12.30 }, <br/>
+                        { name: "Sofia", country: "Greeece", balance: 9.85 }, <br/>
+                        { name: "Jasmine", country: "US", balance: 0.00 } <br/>
+                    ]
+                </div>
+                <div class="resultsFiled">
+                    <table>
+                        <tr>
+                            <td> Name </td>
+                            <td> Country </td>
+                            <td> Balance </td>
+                        </tr>
+                        <tr ng-repeat="y in users">
+                            <td> {{ y.name }} </td>
+                            <td> {{ y.country }} </td>
+                            <td> {{ y.balance }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div> <!-- /directivesApp -->
+
+        <!-- Angular lib -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            var app = angular.module("directivesApp", []);
+            var names = ['Jani','Hege','Kai', 'Kate', 'John'];
+            var users = [
+                { name: "John", country: "UK", balance: 30.50 },
+                { name: "Steve", country: "Sweeden", balance: 29 },
+                { name: "Alexandra", country: "Greeece", balance: 12.30 },
+                { name: "Sofia", country: "Greeece", balance: 9.85 },
+                { name: "Jasmine", country: "US", balance: 0.00 }
+            ];
+
+            app.controller("directivesAppController", function( $scope ) {
+                $scope.names = names;
+                $scope.users = users;
+            });
+
+        </script>
+    </body>
+</html>
