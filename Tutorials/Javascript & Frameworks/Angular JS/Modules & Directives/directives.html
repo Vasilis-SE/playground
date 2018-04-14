@@ -39,6 +39,15 @@
                 font-weight: bold;
                 text-decoration: underline;
             }
+            .user-card-balance {
+                background: #515151;
+                font-size: 20px;
+                width: 98%;
+                font-weight: 700;
+            }
+            .user-card {
+                margin-top: 10px;
+            }
         </style>
     </head>
     <body>
@@ -93,7 +102,51 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="exampleHeader"> ng-options Directive </div>
+                <div class="alert alert-info">
+                    ng-options directive fills a select element with options.
+                </div>
+                <div class="resultsFiled">
+                    <select ng-model="selNames" ng-options="item for item in names" class="form-control">
+                        <option value=""> Select a name... </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="exampleHeader"> Custom Directives </div>
+                <div class="alert alert-info">
+                    You can create your own custom Angular JS directives and program their response
+                    by using the .directive function...
+                </div>
+                <div class="alert alert-info">
+                    To inovoke a custom directive you can use on of the following methods :
+                    <ul>
+                        <li> Element Name -> Create a new HTML element with the name of the directive. </li>
+                        <li> Attribute -> Set the custome directive as an attribute (what angular does by default) </li>
+                        <li> Class -> Then class class of the elements is the directive itself </li>
+                        <li> Comment -> HTML comment can initialize a directive like directive: this-is-a-custom-directive </li>
+                    </ul>
+
+                    To initialize a custom directive with the first way (`Element Name`) you need to set a HTML tag with its words seperated by `-`
+                    <`this-is-a-custom-directive`></`this-is-a-custom-directive`>. But whent its time to call it
+                    through the .directive function you need to use camel case name like .directive("thisIsACustomDirective", function() ...)
+                </div>
+
+                <div class="valuesField">
+                    In this example we used a custom directive `ng-name-viewer` to repeat all user data from users array dynamically and responsivly
+                </div>
+                <div class="resultsFiled" ng-name-viewer>
+
+                </div>
+
+            </div>
+
+
         </div> <!-- /directivesApp -->
+
+
 
         <!-- Angular lib -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -113,6 +166,22 @@
             app.controller("directivesAppController", function( $scope ) {
                 $scope.names = names;
                 $scope.users = users;
+                $scope.names = names;
+            });
+
+            app.directive("ngNameViewer", function() {
+                return {
+                    template: "<div class='row' style='width:100%; margin: 0 auto;'>" +
+                        "<div class='user-card col-xs-12 col-sm-6 col-md-4' ng-repeat='user in users' style='padding:0px;'>" +
+                            "<div class='user-card-img'> <img src='./usericon.png' style='width:100px;'> </div>"+
+                            "<div class='user-card-data'>" +
+                                "<div class='user-card-data-info'> Users name is : {{user.name}} </div>" +
+                                "<div class='user-card-data-info'> From : {{user.country}} </div>" +
+                            "</div>" +
+                            "<div class='user-card-balance'> Balance: {{user.balance}} € </div>" +
+                        "</div>"+
+                    "</div>"
+                };
             });
 
         </script>
