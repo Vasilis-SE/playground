@@ -106,7 +106,7 @@
             var app = angular.module("httpApp", []);
             app.controller("httpAppController", function( $scope, $http ) {
 
-                $http.post("./userdata.json")
+                $http.get("./userdata.json")
                 .then(function( response ) {
                     var statusCode = response.status;
 
