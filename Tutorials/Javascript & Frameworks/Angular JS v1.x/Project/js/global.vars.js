@@ -99,3 +99,19 @@ var mailProviders = [
     "live.ca",
     "aim.com",
     "bigpond.net.au"];
+
+var invalidSpecialChars = ["!","@","#","$","%","^","&","*","(",")","-","+","=","/",".",",","?","<",">",":",";","|","~","`"];
+
+var errors = {
+    "formEmpty": {
+        "username": "You must type a username, none special characters minimum of 6 characters in length...",
+        "password": "You must type a password, none special characters minimum of 6 characters in length, numbers and letters...",
+        "rpassword": "You must repeate the password above...",
+        "email": "You must type the email and also the provider..."
+    },
+    "invalidLength": {
+        "username": "The length of the username is invalid! You need to type at least 6 characters...",
+        "password": "The length of the password is invalid! You need to type at least 6 characters...",
+        "rpassword": "The length of the retyped password is invalid! You need to type at least 6 characters..."
+    }
+};
