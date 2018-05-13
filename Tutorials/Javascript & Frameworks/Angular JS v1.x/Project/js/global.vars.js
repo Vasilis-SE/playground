@@ -112,6 +112,13 @@ var errors = {
     "invalidLength": {
         "username": "The length of the username is invalid! You need to type at least 6 characters...",
         "password": "The length of the password is invalid! You need to type at least 6 characters...",
-        "rpassword": "The length of the retyped password is invalid! You need to type at least 6 characters..."
-    }
+        "rpassword": "The length of the retyped password is invalid! You need to type at least 6 characters...",
+        "email": "The length of the email is invalid! You need to type at least 3 characters..."
+    },
+    "invalidChars": {
+        "username": "The username cannot contain special characters...",
+        "password": "The password cannot contain special characters...",
+        "rpassword": "The retyped password cannot contain special characters..."
+    },
+    "invalidRpass" : "The retyped password and password field mismatch! Please type the same password on both fields..."
 };
