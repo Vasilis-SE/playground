@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="loginApp" ng-app="loginApp" ng-controller="loginController" class="container-fluid">
-            <div class="modal" role="dialog" ng-show="msgDispModal">
+            <div class="modal" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -136,8 +136,7 @@
                     }).then(function mySuccess(response) {
                         //response = JSON.parse( response );
                         //$scope.msgDispModalState = true;
-
-                        $scope.msgDispModal = true;
+                        $(".modal").modal("show");
                     });
 
                 }
