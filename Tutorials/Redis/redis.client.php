@@ -12,8 +12,8 @@
             "port" => 6379
         ));
 
-        $redis->set("message", "Hello world");
-        echo $redis->get("message");
+        $redis->set("message23", "Hello world2");
+        echo $redis->get("message23");
 
     }
     catch (Exception $e) {
