@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Bind Directive </title>
+	</head>
+	<body>
+		<div id="application">
+			<h1 v-bind:title="headerTitle"> Hover On Me ! </h1>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#application',
+				data: {
+					headerTitle: "Bind element attributes and other stuff with directives to make them dynamic!"
+				}
+			});
+		</script>
+	</body>
+</html>
