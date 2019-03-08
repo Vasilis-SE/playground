@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title> If Directive </title>
-</head>
-<body>
+	<head>
+		<title> If Directive </title>
+		<style type="text/css">
+			#application {
+				font-size: 14px;
+				font-family: monospace;
+				font-style:italic;
+				color:grey;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="application" v-if="toggleMsg">
+			{{ message }}	
+		</div>
 
-</body>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#application",
+				data: {
+					message: "Toggle this message by typing on console `app.toggleMsg=false/true`",
+					toggleMsg: true
+				}
+			});
+		</script>
+	</body>
 </html>

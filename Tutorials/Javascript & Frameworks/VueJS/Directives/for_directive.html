@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> For Directive </title>
+
+		<style type="text/css">
+			#userlist-section {
+				text-align: center;
+				width: 500px;
+				margin: 0 auto;
+			}
+			#userlist-section > table {
+				background: #a68fdc;
+				width: 100%;
+			}
+			thead {
+			    background: #7c5bcc;
+			    color: #EEE;
+			}
+			thead > tr > td {
+				padding: 5px 0px;
+				width: 33.33%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="userlist-section">
+			<table>
+				<thead>
+					<td> User ID </td>
+					<td> Last Name </td>
+					<td> Balance </td>
+				</thead>
+				<tr v-for="user in users">
+					<td> {{user.userid}} </td>
+					<td> {{user.lastname}} </td>
+					<td> {{user.balance}} </td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var userApp = new Vue({
+				el: "#userlist-section",
+				data: {
+					users: [
+					  {
+					    "userid": 2,
+					    "lastname": "Martin",
+					    "balance": "$2,870.74"
+					  },
+					  {
+					    "userid": 5,
+					    "lastname": "Stephens",
+					    "balance": "$3,866.56"
+					  },
+					  {
+					    "userid": 7,
+					    "lastname": "Arnold",
+					    "balance": "$2,550.45"
+					  },
+					  {
+					    "userid": 8,
+					    "lastname": "Patel",
+					    "balance": "$1,566.02"
+					  },
+					  {
+					    "userid": 0,
+					    "lastname": "Perry",
+					    "balance": "$2,155.68"
+					  },
+					  {
+					    "userid": 1,
+					    "lastname": "Obrien",
+					    "balance": "$3,154.78"
+					  },
+					  {
+					    "userid": 5,
+					    "lastname": "Estes",
+					    "balance": "$2,371.09"
+					  },
+					  {
+					    "userid": 0,
+					    "lastname": "Beasley",
+					    "balance": "$2,178.35"
+					  },
+					  {
+					    "userid": 9,
+					    "lastname": "Holder",
+					    "balance": "$3,563.69"
+					  },
+					  {
+					    "userid": 7,
+					    "lastname": "Ward",
+					    "balance": "$2,441.78"
+					  },
+					  {
+					    "userid": 8,
+					    "lastname": "Roberts",
+					    "balance": "$3,355.83"
+					  },
+					  {
+					    "userid": 2,
+					    "lastname": "Everett",
+					    "balance": "$3,639.54"
+					  },
+					  {
+					    "userid": 1,
+					    "lastname": "Calderon",
+					    "balance": "$3,566.62"
+					  },
+					  {
+					    "userid": 4,
+					    "lastname": "Hodge",
+					    "balance": "$3,953.13"
+					  },
+					  {
+					    "userid": 3,
+					    "lastname": "Byers",
+					    "balance": "$1,052.21"
+					  },
+					  {
+					    "userid": 8,
+					    "lastname": "Bentley",
+					    "balance": "$1,571.68"
+					  },
+					  {
+					    "userid": 6,
+					    "lastname": "Guthrie",
+					    "balance": "$2,530.27"
+					  },
+					  {
+					    "userid": 2,
+					    "lastname": "Johns",
+					    "balance": "$1,701.45"
+					  },
+					  {
+					    "userid": 10,
+					    "lastname": "Flores",
+					    "balance": "$3,085.03"
+					  },
+					  {
+					    "userid": 2,
+					    "lastname": "Holcomb",
+					    "balance": "$3,164.54"
+					  },
+					  {
+					    "userid": 0,
+					    "lastname": "Ramsey",
+					    "balance": "$1,157.01"
+					  }
+					]
+				}
+			});
+		</script>
+	</body>
+</html>
