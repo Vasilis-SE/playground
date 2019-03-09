@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Model Direcitve </title>
+	</head>
+	<body>
+		<div id="application">
+			<h1> {{dynamicTitle}} </h1>
+			<input type="text" v-model="dynamicTitle" placeholder="Type something here..." />
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#application",
+				data: {
+					'dynamicTitle': ''
+				}
+			});
+		</script>
+	</body>
+</html>
