@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Lifecycle Hooks </title>
+	</head>
+	<body>
+
+		<div id="application">
+			<h4> Lifecycle hooks are events that occur when the Vue application is on different phases. There is: </h4>
+			<ol><li v-for="item in listItems"> {{item}} </li> </ol>
+			
+			<hr>
+			<input type="text" v-model="newItemInp" placeholder="Add a new item here..." /> <button v-on:click="addNewItem"> Add </button>
+			<hr>
+
+			<div>{{createdMsg}}</div>
+			<div>{{updateMsg}}</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#application",
+				data: {
+					a:1,
+					listItems: [
+						"beforeCreate",
+						"created",
+						"beforeMount",
+						"Mounted",
+						"beofreUpdate",
+						"Updated",
+						"beforeDestroy",
+						"destroyed"
+					],
+					createdMsg: "",
+					updateMsg: "",
+					newItemInp: ""
+				},
+				created: function() {
+					this.createdMsg = "Now its created ... ";
+				},
+				updated: function() {
+					this.$nextTick(function () {
+						this.updateMsg = "Now a data value changed ...";
+					})
+				},
+				methods: {
+					addNewItem: function() { 
+						 
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
