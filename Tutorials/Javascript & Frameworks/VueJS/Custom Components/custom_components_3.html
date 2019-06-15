@@ -48,6 +48,10 @@
 				country: String,
 				balance: String,
 				details: String
+				
+			},
+			data() {
+				return { isHidden: false }
 			},
 			template: 
 				"<div>" +
@@ -59,9 +63,9 @@
 						"<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12'> {{balance}} </div>" +
 						"<div class='col-lg-1 col-md-1 col-sm-12 col-xs-12'" + 
 							"v-bind:userid='id'" + 
-							"v-on:click='OpenUserDetails'> > </div>" +
+							"v-on:click='isHidden = !isHidden'> > </div>" +
 					"</div>" +
-					"<div class='row user-listrow-details' v-bind:userid='id' v-if='false'> {{details}} </div>" +
+					"<div class='row user-listrow-details' v-bind:userid='id' v-if='isHidden'> {{details}} </div>" +
 				"</div>"
 			
 		});
@@ -70,12 +74,8 @@
 			el: "#custom-components3-app",
 			data: {
 				users: userList
-			},
-			methods: {
-				OpenUserDetails(event) {
-					console.log(event);
-				}
-			}	
+			}
+
 		});
 
 
