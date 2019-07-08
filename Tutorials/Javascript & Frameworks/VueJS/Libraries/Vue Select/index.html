@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Vue JS - Vue Select Example 1 </title>
+
+		<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<style type="text/css">
+			body {
+			  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+			}
+
+			h1,.muted {
+			  color: #2c3e5099;
+			}
+
+			h1 {
+			  font-size: 26px;
+			  font-weight: 600;
+			  text-rendering: optimizelegibility;
+			  -moz-osx-font-smoothing: grayscale;
+			  -moz-text-size-adjust: none;
+			}
+
+			#app {
+			  max-width: 30em;
+			  margin: 1em auto;
+			}
+
+			#app .dropdown li {
+			  border-bottom: 1px solid rgba(112, 128, 144, 0.1)
+			}
+
+			#app .dropdown li:last-child {
+			  border-bottom: none;
+			}
+
+			#app .dropdown li a {
+			  padding: 10px 20px;
+			  display: flex;
+			  width: 100%;
+			  align-items: center;
+			  font-size: 1.25em;
+			}
+
+			#app .dropdown li a .fa {
+			  padding-right: 0.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vueSelectApplication" class="container">
+			<v-select :options="sports" label="NAME"> 
+				<template slot="sport" slot-scope="sport">
+					<span :class="sport.GLYPHICON">  </span>
+					{{ sport.NAME }}
+				</template>
+			</v-select>
+		</div>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-select@latest"></script>
+		<script type="text/javascript">
+			Vue.component('v-select', VueSelect.VueSelect);
+
+			var app = new Vue({
+				el: "#vueSelectApplication",
+				data: {
+					sports: [
+						{
+							NAME: "Football",
+							TITLE: "Football (Soccer)",
+							CHAMPIONSHIPS: 43,
+							ICON: "../../assets/football.png",
+							GLYPHICON: "glyphicon glyphicon-home"
+						},
+						{
+							NAME: "Table Tennis",
+							TITLE: "Table Tennis (Ping Pong)",
+							CHAMPIONSHIPS: 12,
+							ICON: "../../assets/table_tennis.png",
+							GLYPHICON: "glyphicon glyphicon-time"
+						}
+					]
+				}
+			});
+		</script>
+	</body>
+</html>

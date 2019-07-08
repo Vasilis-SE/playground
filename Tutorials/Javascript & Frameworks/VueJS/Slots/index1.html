@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> VueJS - Slots Example 1 </title>
+	</head>
+	<body>
+		<template>
+			<programming-language-list> </programming-language-list>
+		</template>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			import programmingLanguageList from '@Components/LanguagesList.Component.vue';
+			
+			export default {
+				components: {
+					'programming-language-list': programmingLanguageList
+				}
+			}
+
+		</script>
+	</body>
+</html>
