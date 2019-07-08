@@ -7,7 +7,8 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<style type="text/css">
 			body {
-			  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+				background: #d0d0d0;
+			  	font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 			}
 
 			h1,.muted {
@@ -46,16 +47,53 @@
 			#app .dropdown li a .fa {
 			  padding-right: 0.5em;
 			}
+			.example-row {
+			    background: #efefef;
+			    margin: 10px 0px;
+			    border-radius: 5px;
+			}
+			.sectionTitle {
+			    color: #737373;
+			    font-size: 25px;
+			    padding: 10px;
+			}
+			.sectionDescription {
+			    padding: 5px 10px;
+			    color: #929292;
+			}
+			.sectionSelection {
+			    padding: 50px 20px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="vueSelectApplication" class="container">
-			<v-select :options="sports" label="NAME"> 
-				<template slot="sport" slot-scope="sport">
-					<span :class="sport.GLYPHICON">  </span>
-					{{ sport.NAME }}
-				</template>
-			</v-select>
+			
+			<div class="row example-row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="row sectionTitle"> Simple Usage </div>
+					<div class="row sectionDescription"> 
+						The simplest usage o v-select, using a v-select element and a one dimension array as an option. 
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
+					<v-select :options="['Greece', 'USA', 'UK', 'Jamaica', 'Netherlands']"></v-select>
+				</div>
+			</div>
+
+			<div class="row example-row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="row sectionTitle"> Multiselect Usage </div>
+					<div class="row sectionDescription"> 
+						Vue-select libroary allows for an easy and stress less usage of multiselectio. This is achievable by using the attribute `multiple` on the v-select element. 
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
+					<v-select :options="['Greece', 'USA', 'UK', 'Jamaica', 'Netherlands']" multiple ></v-select>
+				</div>
+			</div>
+
+
 		</div>
 
 
