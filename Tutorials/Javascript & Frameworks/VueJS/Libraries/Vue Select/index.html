@@ -64,6 +64,17 @@
 			.sectionSelection {
 			    padding: 50px 20px;
 			}
+			.customOptName {
+			    font-weight: bold;
+			}
+			.customOptDesc {
+			    font-size: 11px;
+			    color: #a5a5a5;
+			}
+			.customOptIcon {
+			    width: 25px;
+			    height: 25px;
+			}
 		</style>
 	</head>
 	<body>
@@ -85,7 +96,7 @@
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="row sectionTitle"> Multiselect Usage </div>
 					<div class="row sectionDescription"> 
-						Vue-select libroary allows for an easy and stress less usage of multiselectio. This is achievable by using the attribute `multiple` on the v-select element. 
+						Vue-select library allows for an easy and stress less usage of multiselectio. This is achievable by using the attribute `multiple` on the v-select element. 
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
@@ -93,9 +104,59 @@
 				</div>
 			</div>
 
+			<div class="row example-row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="row sectionTitle"> Tagable Usage </div>
+					<div class="row sectionDescription"> 
+						Taggable is a usefull attribute of vue-select that lets you select an option event if it does not exist. That is achievable through the search input.
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
+					<v-select :options="['Greece', 'USA', 'UK', 'Jamaica', 'Netherlands']" multiple taggable></v-select>
+				</div>
+			</div>
 
+			<div class="row example-row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="row sectionTitle"> Custom Usage </div>
+					<div class="row sectionDescription"> 
+						You can easily create a custom select element by using templates and slots.
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
+					<v-select :options="sports" label="NAME">
+						<template slot="option" slot-scope="option">
+						   <div class="row">
+						   		<div class="col-lg-12 customOptName"> {{ option.NAME }} </div>
+						   		<div class="col-lg-12 customOptDesc"> {{ option.TITLE }} </div>
+						   </div>    
+						</template>
+					</v-select>
+				</div>
+			</div>
+
+			<div class="row example-row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="row sectionTitle"> Custom With Images Usage </div>
+					<div class="row sectionDescription"> 
+						Also in a custom select element you can use images on options and whatever other HTML element.
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sectionSelection">
+					<v-select :options="sports" label="NAME">
+						<template slot="option" slot-scope="option">
+						   <div class="row">
+						   		<div class="col-lg-3 col-md-3 col-sm-3"> <img v-bind:src="option.ICON" class="customOptIcon"> </div>
+						   		<div class="col-lg-9 col-md-9 col-sm-9">
+						   			<div class="row customOptName"> {{ option.NAME }} </div>
+						   			<div class="row customOptDesc"> {{ option.TITLE }} </div>
+						   		</div>
+						   </div>  
+						</template>
+					</v-select>
+				</div>
+			</div>
 		</div>
-
 
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://unpkg.com/vue-select@latest"></script>
@@ -110,15 +171,19 @@
 							NAME: "Football",
 							TITLE: "Football (Soccer)",
 							CHAMPIONSHIPS: 43,
-							ICON: "../../assets/football.png",
-							GLYPHICON: "glyphicon glyphicon-home"
+							ICON: "../../assets/football.png"						
 						},
 						{
 							NAME: "Table Tennis",
 							TITLE: "Table Tennis (Ping Pong)",
 							CHAMPIONSHIPS: 12,
-							ICON: "../../assets/table_tennis.png",
-							GLYPHICON: "glyphicon glyphicon-time"
+							ICON: "../../assets/table_tennis.png"						
+						},
+						{
+							NAME: "American Football",
+							TITLE: "American Football (Rugby)",
+							CHAMPIONSHIPS: 26,
+							ICON: "../../assets/american_football.png"						
 						}
 					]
 				}
