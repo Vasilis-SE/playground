@@ -9,7 +9,7 @@
 				<div class='header-menu'> Contact </div>
 			</div>
 		</header>
-		<mainbody>
+		<div class="main-container">
 			<aside>
 				<ul>
 					<li> Weather News </li>
@@ -24,78 +24,79 @@
 			</aside>
 			<main>
 				<section> This is a simple use of single file component </section>
+				<vue-users></vue-users>
 			</main>
-		</mainbody>
+		</div>
 		<footer></footer>
 	</div>
 </template>
 
 <style>
-body { margin: 0px; }
-#app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-#nav {
-	padding: 30px;
-}
+	body { margin: 0px; }
+	#app {
+		font-family: 'Avenir', Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-align: center;
+		color: #2c3e50;
+	}
+	#nav {
+		padding: 30px;
+	}
 
-#nav a {
-	font-weight: bold;
-	color: #2c3e50;
-}
+	#nav a {
+		font-weight: bold;
+		color: #2c3e50;
+	}
 
-#nav a.router-link-exact-active {
-	color: #42b983;
-}
-header {
-    background: #464646;
-    height: 80px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    border-bottom: 5px solid #41b883;
-}
-.header-logo > img {
-    width: 60px;
-    padding: 8px;
-}
-.header-menu-binder {
-    display: flex;
-    align-items: center;
-}
-.header-menu {
-    padding: 27px;
-    color: #EEE;
-    font-size: 22px;
-}
-mainbody {
-	min-height: 300px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-}
-aside {
-    background: #464646;
-}
-aside > ul > li {
-    list-style: hiragana;
-    color: #EEEE;
-    font-size: 16px;
-    padding: 10px;
-}
-aside > ul > li:not(:last-child) {
-    border-bottom: 1px solid #5a5a5a;
-}
-section {
-    margin: 5px;
-    padding: 15px;
-    background: #41b883;
-    color: #EEE;
-    font-size: 17px;
-    font-family: Verdana;
-    border-radius: 3px;
-}
+	#nav a.router-link-exact-active {
+		color: #42b983;
+	}
+	header {
+	    background: #464646;
+	    height: 80px;
+	    width: 100%;
+	    display: grid;
+	    grid-template-columns: 200px 1fr;
+	    border-bottom: 5px solid #41b883;
+	}
+	.header-logo > img {
+	    width: 60px;
+	    padding: 8px;
+	}
+	.header-menu-binder {
+	    display: flex;
+	    align-items: center;
+	}
+	.header-menu {
+	    padding: 27px;
+	    color: #EEE;
+	    font-size: 22px;
+	}
+	.main-container {
+		min-height: 300px;
+	    display: grid;
+	    grid-template-columns: 200px 1fr;
+	}
+	aside {
+	    background: #464646;
+	}
+	aside > ul > li {
+	    list-style: hiragana;
+	    color: #EEEE;
+	    font-size: 16px;
+	    padding: 10px;
+	}
+	aside > ul > li:not(:last-child) {
+	    border-bottom: 1px solid #5a5a5a;
+	}
+	section {
+	    margin: 5px;
+	    padding: 15px;
+	    background: #41b883;
+	    color: #EEE;
+	    font-size: 17px;
+	    font-family: Verdana;
+	    border-radius: 3px;
+	}
 </style>
