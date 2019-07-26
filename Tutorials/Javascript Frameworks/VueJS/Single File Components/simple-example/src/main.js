@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueUsers from "./components/VueUsers";
+// import VueUsers from "./components/VueUsers";
 
 
 Vue.config.productionTip = false
-Vue.component('vue-users', VueUsers);
+// Vue.component('vueusers', VueUsers);
 
 new Vue({
 	render: function (h) { return h(App) }

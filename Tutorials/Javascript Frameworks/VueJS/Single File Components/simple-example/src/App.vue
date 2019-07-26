@@ -1,5 +1,5 @@
 <template>
-	<div id="simpleSingleFile">
+	<div id="app">
 		<header>
 			<div class='header-logo'> <img src="./assets/logo.png" /> </div>
 			<div class='header-menu-binder'>
@@ -24,7 +24,9 @@
 			</aside>
 			<main>
 				<section> This is a simple use of single file component </section>
-				<vue-users></vue-users>
+				<div class="userslist">
+					<VueUsers v-for="user in users" v-bind:userobj="user"></VueUsers>
+				</div>
 			</main>
 		</div>
 		<footer></footer>
@@ -99,4 +101,21 @@
 	    font-family: Verdana;
 	    border-radius: 3px;
 	}
+	.userslist {
+	    display: grid;
+	    grid-template-columns: 1fr 1fr 1fr;
+	}
 </style>
+<script>
+	import VueUsers from "./components/VueUsers";
+	export default {
+		name: 'app',
+		data() {
+			return { users: userList }
+			
+		},
+		components: {
+			VueUsers
+		}
+	}
+</script>
