@@ -5,18 +5,6 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 body {
 	margin: 0px;
 }
@@ -24,8 +12,85 @@ header {
     background: #2c3d50;
     height: 80px;
     border-bottom: 5px solid #41b883;
+    display: grid;
+    grid-template-columns: 200px 1fr;
 }
 .header-logo > img {
-    width: 110px;
+    width: 115px;
+    position: absolute;
+    left: 40px;
+}
+.header-menu-binder {
+    display: flex;
+}
+.header-menu-binder > div > a {
+    text-decoration: none;
+    color: #EEE;
+    font-size: 20px;
+}
+.header-menu-binder > div {
+    padding: 30px;
+}
+.header-menu-binder > div > a:hover, .router-link-exact-active.router-link-active {
+    color: #41b883;
+}
+footer {
+    background: #41b883;
+    width: 100%;
+    min-height: 300px;
+}
+.footer-content-binder {
+    width: 50%;
+    margin: 0 auto;
+    padding: 25px 0px;
+}
+.footer-links > a {
+    color: #EEE;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
     padding: 10px;
+}
+.footer-owner-rights {
+    color: #EEE;
+    font-size: 14px;
+    padding: 10px 0px;
+}
+.main-content-binder {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-height: 600px;
+}
+aside {
+    background: white;
+    padding: 20px 0px;
+}
+aside > .side-menu-sel {
+    text-align: left;
+    font-size: 17px;
+    padding: 15px 20px;
+    border-bottom: 3px solid #2c3d50;
+    cursor: pointer;
+}
+main {
+    background: whitesmoke;
+    padding: 10px;
+}
+.page-title {
+    font-size: 30px;
+    text-align: left;
+    color: #2c3d50;
+    border-bottom: 4px solid #41b883;
+}
+section {
+    background: #41b883;
+    margin: 10px 0px;
+    padding: 15px;
+    color: #EEE;
+    border-radius: 3px;
+    font-size: 15px;
+}
+aside > .side-menu-sel:hover {
+    background: #41b883ad;
 }

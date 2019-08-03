@@ -3,10 +3,10 @@
 		<header>
 			<div class="header-logo"> <img src="../assets/header_logo.png" /> </div>
 			<div class="header-menu-binder" id="nav">
-				<router-link to="/">Home</router-link> |
-				<router-link to="/about">News</router-link>
-				<router-link to="/about">About</router-link>
-				<router-link to="/about">Contact</router-link>
+				<div> <router-link to="/">Home</router-link> </div>
+				<div> <router-link to="/news">News</router-link> </div>
+				<div> <router-link to="/about">About</router-link> </div>
+				<div> <router-link to="/contact">Contact</router-link> </div>
 			</div>
 		</header>
 		<div class="main-content-binder">
@@ -24,10 +24,11 @@
 					<router-link to="/about">About</router-link>
 					<router-link to="/about">Contact</router-link>
 				</div>
-				<div class="footer-logo">
-					
+				<div class="footer-social-media"></div>
+				<div class="footer-owner-rights">
+					This is an example site using router to display different views. Owner & rights goes to 
+					AclatrazGR &copy; all rights reserved.
 				</div>
-				<div class="footer-owner-rights"></div>
 			</div>
 		</footer>
 	</div>
