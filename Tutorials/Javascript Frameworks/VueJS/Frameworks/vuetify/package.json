@@ -12,6 +12,7 @@
     "vuetify": "^2.0.0"
   },
   "devDependencies": {
+    "@mdi/font": "^3.8.95",
     "@vue/cli-service": "^3.10.0",
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
