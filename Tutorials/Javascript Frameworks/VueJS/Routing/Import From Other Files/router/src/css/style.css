@@ -94,3 +94,49 @@ section {
 aside > .side-menu-sel:hover {
     background: #41b883ad;
 }
+.news-category-selection[referto='programmingNews'] {
+	background: url(../assets/programming_banner.jpg) center center no-repeat;
+	height: 150px;
+    background-size: cover;
+    margin: 5px 0px;
+}
+.news-category-selection[referto='scientificNews'] {
+	background: url(../assets/science_banner.jpg) center center no-repeat;
+	height: 150px;
+    background-size: cover;
+    margin: 5px 0px;
+}
+.news-category-selection[referto='weatherNews'] {
+	background: url(../assets/weather_banner.jpg) center center no-repeat;
+	height: 150px;
+    background-size: cover;
+    margin: 5px 0px;
+}
+.news-category-selection[referto='economyNews'] {
+	background: url(../assets/economy_banner.jpg) center center no-repeat;
+	height: 150px;
+    background-size: cover;
+    margin: 5px 0px;
+}
+.selection-text {
+    color: #ffffff;
+    text-align: left;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 20px;
+    font-weight: bold;
+    background: #41b883;
+    width: 200px;
+    border-bottom-right-radius: 10px;
+    opacity: 0.9;
+}
+a.router-link-active, a {
+    text-decoration: none;
+}
+.news-category-selection:hover {
+    transition: 0.5s;
+    transform: scale(1.02);
+}
+.side-menu-sel > a {
+    color: #2c3d50;
+}

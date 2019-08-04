@@ -11,10 +11,10 @@
 		</header>
 		<div class="main-content-binder">
 			<aside>
-				<div class="side-menu-sel"> Programming News </div>
-				<div class="side-menu-sel"> Scientific News </div>
-				<div class="side-menu-sel"> Weather News </div>
-				<div class="side-menu-sel"> Economy News </div>
+				<div class="side-menu-sel"> <router-link to="/news/programming">  Programming News </router-link> </div>
+				<div class="side-menu-sel"> <router-link to="/news/science">  Scientific News </router-link> </div>
+				<div class="side-menu-sel"> <router-link to="/news/weather">  Weather News </router-link> </div>
+				<div class="side-menu-sel"> <router-link to="/news/economy">  Economy News </router-link> </div>
 			</aside>
 			<main><router-view/></main>
 		</div>
