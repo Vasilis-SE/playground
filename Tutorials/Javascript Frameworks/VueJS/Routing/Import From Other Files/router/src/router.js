@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import About from './views/About.vue'
+import Contact from './views/Contact.vue'
 import News from './views/News.vue'
 import ProgrammingNews from './views/Programming.News.vue'
 import ScienceNews from './views/Science.News.vue'
@@ -15,6 +17,16 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
     },
     {
       path: '/news',
