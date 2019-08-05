@@ -1,0 +1,13 @@
+.content-title {
+    color: #0382c0;
+    border-bottom: 3px solid #0382c0;
+    padding: 0px 70px 0px 0px;
+}
+.content-section {
+    background: #039be5;
+    font-size: 18px;
+    color: #EEE;
+    padding: 15px;
+    border-radius: 3px;
+    margin: 5px 0px;
+}
