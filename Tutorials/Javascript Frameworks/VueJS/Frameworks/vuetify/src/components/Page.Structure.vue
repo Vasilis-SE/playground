@@ -50,6 +50,10 @@
         		{ 
         			title: "Alerts",
         			path: "/alerts" 
+        		},
+        		{ 
+        			title: "Badges",
+        			path: "/badges" 
         		}
         	]
         },
