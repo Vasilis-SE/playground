@@ -15,8 +15,10 @@
 		    	  	  	<v-list-item-title> {{item.label}} </v-list-item-title>
 		    	  	</template>	
 		    	  	<v-list-item v-if="item.childs.length > 0" v-for="subpage in item.childs"> 
-		    	  		<v-list-item-icon> <v-icon>mdi-arrow-right-thick</v-icon> </v-list-item-icon>
-		    	  	  	<v-list-item-title> {{subpage.title}} </v-list-item-title>
+		    	  		<router-link v-bind:to="subpage.path" class="sidemenu-page-selection">
+		    	  			<v-list-item-icon> <v-icon>mdi-arrow-right-thick</v-icon> </v-list-item-icon>
+		    	  	  		<v-list-item-title> {{subpage.title}} </v-list-item-title>
+		    	  	  	</router-link>
 		    	  	</v-list-item>
 		    	</v-list-group>
 			</v-list>
@@ -47,7 +49,7 @@
         	childs: [
         		{ 
         			title: "Alerts",
-        			path: "" 
+        			path: "/alerts" 
         		}
         	]
         },
@@ -57,7 +59,7 @@
         	childs: [
         		{ 
         			title: "Transitions",
-        			path: "" 
+        			path: "/transitions" 
         		}
         	]
         }
