@@ -6,6 +6,7 @@ import Transitions from './views/Transitions.vue'
 import Badges from './views/Badges.vue'
 import Bars from './views/Bars.vue'
 import BottomSheets from './views/Bottom.Sheets.vue'
+import Buttons from './views/Buttons.vue'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
 	 	  	path: '/bottomsheets',
 	 	  	name: 'bottomsheets',
 	 	  	component: BottomSheets
+	 	},
+	 	{
+	 	  	path: '/buttons',
+	 	  	name: 'buttons',
+	 	  	component: Buttons
 	 	}
 	]
 })

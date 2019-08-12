@@ -62,6 +62,10 @@
         		{ 
         			title: "Bottom Sheets",
         			path: "/bottomsheets" 
+        		},
+        		{ 
+        			title: "Buttons",
+        			path: "/buttons" 
         		}
         	]
         },
