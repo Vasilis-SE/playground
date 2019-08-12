@@ -20,3 +20,8 @@
 .flex.column {
     padding: 0px 3px;
 }
+.content-discription {
+    color: #989898;
+    font-size: 15px;
+    font-style: italic;
+}

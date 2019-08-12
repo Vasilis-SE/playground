@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Alerts from './views/Alerts.vue'
 import Transitions from './views/Transitions.vue'
 import Badges from './views/Badges.vue'
+import Bars from './views/Bars.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
 	 	  	path: '/badges',
 	 	  	name: 'badges',
 	 	  	component: Badges
+	 	},
+	 	{
+	 	  	path: '/bars',
+	 	  	name: 'bars',
+	 	  	component: Bars
 	 	}
 	]
 })
