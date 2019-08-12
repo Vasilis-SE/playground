@@ -58,6 +58,10 @@
         		{ 
         			title: "Bars",
         			path: "/bars" 
+        		},
+        		{ 
+        			title: "Bottom Sheets",
+        			path: "/bottomsheets" 
         		}
         	]
         },

@@ -74,7 +74,7 @@
 
 			<v-layout wrap row>
 				<v-flex xs12> <div class="content-title display-1" > Tool Bars </div> </v-flex>
-				<v-flex xs12> <div class="content-discription" > It has the same attributes like the menu bar... </div> </v-flex>
+				<v-flex xs12> <div class="content-description" > It has the same attributes like the menu bar... </div> </v-flex>
 			</v-layout>
 			<br>
 			<v-layout row wrap>
@@ -125,7 +125,7 @@
 
 			<v-layout wrap row>
 				<v-flex xs12> <div class="content-title display-1" > System Bars </div> </v-flex>
-				<v-flex xs12> <div class="content-discription" > Used to display a status to the user </div> </v-flex>
+				<v-flex xs12> <div class="content-description" > Used to display a status to the user </div> </v-flex>
 			</v-layout>
 			<br>
 			<v-layout row wrap>
