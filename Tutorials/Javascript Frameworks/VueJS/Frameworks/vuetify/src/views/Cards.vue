@@ -92,6 +92,25 @@
 				</v-flex>
 			</v-layout>
 
+			<br/>
+
+			<v-layout row wrap>
+				<v-flex xs12 column>
+					<h4> Horizontal Card </h4>
+					<v-card dark color="#1F7087">
+			        	<v-list-item three-line>
+			                <v-list-item-content class="align-self-start">
+			                  	<v-list-item-title class="headline mb-2"> Title </v-list-item-title>
+			                  	<v-list-item-subtitle> This is a discription text... </v-list-item-subtitle>
+			                </v-list-item-content>
+			  
+			                <v-list-item-avatar size="125" tile>
+			                  	<v-img src="../assets/background1.jpg"></v-img>
+			                </v-list-item-avatar>
+			            </v-list-item>
+					</v-card>
+				</v-flex>
+			</v-layout>
 
 		</v-container>
 	</div>
