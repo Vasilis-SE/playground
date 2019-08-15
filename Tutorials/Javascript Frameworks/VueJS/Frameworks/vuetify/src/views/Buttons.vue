@@ -68,6 +68,19 @@
 			<v-layout row wrap>
 				<v-flex md12> <v-btn text loading> </v-btn> </v-flex>
 			</v-layout>
+
+
+			<br>
+			<h4> Floating </h4>
+			<v-layout row wrap>
+				<v-flex md12>
+		        	<v-card-text style="height: 100px; position: relative">
+	              		<v-btn absolute dark fab top right color="pink">
+                			<v-icon>mdi-shopify</v-icon>
+              			</v-btn>
+            		</v-card-text>
+				</v-flex>
+			</v-layout>
 		
 		</v-container>
 	</div>
