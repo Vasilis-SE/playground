@@ -74,6 +74,10 @@
         		{ 
         			title: "Calendars",
         			path: "/calendars" 
+        		},
+        		{ 
+        			title: "Cards",
+        			path: "/cards" 
         		}
         	]
         },
