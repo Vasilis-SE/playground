@@ -70,6 +70,10 @@
         		{ 
         			title: "Breadcrumbs",
         			path: "/breadcrumbs" 
+        		},
+        		{ 
+        			title: "Calendars",
+        			path: "/calendars" 
         		}
         	]
         },

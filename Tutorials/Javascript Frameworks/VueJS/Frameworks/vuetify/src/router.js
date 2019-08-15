@@ -8,6 +8,7 @@ import Bars from './views/Bars.vue'
 import BottomSheets from './views/Bottom.Sheets.vue'
 import Buttons from './views/Buttons.vue'
 import Breadcrumbs from './views/Breadcrumbs.vue'
+import Calendars from './views/Calendars.vue'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
 	 	  	path: '/breadcrumbs',
 	 	  	name: 'breadcrumbs',
 	 	  	component: Breadcrumbs
+	 	},
+	 	{
+	 	  	path: '/calendars',
+	 	  	name: 'calendars',
+	 	  	component: Calendars
 	 	}
 	]
 })
