@@ -7,6 +7,7 @@ import Badges from './views/Badges.vue'
 import Bars from './views/Bars.vue'
 import BottomSheets from './views/Bottom.Sheets.vue'
 import Buttons from './views/Buttons.vue'
+import Breadcrumbs from './views/Breadcrumbs.vue'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
 	 	  	path: '/buttons',
 	 	  	name: 'buttons',
 	 	  	component: Buttons
+	 	},
+	 	{
+	 	  	path: '/breadcrumbs',
+	 	  	name: 'breadcrumbs',
+	 	  	component: Breadcrumbs
 	 	}
 	]
 })

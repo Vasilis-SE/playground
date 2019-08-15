@@ -66,6 +66,10 @@
         		{ 
         			title: "Buttons",
         			path: "/buttons" 
+        		},
+        		{ 
+        			title: "Breadcrumbs",
+        			path: "/breadcrumbs" 
         		}
         	]
         },
