@@ -86,6 +86,10 @@
         		{ 
         			title: "Chips",
         			path: "/chips" 
+        		},
+        		{ 
+        			title: "Dialogs",
+        			path: "/dialogs" 
         		}
         	]
         },

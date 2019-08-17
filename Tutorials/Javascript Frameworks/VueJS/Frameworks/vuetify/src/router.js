@@ -12,6 +12,7 @@ import Calendars from './views/Calendars.vue'
 import Cards from './views/Cards.vue'
 import Carousel from './views/Carousel.vue'
 import Chips from './views/Chips.vue'
+import Dialogs from './views/Dialogs.vue'
 
 Vue.use(Router)
 
@@ -76,6 +77,11 @@ export default new Router({
 	 	  	path: '/chips',
 	 	  	name: 'chips',
 	 	  	component: Chips
+	 	},
+	 	{
+	 	  	path: '/dialogs',
+	 	  	name: 'dialogs',
+	 	  	component: Dialogs
 	 	}
 	]
 })
