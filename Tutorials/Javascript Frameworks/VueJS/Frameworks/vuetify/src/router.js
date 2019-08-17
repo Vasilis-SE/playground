@@ -13,6 +13,7 @@ import Cards from './views/Cards.vue'
 import Carousel from './views/Carousel.vue'
 import Chips from './views/Chips.vue'
 import Dialogs from './views/Dialogs.vue'
+import Parallax from './views/Parallax.vue'
 
 Vue.use(Router)
 
@@ -82,6 +83,11 @@ export default new Router({
 	 	  	path: '/dialogs',
 	 	  	name: 'dialogs',
 	 	  	component: Dialogs
+	 	},
+	 	{
+	 	  	path: '/parallax',
+	 	  	name: 'parallax',
+	 	  	component: Parallax
 	 	}
 	]
 })

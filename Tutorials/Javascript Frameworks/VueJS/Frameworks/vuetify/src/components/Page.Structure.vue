@@ -90,6 +90,10 @@
         		{ 
         			title: "Dialogs",
         			path: "/dialogs" 
+        		},
+        		{ 
+        			title: "Parallax",
+        			path: "/parallax" 
         		}
         	]
         },
