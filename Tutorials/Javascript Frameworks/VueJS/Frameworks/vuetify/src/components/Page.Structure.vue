@@ -82,6 +82,10 @@
         		{ 
         			title: "Carousel",
         			path: "/carousel" 
+        		},
+        		{ 
+        			title: "Chips",
+        			path: "/chips" 
         		}
         	]
         },

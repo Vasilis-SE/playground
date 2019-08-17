@@ -11,6 +11,7 @@ import Breadcrumbs from './views/Breadcrumbs.vue'
 import Calendars from './views/Calendars.vue'
 import Cards from './views/Cards.vue'
 import Carousel from './views/Carousel.vue'
+import Chips from './views/Chips.vue'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
 	 	  	path: '/carousel',
 	 	  	name: 'carousel',
 	 	  	component: Carousel
+	 	},
+	 	{
+	 	  	path: '/chips',
+	 	  	name: 'chips',
+	 	  	component: Chips
 	 	}
 	]
 })
