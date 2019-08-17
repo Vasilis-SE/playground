@@ -10,6 +10,7 @@ import Buttons from './views/Buttons.vue'
 import Breadcrumbs from './views/Breadcrumbs.vue'
 import Calendars from './views/Calendars.vue'
 import Cards from './views/Cards.vue'
+import Carousel from './views/Carousel.vue'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
 	 	  	path: '/cards',
 	 	  	name: 'cards',
 	 	  	component: Cards
+	 	},
+	 	{
+	 	  	path: '/carousel',
+	 	  	name: 'carousel',
+	 	  	component: Carousel
 	 	}
 	]
 })

@@ -78,6 +78,10 @@
         		{ 
         			title: "Cards",
         			path: "/cards" 
+        		},
+        		{ 
+        			title: "Carousel",
+        			path: "/carousel" 
         		}
         	]
         },
