@@ -47,64 +47,26 @@
         	label: "UI Components",
         	icon: "mdi-cogs",
         	childs: [
-        		{ 
-        			title: "Alerts",
-        			path: "/alerts" 
-        		},
-        		{ 
-        			title: "Badges",
-        			path: "/badges" 
-        		},
-        		{ 
-        			title: "Bars",
-        			path: "/bars" 
-        		},
-        		{ 
-        			title: "Bottom Sheets",
-        			path: "/bottomsheets" 
-        		},
-        		{ 
-        			title: "Buttons",
-        			path: "/buttons" 
-        		},
-        		{ 
-        			title: "Breadcrumbs",
-        			path: "/breadcrumbs" 
-        		},
-        		{ 
-        			title: "Calendars",
-        			path: "/calendars" 
-        		},
-        		{ 
-        			title: "Cards",
-        			path: "/cards" 
-        		},
-        		{ 
-        			title: "Carousel",
-        			path: "/carousel" 
-        		},
-        		{ 
-        			title: "Chips",
-        			path: "/chips" 
-        		},
-        		{ 
-        			title: "Dialogs",
-        			path: "/dialogs" 
-        		},
-        		{ 
-        			title: "Parallax",
-        			path: "/parallax" 
-        		}
+        		{  title: "Alerts", path: "/alerts" },
+        		{  title: "Badges", path: "/badges" },
+        		{  title: "Bars", path: "/bars" },
+        		{  title: "Bottom Sheets", path: "/bottomsheets" },
+        		{  title: "Buttons", path: "/buttons" },
+        		{  title: "Breadcrumbs", path: "/breadcrumbs" },
+        		{  title: "Calendars", path: "/calendars" },
+        		{  title: "Cards", path: "/cards" },
+        		{  title: "Carousel", path: "/carousel" },
+        		{  title: "Chips", path: "/chips" },
+        		{  title: "Dialogs", path: "/dialogs" },
+        		{  title: "Parallax", path: "/parallax" },
+        		{  title: "Pagination", path: "/pagination" }
         	]
         },
         "animations": {
         	label: "Animations",
         	icon: "mdi-animation-outline",
         	childs: [
-        		{ 
-        			title: "Transitions",
-        			path: "/transitions" 
-        		}
+        		{  title: "Transitions", path: "/transitions" }
         	]
         }
 

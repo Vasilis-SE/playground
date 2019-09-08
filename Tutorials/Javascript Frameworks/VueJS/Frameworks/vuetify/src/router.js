@@ -14,80 +14,26 @@ import Carousel from './views/Carousel.vue'
 import Chips from './views/Chips.vue'
 import Dialogs from './views/Dialogs.vue'
 import Parallax from './views/Parallax.vue'
+import Pagination from './views/Pagination.vue'
 
 Vue.use(Router)
 
 export default new Router({
 	routes: [
-	 	{
-	 	  	path: '/',
-	 	  	name: 'home',
-	 	  	component: Home
-	 	},
-	 	{
-	 	  	path: '/alerts',
-	 	  	name: 'alerts',
-	 	  	component: Alerts
-	 	},
-	 	{
-	 	  	path: '/transitions',
-	 	  	name: 'transitions',
-	 	  	component: Transitions
-	 	},
-	 	{
-	 	  	path: '/badges',
-	 	  	name: 'badges',
-	 	  	component: Badges
-	 	},
-	 	{
-	 	  	path: '/bars',
-	 	  	name: 'bars',
-	 	  	component: Bars
-	 	},
-	 	{
-	 	  	path: '/bottomsheets',
-	 	  	name: 'bottomsheets',
-	 	  	component: BottomSheets
-	 	},
-	 	{
-	 	  	path: '/buttons',
-	 	  	name: 'buttons',
-	 	  	component: Buttons
-	 	},
-	 	{
-	 	  	path: '/breadcrumbs',
-	 	  	name: 'breadcrumbs',
-	 	  	component: Breadcrumbs
-	 	},
-	 	{
-	 	  	path: '/calendars',
-	 	  	name: 'calendars',
-	 	  	component: Calendars
-	 	},
-	 	{
-	 	  	path: '/cards',
-	 	  	name: 'cards',
-	 	  	component: Cards
-	 	},
-	 	{
-	 	  	path: '/carousel',
-	 	  	name: 'carousel',
-	 	  	component: Carousel
-	 	},
-	 	{
-	 	  	path: '/chips',
-	 	  	name: 'chips',
-	 	  	component: Chips
-	 	},
-	 	{
-	 	  	path: '/dialogs',
-	 	  	name: 'dialogs',
-	 	  	component: Dialogs
-	 	},
-	 	{
-	 	  	path: '/parallax',
-	 	  	name: 'parallax',
-	 	  	component: Parallax
-	 	}
+	 	{ path: '/', name: 'home', component: Home },
+	 	{ path: '/alerts', name: 'alerts', component: Alerts },
+	 	{ path: '/transitions', name: 'transitions', component: Transitions },
+	 	{ path: '/badges', name: 'badges', component: Badges },
+	 	{ path: '/bars', name: 'bars', component: Bars },
+	 	{ path: '/bottomsheets', name: 'bottomsheets', component: BottomSheets },
+	 	{ path: '/buttons', name: 'buttons', component: Buttons },
+	 	{ path: '/breadcrumbs', name: 'breadcrumbs', component: Breadcrumbs },
+	 	{ path: '/calendars', name: 'calendars', component: Calendars },
+	 	{ path: '/cards', name: 'cards', component: Cards },
+	 	{ path: '/carousel', name: 'carousel', component: Carousel },
+	 	{ path: '/chips', name: 'chips', component: Chips },
+	 	{ path: '/dialogs', name: 'dialogs', component: Dialogs },
+	 	{ path: '/parallax', name: 'parallax', component: Parallax },
+	 	{ path: '/pagination', name: 'pagination', component: Pagination }
 	]
 })
