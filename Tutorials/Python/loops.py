@@ -21,3 +21,21 @@ print("---------------");
 
 for name in names:
     print("Name: ", name);
+
+userObj = {
+	"fname": "jonathan",
+	"lname": "mayers",
+	"age": 54
+};
+
+print("Object keys: ");
+for userobjkey in userObj.keys() :
+	print("\t > ", userobjkey);
+
+print("Object values: ");
+for userobjvalues in userObj.values() :
+	print("\t > ", userobjvalues);
+
+print("Object data: ");
+for userobjkey, userobjvalue in userObj.items() :
+	print("\t > ", userobjkey, " - ", userobjvalue);

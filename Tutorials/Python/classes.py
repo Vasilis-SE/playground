@@ -1,7 +1,32 @@
-class Games:
-    def __init__(self, name, console):
+class Ratings:
+    def __init__(self, rating):
+        self.rating = rating;
+
+    def __del__(self):
+        self.rating = 0;
+
+    def SetGameRatting(self):
+        loopFlag = True;
+        
+        while (loopFlag == True):
+            gameRating = int(input("Enter the game's rating: "));
+            if gameRating is not None:
+                if gameRating <= 10:
+                    loopFlag = False;
+                else:
+                    print("You need to enter rating between 0 and 10!");
+                
+        self.rating = gameRating;
+
+    def GetRatingOfGame(self):
+        return self.rating;
+
+    
+class Games (Ratings):
+    def __init__(self, name, console, rating):
         self.name = name;
         self.console = console;
+        self.rating = rating;
 
     def __del__(self):
         self.name = "";
@@ -42,16 +67,15 @@ class Games:
         elif self.console == 3: return "XBox";
         elif self.console == 4: return "PSP";
         elif self.console == 5: return "Wii";
-
-
+ 
 gamesDB = [];
-game = Games("Gothic 1", 1);
+game = Games("Gothic 1", 1, 10);
 gamesDB.append(game);
-game = Games("Deus X", 1);
+game = Games("Deus X", 1, 3);
 gamesDB.append(game);
-game = Games("Guild Wars Factions", 1);
+game = Games("Guild Wars Factions", 1, 10);
 gamesDB.append(game);
-game = Games("Ty the Tasmanian Tiger", 1);
+game = Games("Ty the Tasmanian Tiger", 1, 7);
 gamesDB.append(game);
 
 
@@ -69,9 +93,10 @@ while(loopBreak == False):
 
     action = int(input(""));
     if action == 1:
-        game = Games("", "");
+        game = Games("", "", 0);
         game.SetGameName("");
         game.SetGameConsole("");
+        game.SetGameRatting();
         gamesDB.append(game);
     elif action == 2:
         if len(gamesDB) > 0:
@@ -105,11 +130,18 @@ while(loopBreak == False):
             print("There are no stored games in order to delete one...");
     elif action == 3:
         for game in gamesDB:
+
+            starDisp = "";
+            rating = game.GetRatingOfGame();
+            for star in range(rating):
+                starDisp += "*"
+
             print("Game Info: ");
             print("\t Name: ", game.GetGameName());
             print("\t Console: ", game.GetGameConsole(game.console));
+            print("\t Rating: ", starDisp, "(",rating,")")
             print("-----------------------");
     elif action == 4:
         loopBreak = True;
-    
+     
 
