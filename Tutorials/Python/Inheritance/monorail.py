@@ -44,8 +44,12 @@ class Monorail (Transportation_Means, Rapid_Transit):
     def GetWagonsNumber(self):
         return self.__wagonsNum
 
-    def SetWagonsNumber(self, num):
-        self.__wagonsNum = num
+    def SetWagonsNumber(self, num=0):
+        try:
+            self.__wagonsNum = int(num)
+            return True
+        except ValueError:
+            return False
 
     def GetMonorailColors(self):
         return self.__colors
