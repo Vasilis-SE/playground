@@ -8,10 +8,8 @@
 # 8. suburban and commuter rail systems
 # 9. funicular railways
 
-from transportation_means import Transportation_Means
-
-class Rapid_Transit (Transportation_Means):
-    __system = None
+class Rapid_Transit:
+    __system = 0
     __linesNum = 0
     __network = 0
 
@@ -19,6 +17,35 @@ class Rapid_Transit (Transportation_Means):
         self.__system = 0
         self.__linesNum = 0
         self.__network = 0
+
+    def DisplaySystem(self, sysnum):
+        transitSystem = {
+            1: "Tram & Light Rail Transit",
+            2: "Tramway",
+            3: "Rail Transport",
+            4: "Premetro",
+            5: "Metro",
+            6: "Subway Automated Urban Metro",
+            7: "Monorail",
+            8: "Suburban & Commuter Rail",
+            9: "Funicular Railway"
+        }
+        return transitSystem.get(sysnum, "No rapid transit system registered!")
+
+    def DisplayRapidTransitNetworkTopology(self, network):
+        networkTopology = {
+            1: "Line",
+            2: "Cross",
+            3: "X-Shaped",
+            4: "Two Crossing Paths",
+            5: "Secant",
+            6: "Radial",
+            7: "Circle",
+            8: "Circle Radial",
+            9: "Complex Grid"
+        }
+        return networkTopology.get(network, "No network topology registered!")
+
 
     def GetRapidTransitSystem(self):
         return self.__system
