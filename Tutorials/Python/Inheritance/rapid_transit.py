@@ -18,6 +18,11 @@ class Rapid_Transit:
         self.__linesNum = 0
         self.__network = 0
 
+    def __init__(self, sys=0, num=0, net=0):
+        self.__system = sys
+        self.__linesNum = num
+        self.__network = net
+
     def DisplaySystem(self, sysnum):
         transitSystem = {
             1: "Tram & Light Rail Transit",

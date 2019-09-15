@@ -4,6 +4,9 @@ class Transportation_Means:
     def __init__(self):
         self.__mode = 0
 
+    def __init__(self, mode):
+        self.__mode = mode
+
     def DisplayTransportationMeansMode(self, mode):
         transMeans = {
             1: "Air",

@@ -23,10 +23,8 @@ class Monorail (Transportation_Means, Rapid_Transit):
 
     # Constructor for setting monorail, rapid transit & transportation mean data
     def __init__(self, wagons=0, colors=(), country="", city="", sys=0, lines=0, net=0, mode=0):
-        self.SetTransportationMeansMode(mode)
-        self.SetRapidTransitSystem(sys)
-        self.SetRapidTransitNumberOfLines(lines)
-        self.SetRapidTransitNetworkTopologies(net)
+        Transportation_Means.__init__(self, mode)
+        Rapid_Transit.__init__(self, sys, lines, net)
         self.__wagonsNum = wagons
         self.__colors = colors
         self.__country = country
