@@ -1,0 +1,15 @@
+{
+  "fname": "Travis",
+  "lname": "Jowes",
+  "age": 45,
+  "balance": 323.66,
+  "isActive": true,
+  "collection": [
+    12,
+    432,
+    76,
+    3,
+    82,
+    64
+  ]
+}
