@@ -1,19 +1,31 @@
-# 1. tram and light rail transit systems
-# 2. tramway systems
-# 3. rail transport system
-# 4. premetro systems
-# 5. metro systems
-# 6. automated urban metro subway systems
-# 7. monorail systems
-# 8. suburban and commuter rail systems
-# 9. funicular railways
-
 class Rapid_Transit:
     __system = 0
     __linesNum = 0
     __network = 0
     __country = ""
     __city = ""
+    __transitSystems = {
+        1: "Tram & Light Rail Transit",
+        2: "Tramway",
+        3: "Rail Transport",
+        4: "Premetro",
+        5: "Metro",
+        6: "Subway Automated Urban Metro",
+        7: "Monorail",
+        8: "Suburban & Commuter Rail",
+        9: "Funicular Railway"
+    }
+    __networkTopologies = {
+        1: "Line",
+        2: "Cross",
+        3: "X-Shaped",
+        4: "Two Crossing Paths",
+        5: "Secant",
+        6: "Radial",
+        7: "Circle",
+        8: "Circle Radial",
+        9: "Complex Grid"
+    }
 
     def __init__(self):
         self.__system = 0
@@ -30,33 +42,10 @@ class Rapid_Transit:
         self.__city = city
 
     def DisplaySystem(self, sysnum):
-        transitSystem = {
-            1: "Tram & Light Rail Transit",
-            2: "Tramway",
-            3: "Rail Transport",
-            4: "Premetro",
-            5: "Metro",
-            6: "Subway Automated Urban Metro",
-            7: "Monorail",
-            8: "Suburban & Commuter Rail",
-            9: "Funicular Railway"
-        }
-        return transitSystem.get(sysnum, "No rapid transit system registered!")
+        return self.__transitSystems.get(sysnum, "No rapid transit system registered!")
 
     def DisplayRapidTransitNetworkTopology(self, network):
-        networkTopology = {
-            1: "Line",
-            2: "Cross",
-            3: "X-Shaped",
-            4: "Two Crossing Paths",
-            5: "Secant",
-            6: "Radial",
-            7: "Circle",
-            8: "Circle Radial",
-            9: "Complex Grid"
-        }
-        return networkTopology.get(network, "No network topology registered!")
-
+        return self.__networkTopologies.get(network, "No network topology registered!")
 
     def GetRapidTransitSystem(self):
         return self.__system

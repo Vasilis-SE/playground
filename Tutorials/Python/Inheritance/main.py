@@ -1,4 +1,7 @@
 from monorail import Monorail
 
-monorail = Monorail(5, ("Black", "Silver"), "USA", "New York", 7, 1, 4, 2)
+monorail = Monorail("Mumbai Monorail", 5, ("Silver", "Blue"), "India", "Mumbai", 7, 1, 4, 2, 80.0, 65)
 monorail.DisplayMonorailInformation()
+
+
+monorail.CalculateMonorailTimeByDistanceAndSpeed()
