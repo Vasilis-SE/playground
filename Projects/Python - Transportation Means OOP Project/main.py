@@ -1,4 +1,44 @@
+import json
 from monorail import Monorail
+
+def FetchTransportationModesSystemsData():
+    handler = open("./Database/Transportation.Means.Database.json", "r")
+    content = handler.read()
+    content = json.loads(content)
+    return content
+
+def InitializeModeSystemData():
+    modeSysDictionary = None
+
+    for mode in content:
+        modeID = mode.id
+        modeName = mode.name
+
+        for system in mode.systems:
+            systemID = system.id
+            systemName = system.name
+
+            modeSysDictionary = {}
+
+
+def InitializeTransportationMeansData(content):
+    meansList = None
+
+    for mode in content:
+        modeID = mode.id
+        modeName = mode.name
+
+        for system in mode.systems:
+            systemID = system.id
+            systemName = system.name
+
+            for mean in system.means:
+                if systemID == 1:
+                    object = Monorail(modeName, mean.wagons_number, mean.colors, mean.country, mean.city, systemID, mean.lines_number, mean.network_type, modeID, mean.top_speed, mean.average_speed)
+
+                meansList.append(object)
+
+    return meansList
 
 def DisplayMenu():
     menuFlag = True
@@ -16,63 +56,18 @@ def DisplayMenu():
         if selection == 1 or selection == 2 or selection == 3 or selection == 4 or selection == 5:
             menuFlag = False
 
-    if selection == 1:
-        # asdadsd
-    elif selection == 2:
-        # asdsadsa
-    elif selection == 3:
-        # asd sa
-    elif selection == 4:
-        # asd asdad
-    elif selection == 5:
+
+    #elif selection == 3:
+    #    # asd sa
+    #elif selection == 4:
+    #    # asd asdad
+    #elif selection == 5:
         # asd asdad
 
-def RegisterTransportationMeans:
+dbContent = FetchTransportationModesSystemsData()
+meansList = InitializeTransportationMeansData(dbContent)
 
-
-
-
-
-
-
-
-
-
-def TransportationMeansSelector():
-    handler = open("./Database/Transportation.Means.Database.json")
-
-def DisplayRegisteredMeans():
-    menuFlag = True
-    while menuFlag:
-        print("============ Transportation Means Categories ============")
-        print("Select the means category: ")
-        print("\t 1. Rapid Transit")
-        print("\t 2. Rail Ways")
-        print("\t 3. Water Ways")
-        print("\t 4. Air Ways")
-        print("=========================================================")
-
-        selection = int(input())
-        if selection == 1 or selection == 2 or selection == 3 or selection == 4:
-            menuFlag = False
-
-    if selection == 1:
-        # TODO: Rapid Transit
-    elif selection == 2:
-        # TODO: Rail Ways
-    elif selection == 3:
-        # TODO: Water Ways
-    elif selection == 4:
-        # TODO: Air Ways
-
-
-
-
-
-def RegisterNewTransportationMeans():
-
-
-DisplayMenu()
+# DisplayMenu()
 
 
 # handler = open("./Database/")
