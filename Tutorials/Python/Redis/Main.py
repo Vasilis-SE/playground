@@ -1,7 +1,6 @@
 import redis
 import string
 import random
-import json
 
 r = redis.Redis('localhost')
 
