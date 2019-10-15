@@ -2,4 +2,4 @@ import transportation_means
 
 transMeansObj = transportation_means.TransportationMean()
 
-modelCol = transMeansObj.AddNewModeIntoDatabase()
+modelCol = transMeansObj.DisplayModesMenu()

@@ -1,28 +1,41 @@
 from database_conf import ConnectToModesCollection
 
 class TransportationMean:
-    __mode = 0
+    __modeID = ""
+    __modeName = ""
 
-    def RetrieveAvailableModes(self, filterObj):
+    def __init__(self):
+        self.__modeID = ""
+        self.__modeName = ""
+
+    def __init__(self, mid, mn):
+        self.__modeID = mid
+        self.__modeName = mn
+
+    def RetrieveAvailableModes(self, filterObj={}):
         modesList = []
         modeCol = ConnectToModesCollection()
         documents = modeCol.find(filterObj)
 
         for mode in documents:
-            modesList[mode._id] = {"ID": mode._id, "NAME": mode.name}
+            modesList.append({"ID": mode["_id"], "NAME": mode["name"]})
 
         return modesList
 
-    def AddNewModeIntoDatabase(self):
+    def AddNewModeIntoDatabase(self, modeName):
+        modeCol = ConnectToModesCollection()
+        modeCol.insert_one({"name": modeName})
+        return True
+
+    def NewModeForm(self):
         loopMenu = True
         while loopMenu:
             modeName = input("Type the name of the mode here, type exit to cancel process: ")
             modesList = self.RetrieveAvailableModes({"name": modeName})
 
             if len(modesList) == 0:
-                if modeName != "":
-                    modeCol = ConnectToModesCollection()
-                    modeCol.insert_one({"name": modeName})
+                if modeName != "" and modeName != "exit":
+                    self.SetTransportationMeansModeName(modeName)
                     loopMenu = False
                 elif modeName == "exit":
                     return False
@@ -33,18 +46,33 @@ class TransportationMean:
         return True
 
     def DisplayModesMenu(self):
+        loopMenu = True
+        selModeObj = {}
         modesList = self.RetrieveAvailableModes()
 
-        print("---------------------------")
-        count = 1
-        for modeKey in modesList:
-            print("\t " + count + ". " + modesList[modeKey].NAME + "["+modesList[modeKey].ID+"]")
-            count += 1
-        print("---------------------------")
+        while loopMenu:
+            print("Select one of the following modes: ")
+            count = 1
+            for mode in modesList:
+                print("\t " + str(count) + ". " + mode["NAME"])
+                count += 1
+            selection = int(input())
+
+            if 0 < selection <= len(modesList):
+                selModeObj = modesList[selection - 1]
+                loopMenu = False
+
+        return selModeObj
 
     # -------- Getters / Setters -----------
     def GetTransportationMeansMode(self):
-        return self.__mode
+        return self.__modeID
 
     def SetTransportationMeansMode(self, m):
-        self.__mode = m
+        self.__modeID = m
+
+    def GetTransportationMeansModeName(self):
+        return  self.__modeName
+
+    def SetTransportationMeansModeName(self, n):
+        self.__modeName = n
