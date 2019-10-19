@@ -1,5 +1,5 @@
-import transportation_means
+import transportation_modes
 
-transMeansObj = transportation_means.TransportationMean()
+transMeansObj = transportation_modes.Mode()
 
 modelCol = transMeansObj.DisplayModesMenu()
