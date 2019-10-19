@@ -1,23 +1,21 @@
 from transportation_modes import Mode
 from database_conf import ConnectToMeansCollection
 
-
 class Means(Mode):
-    __modeID = ""
     __meansID = ""
     __meansName = ""
     __forPassengers = 0
     __forFreights = 0
 
     def __init__(self):
-        self.__modeID = ""
+        Mode.__init__("", "")
         self.__meansID = ""
         self.__meansName = ""
         self.__forPassengers = 0
         self.__forFreights = 0
 
-    def __init__(self, mid, meid, mnm, fpas, ffre):
-        self.__modeID = mid
+    def __init__(self, mid, mname, meid, mnm, fpas, ffre):
+        Mode.__init__(mid, mname)
         self.__meansID = meid
         self.__meansName = mnm
         self.__forPassengers = fpas
