@@ -1,14 +1,11 @@
 from database_conf import ConnectToModesCollection
+from pymongo import errors
 
 class Mode:
     __modeID = ""
     __modeName = ""
 
-    def __init__(self):
-        self.__modeID = ""
-        self.__modeName = ""
-
-    def __init__(self, mid, mn):
+    def __init__(self, mid="", mn=""):
         self.__modeID = mid
         self.__modeName = mn
 
@@ -22,9 +19,9 @@ class Mode:
 
         return modesList
 
-    def AddNewModeIntoDatabase(self, modeName):
+    def AddNewModeIntoDatabase(self):
         modeCol = ConnectToModesCollection()
-        modeCol.insert_one({"name": modeName})
+        modeCol.insert_one({"name": self.__modeName})
         return True
 
     def NewModeForm(self):
@@ -63,6 +60,17 @@ class Mode:
                 loopMenu = False
 
         return selModeObj
+
+    def DeleteModeFromDatabase(self, filterObj={}):
+        modeCol = ConnectToModesCollection()
+
+        try:
+            modeCol.delete_one(filterObj)
+        except:
+            return False
+
+        return True
+
 
     # -------- Getters / Setters -----------
     def GetTransportationMeansMode(self):

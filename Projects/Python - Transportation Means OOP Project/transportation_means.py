@@ -7,15 +7,9 @@ class Means(Mode):
     __forPassengers = 0
     __forFreights = 0
 
-    def __init__(self):
-        Mode.__init__("", "")
-        self.__meansID = ""
-        self.__meansName = ""
-        self.__forPassengers = 0
-        self.__forFreights = 0
-
-    def __init__(self, mid, mname, meid, mnm, fpas, ffre):
-        Mode.__init__(mid, mname)
+    def __init__(self, mid="", mname="", meid="", mnm="", fpas=0, ffre=0):
+        self.__modeID = mid
+        self.__modeName = mname
         self.__meansID = meid
         self.__meansName = mnm
         self.__forPassengers = fpas
@@ -41,24 +35,28 @@ class Means(Mode):
             modeObject = self.DisplayModesMenu()
 
             meansName = input("Type the name of the means category here, type exit to cancel process: ")
-            if meansName == "exit": return False
+            if meansName == "exit":
+                return False
 
             isForPassengers = input("Type yes/no if the means category is made for passenger transportation, "
                                     "type exit to cancel process: ")
-            if isForPassengers == "exit": return False
+            if isForPassengers == "exit":
+                return False
 
             isForFreights = input("Type yes/no if the means category is made for freight transportation, "
                                   "type exit to cancel process: ")
-            if isForFreights == "exit": return False
+            if isForFreights == "exit":
+                return False
 
             meansCheck = self.RetrieveAvailableMeans({"name": meansName})
 
             if len(meansCheck) == 0:
                 if meansName != "" and isForFreights != "" and isForPassengers != "" and len(modeObject) != 0:
-                    self.SetMeansParentModeID(modeObject[0]["ID"])
+                    self.SetMeansParentModeID(modeObject["ID"])
+                    self.SetMeansParentModeName(modeObject["NAME"])
                     self.SetMeansName(meansName)
-                    self.SetForPassengersFlag(isForPassengers.lower() == "yes" if 1 else 0)
-                    self.SetForPassengersFlag(isForFreights.lower() == "yes" if 1 else 0)
+                    self.SetForPassengersFlag(isForPassengers == "yes" if 1 else 0)
+                    self.SetForFreightsFlag(isForFreights == "yes" if 1 else 0)
                     loopMenu = False
                 else:
                     print("One or more fields of the form are empty!")
@@ -71,11 +69,23 @@ class Means(Mode):
         meansCol = ConnectToMeansCollection()
         meansCol.insert_one({
             "modeid": self.__modeID,
+            "modename": self.__modeName,
             "name": self.__meansName,
             "for_passengers": self.__forPassengers,
             "for_freights": self.__forFreights
         })
         return True
+
+    def DeleteTransportationMeans(self, filterObj={}):
+        meansCol = ConnectToMeansCollection()
+
+        try:
+            meansCol.delete_one(filterObj)
+        except:
+            return False
+
+        return True
+
 
     # ========== Getters / Setters =========
     def GetMeansParentModeID(self):
@@ -83,6 +93,12 @@ class Means(Mode):
 
     def SetMeansParentModeID(self, mid):
         self.__modeID = mid
+
+    def GetMeansParentModeName(self):
+        return self.__modeName
+
+    def SetMeansParentModeName(self, nm):
+        self.__modeName = nm
 
     def GetMeansID(self):
         return self.__meansID
