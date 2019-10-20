@@ -86,6 +86,23 @@ class Means(Mode):
 
         return True
 
+    def DisplayMeansMenu(self):
+        loopMenu = True
+        selectedMeansObj = {}
+        availableMeans = self.RetrieveAvailableMeans()
+
+        while loopMenu:
+            print("Select one of the following: ")
+            count = 1
+            for mean in availableMeans:
+                print("\t " + str(count) + ". " + mean["NAME"])
+
+            selection = int(input())
+            if 0 < selection <= len(availableMeans):
+                selectedMeansObj = availableMeans[selection - 1]
+                loopMenu = False
+
+        return selectedMeansObj
 
     # ========== Getters / Setters =========
     def GetMeansParentModeID(self):

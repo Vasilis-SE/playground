@@ -37,7 +37,7 @@ def MenuSelectionProcess(selection):
     elif selection == 5:
         RegisterNewTrasportationMeans()
     elif selection == 6:
-        pass
+        DeleteTransportationMeans()
     else:
         return 0
 
@@ -97,10 +97,20 @@ def DisplayAvailableTransportationMeans():
     print("------------------")
     print("Available Means: ")
     for mean in availableMeans:
-        print("\t > " + mean["NAME"])
-        print("\t   " + mean["ID"])
-        print("\t   " + mean["IS_FORPASS"] == 1 if "Made for passengers" else "Not made for passengers")
-        print("\t   " + mean["IS_FORFREI"] == 1 if "Made for cargo" else "Not made for cargo")
+        if mean["IS_FORPASS"]:
+            passengersMsg = "Yes"
+        else:
+            passengersMsg = "No"
+
+        if mean["IS_FORFREI"]:
+            cargoMessage = "Yes"
+        else:
+            cargoMessage = "No"
+
+        print("\t > Means Name: " + mean["NAME"])
+        print("\t   Means ID: " + str(mean["ID"]))
+        print("\t   Is it for passengers?: " + passengersMsg)
+        print("\t   Is it for cargo?: " + cargoMessage)
     print("------------------")
     input("")
 
@@ -108,4 +118,22 @@ def RegisterNewTrasportationMeans():
     if transMeansObj.NewTransportationMeansForm():
         transMeansObj.AddNewTransportationMeans()
         print("The means was successfully registered!")
+    input("")
+
+def DeleteTransportationMeans():
+    loopConf = True
+    selectedMeansObj = transMeansObj.DisplayMeansMenu()
+
+    while loopConf:
+        confirmation = input("Do you really want to delete " + selectedMeansObj["NAME"] + " means from the database (yes/no) ? ")
+        if confirmation.lower() == "yes":
+            if transMeansObj.DeleteTransportationMeans({"_id": selectedMeansObj["ID"]}):
+                print("The means was successfully deleted!")
+            else:
+                print("There was an error while trying to delete the means!")
+            loopConf = False
+        elif confirmation.lower() == "no":
+            loopConf = False
+        else:
+            print("Wrong input given!")
     input("")
