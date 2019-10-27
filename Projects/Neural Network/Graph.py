@@ -1,4 +1,7 @@
-class Graph():
+class Graph:
+    operations = []
+    placeholders = []
+    variables = []
 
     def __init__(self):
         self.operations = []
@@ -6,4 +9,4 @@ class Graph():
         self.variables = []
 
     def set_as_default(self):
-        global _default_graph
+        return self
