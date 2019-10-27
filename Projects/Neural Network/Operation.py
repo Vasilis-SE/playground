@@ -1,14 +1,12 @@
-
 class Operation:
-    def __init__(self, inodes=[]):
-        global _default_graph
+    def __init__(self, inodes=[], defgraph=None):
         self.inodes = inodes
         self.onodes = []
 
         for node in inodes:
-            node.onode.append(self)
+            node.onodes.append(self)
 
-        _default_graph.operations(self)
+        defgraph.operations.append(self)
 
     def compute(self):
         pass
