@@ -4,21 +4,35 @@ from Variables import Variables
 from Placeholder import Placeholder
 from Multiplication import Multiplication
 from Addition import Addition
-
-_default_graph = None
-
-g = Graph()
-_default_graph = g.set_as_default()
-
+from MatrixMultiplication import MatrixMultiplication
 
 # Example : z = ax + b
-a = Variables(10, _default_graph)
-b = Variables(1, _default_graph)
-x = Placeholder(_default_graph)
+g = Graph()
+dGraph = g.set_as_default()
 
-y = Multiplication(a, x, _default_graph)
-z = Addition(y, b, _default_graph)
+a = Variables(10, dGraph)
+b = Variables(1, dGraph)
+x = Placeholder(dGraph)
+
+y = Multiplication(a, x, dGraph)
+z = Addition(y, b, dGraph)
 
 sess = Session()
 result = sess.run(z, {x:12})
+
+print("z = ax + b = 10*12 + 1 = ", result)
+
+
+# Matrix multiplication process
+g2 = Graph()
+dGraph2 = g2.set_as_default()
+
+a = Variables([[10,23], [23,1], [20,56]], dGraph2)
+b = Variables([1,2,], dGraph2)
+x = Placeholder(dGraph2)
+
+y = MatrixMultiplication(a, x, dGraph2)
+z = Addition(y, b, dGraph2)
+
+result = sess.run(z, {x:10})
 print(result)
