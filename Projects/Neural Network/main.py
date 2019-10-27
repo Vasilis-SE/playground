@@ -5,6 +5,9 @@ from Placeholder import Placeholder
 from Multiplication import Multiplication
 from Addition import Addition
 from MatrixMultiplication import MatrixMultiplication
+from Activation import Activation
+import numpy as np
+
 
 # Example : z = ax + b
 g = Graph()
@@ -28,7 +31,7 @@ g2 = Graph()
 dGraph2 = g2.set_as_default()
 
 a = Variables([[10,23], [23,1], [20,56]], dGraph2)
-b = Variables([1,2,], dGraph2)
+b = Variables([1,2], dGraph2)
 x = Placeholder(dGraph2)
 
 y = MatrixMultiplication(a, x, dGraph2)
@@ -36,3 +39,5 @@ z = Addition(y, b, dGraph2)
 
 result = sess.run(z, {x:10})
 print(result)
+
+# 
