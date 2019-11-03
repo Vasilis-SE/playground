@@ -26,7 +26,7 @@ class Session:
             elif type(node) == Variables:
                 node.output = node.value
             else:
-                node.inputs = [inode.output for inode in node.inodes]
+                node.inputs = [inode.output for inode in node.input_nodes]
                 node.output = node.compute(*node.inputs)
 
             if type(node.output) == list:

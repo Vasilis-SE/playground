@@ -16,12 +16,11 @@ labels = data[1]
 
 plt.scatter(features[:, 0], features[:, 1], c=labels, cmap='coolwarm')
 
-# Manual Separation of Classes.
 x = np.linspace(0, 11, 10)
 y = -x + 5
 
 plt.plot(x, y)
-plt.show()
+
 
 g = Graph()
 graphObject = g.set_as_default()
@@ -37,6 +36,9 @@ graphObject.variables.append(b) # append variable b
 z = Addition(MatrixMultiplication(w, x, graphObject), b, graphObject)
 
 # Apply activation function
-a = Sigmoid(z)
+a = Sigmoid(z, graphObject)
 
 # Execute neural network
+sess = Session()
+print(sess.run(a, {x: [0, -10]}))
+plt.show()
