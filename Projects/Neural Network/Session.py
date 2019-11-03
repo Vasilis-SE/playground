@@ -10,9 +10,14 @@ class Session:
     def traverse_postorder(self, operation):
         nodes_postorder = []
 
+        print(" ----------- ")
+        print("Started : " + str(operation))
+
         def recurse(node):
+            print("Loop Node : " + str(node))
             if isinstance(node, Operation):
                 for inpnode in node.inodes:
+                    print("==> " + str(vars(inpnode)))
                     recurse(inpnode)
             nodes_postorder.append(node)
 

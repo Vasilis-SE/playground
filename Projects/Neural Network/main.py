@@ -7,6 +7,7 @@ from Addition import Addition
 from MatrixMultiplication import MatrixMultiplication
 from Activation import Activation
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # Example : z = ax + b
@@ -40,4 +41,9 @@ z = Addition(y, b, dGraph2)
 result = sess.run(z, {x:10})
 print(result)
 
-# 
+# Classification
+activationObj = Activation()
+samplesZ = np.linspace(-10, 10, 100)
+samplesA = activationObj.sigmoid_function(samplesZ)
+plt.plot(samplesZ, samplesA)
+plt.show()
