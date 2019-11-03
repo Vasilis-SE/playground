@@ -1,19 +1,17 @@
 import numpy as np
-
-from Operation import Operation
-from Placeholder import Placeholder
-from Variables import Variables
+from operation import Operation
+from placeholder import Placeholder
+from variables import Variables
 
 
 class Session:
-
     def traverse_postorder(self, operation):
         nodes_postorder = []
 
         def recurse(node):
             if isinstance(node, Operation):
-                for inpnode in node.inodes:
-                    recurse(inpnode)
+                for input_node in node.input_nodes:
+                    recurse(input_node)
             nodes_postorder.append(node)
 
         recurse(operation)

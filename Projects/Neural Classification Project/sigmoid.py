@@ -1,5 +1,5 @@
 import numpy as np
-from Operation import operation
+from operation import Operation
 
 
 class Sigmoid(Operation):

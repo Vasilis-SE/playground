@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import make_blobs
-from sigmoid import Sigmoid
 from graph import Graph
 from placeholder import Placeholder
 from variables import Variables
 from addition import Addition
 from matrix_multiplication import MatrixMultiplication
+from sigmoid import Sigmoid
+from session import Session
+
 
 data = make_blobs(n_samples=50, n_features=2, centers=2, random_state=75)
 features = data[0]
@@ -25,8 +27,16 @@ g = Graph()
 graphObject = g.set_as_default()
 
 # Initialize function wx - b | [1,1] * x - 5
-graphObject.placeholders.append(Placeholder()) # placeholder x
-graphObject.variables.append(Variables([1, 1])) # variable w
-graphObject.variables.append(Variables(-5)) # variable b
+x = Placeholder()
+graphObject.placeholders.append(x) # append placeholder x
+w = Variables([1, 1])
+graphObject.variables.append(w) # append variable w
+b = Variables(-5)
+graphObject.variables.append(b) # append variable b
 
-z =
+z = Addition(MatrixMultiplication(w, x, graphObject), b, graphObject)
+
+# Apply activation function
+a = Sigmoid(z)
+
+# Execute neural network
