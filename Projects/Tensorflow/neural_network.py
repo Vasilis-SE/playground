@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 tf.compat.v1.disable_eager_execution()
 sess = tf.compat.v1.Session()  # Create a session.
@@ -32,3 +33,10 @@ sess.run(init)
 layer_output = sess.run(a, {x: np.random.random([1, features])})
 
 print(layer_output)
+
+# 5. Apply Regression and Feed Data Based on cost function
+x_data = np.linspace(0, 10, 10) + np.random.uniform(-1.5, 1.5, 10)
+y_label = np.linspace(0, 10, 10) + np.random.uniform(-1.5, 1.5, 10)
+
+plt.plot(x_data, y_label, '*')
+plt.show()
