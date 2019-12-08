@@ -35,7 +35,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Regression_EstimatorAPI">
+  <component name="RunManager" selected="Python.classification">
     <configuration name="Regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tensorflow" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tensorflow" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,7 +90,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graph.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.classification" />
         <item itemvalue="Python.Regression_EstimatorAPI" />
         <item itemvalue="Python.Regression" />
         <item itemvalue="Python.neural_network" />
         <item itemvalue="Python.variables_placeholders" />
-        <item itemvalue="Python.graph" />
       </list>
     </recent_temporary>
   </component>
