@@ -3,6 +3,10 @@ const validator = require("validator");
 const chalk = require("chalk");
 const fs = require("fs");
 
+// Custom defined chalks
+const error = chalk.bold.red;
+const success = chalk.bold.green;
+
 yargs.command({
 	command: 'add',
 	describe: 'Add a new note',
@@ -19,8 +23,17 @@ yargs.command({
 		}
 	},
 	handler: function (argv) {
-		console.log("Title: " + argv.title);
-		console.log("Body: " + argv.body);
+		let data = JSON.stringify({
+			"title": argv.title,
+			"body": argv.body
+		});
+
+		try {
+			fs.writeFileSync("./datasets/notes.json", data);
+			console.log( success('The new note has been successfully saved!') );
+		} catch(err) {
+			console.log( error(err) );
+		}
 	}
 });
 
