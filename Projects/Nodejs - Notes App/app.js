@@ -1,7 +1,8 @@
 const yargs = require("yargs");
-const validator = require("validator");
 const chalk = require("chalk");
-const fs = require("fs");
+
+// Custom made modules
+const note = require("./notes.js");
 
 // Custom defined chalks
 const error = chalk.bold.red;
@@ -23,25 +24,34 @@ yargs.command({
 		}
 	},
 	handler: function (argv) {
-		let data = JSON.stringify({
-			"title": argv.title,
-			"body": argv.body
-		});
-
-		try {
-			fs.writeFileSync("./datasets/notes.json", data);
-			console.log( success('The new note has been successfully saved!') );
-		} catch(err) {
-			console.log( error(err) );
+		let response = note.addNote(argv);
+		
+		if(response.STATUS) {
+			console.log( success(response.DATA) );		
+		} else {
+			console.log( error(response.DATA) );
 		}
 	}
 });
 
 yargs.command({
 	command: 'remove',
-	describe: 'Remove a note',
-	handler: function () {
-		console.log("removing note");
+	describe: 'Removes a note',
+	builder: {
+		title: {
+			describe: "Note`s title",
+			demandOption: true,
+			type: 'string'
+		}
+	},
+	handler: function (argv) {
+		let response = note.removeNote(argv.title);
+
+		if(response.STATUS) {
+			console.log( success(response.DATA) );		
+		} else {
+			console.log( error(response.DATA) );
+		}
 	}
 });
 
