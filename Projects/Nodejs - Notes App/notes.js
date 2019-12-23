@@ -1,32 +1,24 @@
 const validator = require("validator");
 const fs = require("fs");
 
-const isEmptyArgument = function(note) {
+const isEmptyArgument = (note) => {
 	if(note.title == "") return false;
 	if(note.body == "") return false;
 
 	return true;
 }
 
-const noteAlreadyExists = function(title, notes) {
-	const duplNotes = notes.filter(function(note) {
-		return note.title === title
-	});
-
+const noteAlreadyExists = (title, notes) => {
+	const duplNotes = notes.filter((note) => note.title === title);
 	return duplNotes.length === 0
 }
 
-const hasSpecialCharacters = function(stringval) {
+const hasSpecialCharacters = (stringval) => {
 	let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-
-	if(format.test(stringval)) {
-		return true;
-	}
-
-	return false;
+	return ((format.test(stringval)) ? true : false);
 }
 
-const loadNotes = function(filepath) {
+const loadNotes = (filepath) => {
 	try {
 		let dataBuffer = fs.readFileSync(filepath);
 		let storedNotes = dataBuffer.toString();
@@ -37,7 +29,7 @@ const loadNotes = function(filepath) {
 	}
 }
 
-const saveNotes = function(filepath, notes) {	
+const saveNotes = (filepath, notes) => {	
 	try {
 		fs.writeFileSync(filepath, JSON.stringify(notes));
 	} catch(err) {
@@ -48,13 +40,13 @@ const saveNotes = function(filepath, notes) {
 }
 
 
-
-const getNotes = function() {
+// ============== External Functions ============
+const getNotes = () => {
 	// TODO: Handle notes retrieve
 	return null;
 }
 
-const addNote = function(note) {
+const addNote = (note) => {
 	let response = {STATUS: true, DATA: ""};
 	let storedNotes = loadNotes("./datasets/notes.json");
 
@@ -97,7 +89,7 @@ const addNote = function(note) {
 	return response;
 }
 
-const removeNote = function(title) {
+const removeNote = (title) => {
 	let response = {STATUS: true, DATA: ""};
 	let storedNotes = loadNotes("./datasets/notes.json");
 
@@ -113,9 +105,7 @@ const removeNote = function(title) {
 		return response;
 	}
 
-	const newNotes = storedNotes.filter(function(note) {
-		return note.title !== title
-	});
+	const newNotes = storedNotes.filter((note) => note.title !== title);
 
 	if(!saveNotes("./datasets/notes.json", newNotes)) {
 		response.STATUS = false;
