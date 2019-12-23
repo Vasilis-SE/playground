@@ -56,20 +56,36 @@ yargs.command({
 });
 
 yargs.command({
-	command: 'read',
-	describe: 'Reading notes',
+	command: 'list',
+	describe: 'Listing notes',
 	handler: function () {
-		console.log("reading notes");
+		note.listNotes();
 	}
 });
 
 yargs.command({
-	command: 'list',
-	describe: 'Listing notes',
-	handler: function () {
-		console.log("listing notes");
+	command: 'read',
+	describe: 'Reading notes',
+	builder: {
+		title: {
+			describe: "Note`s title",
+			demandOption: true,
+			type: 'string'
+		}
+	},
+	handler: function (argv) {
+		let response = note.readNote(argv.title);
+		
+		if(response.STATUS) {
+			console.log( success(response.DATA.title) );		
+			console.log( success(response.DATA.body) );		
+		} else {
+			console.log( error(response.DATA) );
+		}
 	}
 });
+
+
 
 // This is necessary to let yargs know that it must parse the argumets
 yargs.parse(); 

@@ -39,13 +39,7 @@ const saveNotes = (filepath, notes) => {
 	return true;
 }
 
-
 // ============== External Functions ============
-const getNotes = () => {
-	// TODO: Handle notes retrieve
-	return null;
-}
-
 const addNote = (note) => {
 	let response = {STATUS: true, DATA: ""};
 	let storedNotes = loadNotes("./datasets/notes.json");
@@ -117,8 +111,42 @@ const removeNote = (title) => {
 	return response;
 }
 
+const listNotes = () => {
+	let storedNotes = loadNotes("./datasets/notes.json");
+
+	console.log("================ Notes ================");
+	storedNotes.forEach(function(note, index) {
+		console.log("> Title: " + note.title);
+		console.log("> Body: " + note.body);
+		console.log("----------------------");
+	});	
+}
+
+const readNote = (title) => {
+	let response = {STATUS: true, DATA: ""};
+	let storedNotes = loadNotes("./datasets/notes.json");
+
+	if(storedNotes.length == 0) {
+		response.STATUS = false;
+		response.DATA = "You have no saved notes...";
+		return response;
+	}
+
+	if(noteAlreadyExists(title, storedNotes)) {
+		response.STATUS = false;
+		response.DATA = "The title you have given does not exist...";
+		return response;
+	}
+
+	let searchedNote = storedNotes.find((note) => note.title === title);
+
+	response.DATA = searchedNote;
+	return response;
+}
+
 module.exports = {
-	getNotes: getNotes, 
 	addNote: addNote,
-	removeNote: removeNote
+	removeNote: removeNote,
+	listNotes: listNotes,
+	readNote: readNote
 };
