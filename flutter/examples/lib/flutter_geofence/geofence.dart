@@ -1,11 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'package:flutter_geofence/geofence.dart';
-import 'package:geolocator/geolocator.dart';
 
 class FlutterGeofence extends StatefulWidget {
   const FlutterGeofence({Key? key}) : super(key: key);
@@ -17,13 +15,8 @@ class FlutterGeofence extends StatefulWidget {
 class _GeofenceState extends State<FlutterGeofence> {
   String _platformVersion = 'Unknown';
   var _coordinates = new Map();
-  var locationListWidgets = <Widget>[];
 
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-
-  final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
-  final List<_PositionItem> _positionItems = <_PositionItem>[];
-  StreamSubscription<Position>? _positionStreamSubscription;
 
   @override
   void initState() {
@@ -55,9 +48,6 @@ class _GeofenceState extends State<FlutterGeofence> {
     Geofence.startListening(GeolocationEvent.exit, (entry) {
       scheduleNotification("Exit of a georegion", "Byebye to: ${entry.id}");
     });
-
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    print("Fetched: ${json.encode(position)}");
 
     setState(() {});
   }
@@ -102,22 +92,6 @@ class _GeofenceState extends State<FlutterGeofence> {
     });
   }
 
-  void addNeighbourRegion() {
-    Geolocation location = Geolocation(
-      latitude: this._coordinates['latitude'],
-      longitude: this._coordinates['longitude'],
-      radius: 50.0,
-      id: "Kerkplein15",
-    );
-
-    Geofence.addGeolocation(location, GeolocationEvent.entry).then((onValue) {
-      print("great success");
-      this.scheduleNotification("Georegion added", "Your geofence has been added!");
-    }).catchError((onError) {
-      print("great failure");
-    });
-  }
-
   void _showMyDialog(BuildContext context, String title, String message) {
     var alert = AlertDialog(
       title: Text(title),
@@ -139,51 +113,10 @@ class _GeofenceState extends State<FlutterGeofence> {
     });
   }
 
-  void _updatePositionList(_PositionItemType type, String displayValue) {
-    _positionItems.add(_PositionItem(type, displayValue));
-    
-    locationListWidgets.add(Text(displayValue));
-    if(locationListWidgets.length > 20)
-      locationListWidgets.removeRange(0, 20);
-
-    setState(() {});
-  }
-
-
-  void _toggleListening() {
-    if (_positionStreamSubscription == null) {
-      final positionStream = _geolocatorPlatform.getPositionStream();
-      _positionStreamSubscription = positionStream.handleError((error) {
-        _positionStreamSubscription?.cancel();
-        _positionStreamSubscription = null;
-      }).listen((position) => {
-        _updatePositionList(_PositionItemType.position, position.toString())
-      }
-      
-      
-      );
-      _positionStreamSubscription?.pause();
-    }
-
-    setState(() {
-      if (_positionStreamSubscription == null) {
-        return;
-      }
-
-      String statusDisplayValue;
-      if (_positionStreamSubscription!.isPaused) {
-        _positionStreamSubscription!.resume();
-        statusDisplayValue = 'resumed';
-      } else {
-        _positionStreamSubscription!.pause();
-        statusDisplayValue = 'paused';
-      }
-
-      _updatePositionList(
-        _PositionItemType.log,
-        'Listening for position updates $statusDisplayValue',
-      );
-    });
+  void _fetchGeolocation() async {
+    var loc = await Geofence.getCurrentLocation();
+    this._coordinates['longitude'] = loc?.longitude;
+    this._coordinates['longitude'] = loc?.longitude;
   }
 
   @override
@@ -211,19 +144,6 @@ class _GeofenceState extends State<FlutterGeofence> {
               child: ElevatedButton(
                 child: Text("Add region"),
                 onPressed: this.addRegion, 
-              ),
-            ),
-          ),
-
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Add neighbour region"),
-                onPressed: this.addNeighbourRegion, 
               ),
             ),
           ),
@@ -286,6 +206,7 @@ class _GeofenceState extends State<FlutterGeofence> {
               child: ElevatedButton(
                 child: Text("Listen to background updates"),
                 onPressed: this.listenToUpdates
+                
               ),
             ),
           ),
@@ -312,34 +233,18 @@ class _GeofenceState extends State<FlutterGeofence> {
               width: MediaQuery.of(context).size.width * 0.85,
               height: 50,
               child: ElevatedButton(
-                child: Text("Listen to geolocation changes"),
-                onPressed: _toggleListening,
+                child: Text("Stop listening to background updates"),
+                onPressed: () {
+                  Geofence.stopListeningForLocationChanges();
+                }
               ),
             ),
           ),
 
           Padding(padding: EdgeInsets.all(2)),
 
-          Column(
-            children: locationListWidgets,
-          )
-
         ],
       ),
     );
   }
-}
-
-
-
-
-enum _PositionItemType {
-  log,
-  position,
-}
-class _PositionItem {
-  _PositionItem(this.type, this.displayValue);
-
-  final _PositionItemType type;
-  final String displayValue;
 }
