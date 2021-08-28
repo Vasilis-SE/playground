@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'dart:async';
 import 'dart:convert';
 
@@ -29,11 +28,6 @@ class _FlutterGeolocatorState extends State<FlutterGeolocator> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     print("Fetched: ${json.encode(position)}");
 
@@ -89,30 +83,27 @@ class _FlutterGeolocatorState extends State<FlutterGeolocator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plugin example app'),
+        title: const Text('Geolocator app'),
       ),
       body: ListView(
         children: <Widget>[
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              ElevatedButton(
                 child: Text("Listen to geolocation changes"),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.red.shade300)
                 ),
                 onPressed: _toggleListening,
               ),
-            ),
+            ], 
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
-
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: locationListWidgets,
           )
-
         ],
       ),
     );

@@ -13,10 +13,13 @@ class FlutterGeofence extends StatefulWidget {
 }
 
 class _GeofenceState extends State<FlutterGeofence> {
-  String _platformVersion = 'Unknown';
   var _coordinates = new Map();
-
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+
+  final ButtonStyle btnStyle = ElevatedButton.styleFrom(
+    primary: Colors.purple.shade300,
+    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+  );
 
   @override
   void initState() {
@@ -40,6 +43,7 @@ class _GeofenceState extends State<FlutterGeofence> {
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
     if (!mounted) return;
+
     Geofence.initialize();
     Geofence.startListening(GeolocationEvent.entry, (entry) {
       scheduleNotification("Entry of a georegion", "Welcome to: ${entry.id}");
@@ -123,125 +127,76 @@ class _GeofenceState extends State<FlutterGeofence> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plugin example app'),
+        title: const Text('Flutter Geofence app'),
       ),
       body: ListView(
         children: <Widget>[
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 20,
-              child: Text('Running on: $_platformVersion\n'),
+
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Add region"),
+              onPressed: this.addRegion, 
             ),
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
- 
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Add region"),
-                onPressed: this.addRegion, 
-              ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Remove regions"),
+              onPressed: () {
+                Geofence.removeAllGeolocations();
+              },              
             ),
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Remove regions"),
-                onPressed: () {
-                  Geofence.removeAllGeolocations();
-                },
-              ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Request Permissions"),
+              onPressed: () {
+                Geofence.requestPermissions();
+              },            
             ),
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Request Permissions"),
-                onPressed: () {
-                  Geofence.requestPermissions();
-                },
-              ),
-            ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Display longitude & latitude"),
+              onPressed: () {
+                _showMyDialog(
+                  context, 
+                  "Location",
+                  "Longitude: ${this._coordinates['longitude']}, Latitude: ${this._coordinates['latitude']} "
+                );
+              }          
+            ),           
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Display longitude & latitude"),
-                onPressed: () {
-                  _showMyDialog(
-                    context, 
-                    "Location",
-                    "Longitude: ${this._coordinates['longitude']}, Latitude: ${this._coordinates['latitude']} "
-                  );
-                }
-              ),
-            ),
-          ),
-          
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Listen to background updates"),
-                onPressed: this.listenToUpdates
-                
-              ),
-            ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Listen to background updates"),
+              onPressed: this.listenToUpdates               
+            ),           
           ),
 
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Stop listening to background updates"),
-                onPressed: () {
-                  Geofence.stopListeningForLocationChanges();
-                }
-              ),
-            ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Stop listening to background updates"),
+              onPressed: () {
+                Geofence.stopListeningForLocationChanges();
+              }               
+            ),           
           ),
-
-          Padding(padding: EdgeInsets.all(2)),
-
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
-              height: 50,
-              child: ElevatedButton(
-                child: Text("Stop listening to background updates"),
-                onPressed: () {
-                  Geofence.stopListeningForLocationChanges();
-                }
-              ),
-            ),
-          ),
-
-          Padding(padding: EdgeInsets.all(2)),
 
         ],
       ),
