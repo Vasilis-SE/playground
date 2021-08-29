@@ -31,6 +31,7 @@ dependencies:
   flutter_geofence: ^0.4.1
   flutter_local_notifications: ^8.1.1+1
   geolocator: ^7.4.0
+  location: ^4.3.0
 
 dev_dependencies:
   flutter_test:

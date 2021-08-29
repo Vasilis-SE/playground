@@ -2,8 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
 import 'package:flutter_geofence/geofence.dart';
+import 'package:location/location.dart';
 
 class FlutterGeofence extends StatefulWidget {
   const FlutterGeofence({Key? key}) : super(key: key);
@@ -37,90 +37,64 @@ class _GeofenceState extends State<FlutterGeofence> {
     flutterLocalNotificationsPlugin.initialize(initializationSettings, onSelectNotification: null);
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
+    Location().enableBackgroundMode(enable: true);
     Geofence.initialize();
+
+    // Get current longitude-latitude of the device
+    await this._fetchGeolocation();
+    await this._addGeofencePoint(40.593518, 22.975836, 130.0);
+
     Geofence.startListening(GeolocationEvent.entry, (entry) {
-      scheduleNotification("Entry of a georegion", "Welcome to: ${entry.id}");
+     this._showMyDialog(context, "Geofence Trigger","You just entered a geofence with id: ${entry.id}");
     });
 
     Geofence.startListening(GeolocationEvent.exit, (entry) {
-      scheduleNotification("Exit of a georegion", "Byebye to: ${entry.id}");
+      this._showMyDialog(context, "Geofence Trigger","You just exited a geofence with id: ${entry.id}");
     });
-
+    
     setState(() {});
   }
 
-  void scheduleNotification(String title, String subtitle) {
-    var rng = new Random();
+  Future<void> _fetchGeolocation() async {
+    var loc = await Geofence.getCurrentLocation();
+    this._coordinates['longitude'] = loc?.longitude;
+    this._coordinates['latitude'] = loc?.latitude;
 
-    Future.delayed(Duration(seconds: 5)).then((result) async {
-      var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-        'your channel id', 'your channel name', 'your channel description',
-        importance: Importance.high,
-        priority: Priority.high,
-        ticker: 'ticker'
-      );
-      var iOSPlatformChannelSpecifics = IOSNotificationDetails();
-
-      var platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: iOSPlatformChannelSpecifics
-      );
-
-      await flutterLocalNotificationsPlugin.show(
-        rng.nextInt(100000), title, subtitle, platformChannelSpecifics,
-        payload: 'item x'
-      );
-    });
+    print('New geolocation: ${this._coordinates.toString()} ');
   }
 
-  void addRegion() {
+  Future<void>? _addGeofencePoint(lat, lon, rad) {
     Geolocation location = Geolocation(
-      latitude: this._coordinates['latitude'],
-      longitude: this._coordinates['longitude'],
-      radius: 10.0,
-      id: "Kerkplein13",
+      latitude: lat,
+      longitude: lon,
+      radius: rad,
+      id: "aRegionID",
     );
 
     Geofence.addGeolocation(location, GeolocationEvent.entry).then((onValue) {
-      print("great success");
-      this.scheduleNotification("Georegion added", "Your geofence has been added!");
+      this._showMyDialog(
+        context, 
+        "Added Geofence",
+        "A geofence has been added with radius: ${location.radius} at the location: ${location.longitude}, ${location.latitude}"
+      );
     }).catchError((onError) {
-      print("great failure");
+      this._showMyDialog(
+        context, 
+        "Added Geofence",
+        "Failed to add geofence..."
+      );
     });
-  }
-
-  void _showMyDialog(BuildContext context, String title, String message) {
-    var alert = AlertDialog(
-      title: Text(title),
-      content: Text(message),
-    );
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      }
-    );
   }
 
   void listenToUpdates() {
     Geofence.startListeningForLocationChanges();
-    Geofence.backgroundLocationUpdated.stream.listen((event) {
-      this.scheduleNotification("You moved significantly", "a significant location change just happened.");
+    Geofence.backgroundLocationUpdated.stream.listen((coordinate) {
+      print(coordinate.longitude);
+      print(coordinate.latitude);
     });
-  }
-
-  void _fetchGeolocation() async {
-    var loc = await Geofence.getCurrentLocation();
-    this._coordinates['longitude'] = loc?.longitude;
-    this._coordinates['longitude'] = loc?.longitude;
   }
 
   @override
@@ -137,7 +111,7 @@ class _GeofenceState extends State<FlutterGeofence> {
             child: ElevatedButton(
               style: btnStyle,  
               child: Text("Add region"),
-              onPressed: this.addRegion, 
+              onPressed: () => this._addGeofencePoint(this._coordinates['latitude'], this._coordinates['longitude'], 2.0), 
             ),
           ),
 
@@ -160,6 +134,15 @@ class _GeofenceState extends State<FlutterGeofence> {
               onPressed: () {
                 Geofence.requestPermissions();
               },            
+            ),
+          ),
+
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: btnStyle,  
+              child: Text("Get current geolocation"),
+              onPressed: () => _fetchGeolocation(),            
             ),
           ),
 
@@ -202,4 +185,45 @@ class _GeofenceState extends State<FlutterGeofence> {
       ),
     );
   }
+
+
+  
+  void _showMyDialog(BuildContext context, String title, String message) {
+    var alert = AlertDialog(
+      title: Text(title),
+      content: Text(message),
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      }
+    );
+  }
+
+  void scheduleNotification(String title, String subtitle) {
+    var rng = new Random();
+
+    Future.delayed(Duration(seconds: 5)).then((result) async {
+      var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        'your channel id', 'your channel name', 'your channel description',
+        importance: Importance.high,
+        priority: Priority.high,
+        ticker: 'ticker'
+      );
+      var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+
+      var platformChannelSpecifics = NotificationDetails(
+        android: androidPlatformChannelSpecifics,
+        iOS: iOSPlatformChannelSpecifics
+      );
+
+      await flutterLocalNotificationsPlugin.show(
+        rng.nextInt(100000), title, subtitle, platformChannelSpecifics,
+        payload: 'item x'
+      );
+    });
+  }
+
 }
