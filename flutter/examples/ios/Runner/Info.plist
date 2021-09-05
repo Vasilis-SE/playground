@@ -45,5 +45,21 @@
   	<string>This app needs access to location when open.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Program requires GPS to track cars and job orders</string>
+
+	<!-- Always -->
+	<!-- for iOS 9/10 -->
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Reason why app needs location</string>
+	<!-- Bluetooth Privacy -->
+	<!-- for iOS 13 + -->
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Reason why app needs bluetooth</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+	</array>
+	<key>NSMotionUsageDescription</key>
+	<string>Used to recognize user activity information.</string>
 </dict>
 </plist>

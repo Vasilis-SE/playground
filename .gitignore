@@ -53,6 +53,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+database/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/

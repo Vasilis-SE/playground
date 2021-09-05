@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_geofence/Geolocation.dart';
 import 'package:flutter_geofence/geofence.dart';
-import 'package:location/location.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
 
 class FlutterGeofence extends StatefulWidget {
   const FlutterGeofence({Key? key}) : super(key: key);
@@ -14,18 +17,20 @@ class FlutterGeofence extends StatefulWidget {
 
 class _GeofenceState extends State<FlutterGeofence> {
   var _coordinates = new Map();
+  var _listUpdatedPositions = <Widget>[];
+  var _listeningToPosUpds = false;
+
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
 
   final ButtonStyle btnStyle = ElevatedButton.styleFrom(
-    primary: Colors.purple.shade300,
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+    primary: Colors.orange.shade300,
+    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20), 
   );
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-
+    
     // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
     var initializationSettingsAndroid = new AndroidInitializationSettings('app_icon');
     var initializationSettingsIOS = IOSInitializationSettings(onDidReceiveLocalNotification: null);
@@ -35,26 +40,46 @@ class _GeofenceState extends State<FlutterGeofence> {
     );
 
     flutterLocalNotificationsPlugin.initialize(initializationSettings, onSelectNotification: null);
+
+    initPlatformState();
   }
 
   Future<void> initPlatformState() async {
     if (!mounted) return;
 
-    Location().enableBackgroundMode(enable: true);
     Geofence.initialize();
-
-    // Get current longitude-latitude of the device
-    await this._fetchGeolocation();
-    await this._addGeofencePoint(40.593518, 22.975836, 130.0);
+    Geofence.requestPermissions();
 
     Geofence.startListening(GeolocationEvent.entry, (entry) {
-     this._showMyDialog(context, "Geofence Trigger","You just entered a geofence with id: ${entry.id}");
+      print("start listening entries...");
+      this._showMyDialog(context, "Geofence Trigger","You just entered a geofence with id: ${entry.id}");
     });
 
     Geofence.startListening(GeolocationEvent.exit, (entry) {
+      print("start listening exits...");
       this._showMyDialog(context, "Geofence Trigger","You just exited a geofence with id: ${entry.id}");
     });
+
+    // Get current longitude-latitude of the device
+    await this._fetchGeolocation();
+
+    // Fetch static list of geofences
+    var myGeofenceList = json.decode( await this.getJson('lib/database/geofences.json') );
+
+    // Add external geofences.
+    var messageBuffer = "Successfully registed the below fences: \n\n";
+    for(var geofence in myGeofenceList) {
+      var regFenceStatus = await this._addGeofencePoint(
+        geofence['id'], 
+        geofence['latitude'], 
+        geofence['longitude'], 
+        geofence['radius']);
+      if(regFenceStatus == true) messageBuffer += "${geofence['name']} : ${geofence['latitude']}, ${geofence['longitude']} \n\n";
+    }
     
+    // Display registered geofences.
+    this._showMyDialog(context, "Added Geofence",   messageBuffer);
+
     setState(() {});
   }
 
@@ -66,52 +91,68 @@ class _GeofenceState extends State<FlutterGeofence> {
     print('New geolocation: ${this._coordinates.toString()} ');
   }
 
-  Future<void>? _addGeofencePoint(lat, lon, rad) {
+  Future<bool>? _addGeofencePoint(id, latitude, longitude, redius) async {
     Geolocation location = Geolocation(
-      latitude: lat,
-      longitude: lon,
-      radius: rad,
-      id: "aRegionID",
+      latitude:latitude, 
+      longitude:longitude, 
+      radius:redius, 
+      id:id
     );
 
-    Geofence.addGeolocation(location, GeolocationEvent.entry).then((onValue) {
-      this._showMyDialog(
-        context, 
-        "Added Geofence",
-        "A geofence has been added with radius: ${location.radius} at the location: ${location.longitude}, ${location.latitude}"
-      );
+    return Geofence.addGeolocation(location, GeolocationEvent.entry).then((onValue) {
+      print('Added geofence [${location.id}] point: ${location.latitude}, ${location.longitude} ');
+      return true;
     }).catchError((onError) {
-      this._showMyDialog(
-        context, 
-        "Added Geofence",
-        "Failed to add geofence..."
-      );
+      print(onError);
+      return false;
     });
   }
 
-  void listenToUpdates() {
+  void _listenToPositionUpdates() {
     Geofence.startListeningForLocationChanges();
     Geofence.backgroundLocationUpdated.stream.listen((coordinate) {
-      print(coordinate.longitude);
-      print(coordinate.latitude);
+      this._listUpdatedPositions.add(Text("${coordinate.latitude}, ${coordinate.longitude}"));
+      setState(() {});
     });
+
+    print("Started listening for location changes...");
+    this._listeningToPosUpds = true;
+  }
+
+  void _stopListeningToPositionUpdates() async {
+    await Geofence.stopListeningForLocationChanges();
+    print("Stopped listening for location changes...");
+    this._listeningToPosUpds = false;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // backgroundColor: Colors.orange.shade500,
         title: const Text('Flutter Geofence app'),
-      ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[
+                Colors.orange.shade500,
+                Colors.orange.shade900
+              ]
+            )          
+          ),
+        ),
+      ), 
       body: ListView(
         children: <Widget>[
-
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               style: btnStyle,  
               child: Text("Add region"),
-              onPressed: () => this._addGeofencePoint(this._coordinates['latitude'], this._coordinates['longitude'], 2.0), 
+              onPressed: () => this._addGeofencePoint("myLocationFence", this._coordinates['latitude'], this._coordinates['longitude'], 2.0), 
             ),
           ),
 
@@ -123,26 +164,6 @@ class _GeofenceState extends State<FlutterGeofence> {
               onPressed: () {
                 Geofence.removeAllGeolocations();
               },              
-            ),
-          ),
-
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: btnStyle,  
-              child: Text("Request Permissions"),
-              onPressed: () {
-                Geofence.requestPermissions();
-              },            
-            ),
-          ),
-
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: btnStyle,  
-              child: Text("Get current geolocation"),
-              onPressed: () => _fetchGeolocation(),            
             ),
           ),
 
@@ -165,20 +186,31 @@ class _GeofenceState extends State<FlutterGeofence> {
             width: double.infinity,
             child: ElevatedButton(
               style: btnStyle,  
-              child: Text("Listen to background updates"),
-              onPressed: this.listenToUpdates               
-            ),           
+              child: !this._listeningToPosUpds ? Text("Listen to background updates") : Text("Stop listening to background updates"),
+              onPressed: () {
+                if(!this._listeningToPosUpds)
+                  this._listenToPositionUpdates();
+                else
+                  this._stopListeningToPositionUpdates();
+              }           
+            ),
           ),
 
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: btnStyle,  
-              child: Text("Stop listening to background updates"),
-              onPressed: () {
-                Geofence.stopListeningForLocationChanges();
-              }               
-            ),           
+          Container(
+            color: Colors.orange.shade50,
+            child: Column(
+              children: [
+                Text(
+                  "List of updated positions:",
+                  style: TextStyle(
+                    fontSize: 15, 
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline
+                  ),
+                ),
+                ...this._listUpdatedPositions
+              ],
+            ),
           ),
 
         ],
@@ -186,12 +218,12 @@ class _GeofenceState extends State<FlutterGeofence> {
     );
   }
 
-
-  
   void _showMyDialog(BuildContext context, String title, String message) {
     var alert = AlertDialog(
       title: Text(title),
-      content: Text(message),
+      content: SingleChildScrollView( // won't be scrollable
+        child: Text(message, textScaleFactor: 1),
+      )
     );
 
     showDialog(
@@ -226,4 +258,9 @@ class _GeofenceState extends State<FlutterGeofence> {
     });
   }
 
+  Future<String> getJson(String path) {
+    return rootBundle.loadString(path);
+  }
+
 }
+

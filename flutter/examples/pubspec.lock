@@ -57,11 +57,46 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  fl_location:
+    dependency: transitive
+    description:
+      name: fl_location
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  fl_location_platform_interface:
+    dependency: transitive
+    description:
+      name: fl_location_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_activity_recognition:
+    dependency: transitive
+    description:
+      name: flutter_activity_recognition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
+  flutter_beacon:
+    dependency: "direct main"
+    description:
+      name: flutter_beacon
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.1"
+  flutter_foreground_task:
+    dependency: transitive
+    description:
+      name: flutter_foreground_task
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
   flutter_geofence:
     dependency: "direct main"
     description:
@@ -93,6 +128,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  geofence_service:
+    dependency: "direct main"
+    description:
+      name: geofence_service
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.2"
   geolocator:
     dependency: "direct main"
     description:
@@ -128,6 +170,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.6"
+  get:
+    dependency: "direct main"
+    description:
+      name: get
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.3.8"
   http_parser:
     dependency: transitive
     description:
