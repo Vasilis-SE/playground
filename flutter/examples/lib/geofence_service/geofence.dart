@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:geofence_service/geofence_service.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../dialogs/simpleAlertDialog.dart';
+
 class FlutterGeofenceService extends StatefulWidget {
   @override
   _FlutterGeofenceServiceState createState() => _FlutterGeofenceServiceState();
@@ -16,7 +18,7 @@ class _FlutterGeofenceServiceState extends State<FlutterGeofenceService> {
   // Create a [GeofenceService] instance and set options.
   final _geofenceService = GeofenceService.instance.setup(
       interval: 10000, // 10 seconds
-      accuracy: 20,
+      accuracy: 50,
       loiteringDelayMs: 60000,
       statusChangeDelayMs: 10000,
       useActivityRecognition: true,
@@ -25,10 +27,54 @@ class _FlutterGeofenceServiceState extends State<FlutterGeofenceService> {
       geofenceRadiusSortType: GeofenceRadiusSortType.DESC);
 
   // This function is to be called when the geofence status is changed.
-  Future<void> _onGeofenceStatusChanged(Geofence geofence, GeofenceRadius geofenceRadius, GeofenceStatus geofenceStatus, Location location) async {
+  Future<void> _onGeofenceStatusChanged(
+      Geofence geofence, 
+      GeofenceRadius geofenceRadius, 
+      GeofenceStatus geofenceStatus, 
+      Location location) async {
+      
+    // geofence: {
+    //   id: neighborhood, 
+    //   data: null, 
+    //   latitude: 40.593518, 
+    //   longitude: 22.975836, 
+    //   radius: [{
+    //     id: radius_80.0m, 
+    //     data: null, 
+    //     length: 80.0, 
+    //     status: GeofenceStatus.ENTER, 
+    //     activity: {
+    //       type: ActivityType.UNKNOWN, 
+    //       confidence: ActivityConfidence.LOW
+    //     }, 
+    //     speed: 0.0, 
+    //     timestamp: 2021-09-05 13:46:09.416, 
+    //     remainingDistance: -0.2800303314806598
+    //   }], 
+    //   status: GeofenceStatus.ENTER, 
+    //   timestamp: 2021-09-05 13:46:09.416, 
+    //   remainingDistance: 79.71996966851934
+    // }
+
+    if(geofenceStatus == GeofenceStatus.ENTER || geofenceStatus == GeofenceStatus.EXIT) {
+      var geofenceEvent = geofence.toJson();
+      var titleTxt = geofenceStatus == GeofenceStatus.ENTER ? "Entered geofence" : "Exited geofence";
+      var msgTxt = "You have ${geofenceStatus == GeofenceStatus.ENTER ? "entered" : "exited"} to a geofence with id ${geofenceEvent['id']} and location [${geofenceEvent['latitude']}, ${geofenceEvent['longitude']}] ";
+      
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) => SimpleAlertDialog(
+          title: titleTxt,
+          message: msgTxt
+        ),
+      );
+    }
+
     print('geofence: ${geofence.toJson()}');
     print('geofenceRadius: ${geofenceRadius.toJson()}');
     print('geofenceStatus: ${geofenceStatus.toString()}');
+    print('---------------------------------');
     _geofenceStreamController.sink.add(geofence);
   }
 
