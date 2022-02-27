@@ -1,0 +1,79 @@
+[
+    {
+        "id": "neighborhood",
+        "name": "Neighborhood",
+        "longitude": 22.975836,
+        "latitude": 40.593518,
+        "radius": 90.0
+    },
+    {
+        "id": "work",
+        "name": "Work",
+        "longitude": 22.905681,
+        "latitude": 40.654885,
+        "radius": 20.0
+    },
+    {
+        "id": "aristotelous",
+        "name": "Aristotelous",
+        "longitude": 22.944110,
+        "latitude": 40.635899,
+        "radius": 30.0
+    },
+    {
+        "id": "aristotleUniversity",
+        "name": "Aristotle University",
+        "longitude": 22.956506,
+        "latitude": 40.629391,
+        "radius": 50.0
+    },
+    {
+        "id": "ipokratioHospital",
+        "name": "Ipokratio Hospital",
+        "longitude": 22.963202,
+        "latitude": 40.612933,
+        "radius": 50.0
+    },
+    {
+        "id": "oneSalonica",
+        "name": "One Salonica",
+        "longitude": 22.920402,
+        "latitude": 40.646294,
+        "radius": 200.0
+    },
+    {
+        "id": "docksEntrance",
+        "name": "Docks Entrance",
+        "longitude": 22.936729,
+        "latitude": 40.634122,
+        "radius": 50.0
+    },
+    {
+        "id": "whiteTower",
+        "name": "White Tower",
+        "longitude": 22.948422,
+        "latitude": 40.626453,
+        "radius": 30.0
+    },
+    {
+        "id": "makedoniaPalace",
+        "name": "Makedonia Palace",
+        "longitude": 22.953169,
+        "latitude": 40.618263,
+        "radius": 50.0
+    },
+    {
+        "id": "habanera",
+        "name": "Habanera",
+        "longitude": 22.951888,
+        "latitude": 40.599226,
+        "radius": 20.0
+    },
+    {
+        "id": "voulgariBridge",
+        "name": "Voulgari Bridge",
+        "longitude": 22.965726,
+        "latitude": 40.592368,
+        "radius": 50.0
+    }
+]
