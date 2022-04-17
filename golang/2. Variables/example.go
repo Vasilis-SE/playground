@@ -39,6 +39,22 @@ func main() {
 	fmt.Printf("floatVar3 is a float of type %T and value: %f \nComplex numbers with float32 real and imaginary parts \n\n", floatVar3, floatVar3)
 	fmt.Printf("floatVar4 is a float of type %T and value: %f \nComplex numbers with float64 real and imaginary parts \n\n", floatVar4, floatVar4)
 
-	fmt.Printf(" --------------------------------------- \n\n")
+	// Boolean
+	fmt.Printf("\n\n ----------- Boolean Types ------------- \n\n")
+	var booleanVar1 bool = false
+	fmt.Printf("booleanVar1 is a boolean of type %T and value: %t \n", booleanVar1, booleanVar1)
+
+	// Dynamic types: Types are not defined and the compiler need to interpret their type instead.
+	fmt.Printf("\n\n ----------- Dynamic Variables ------------- \n\n")
+	var x float64 = 20.0
+	y := 42
+	fmt.Printf("x is of type %T\n", x)
+	fmt.Printf("y is dynamic of type %T\n", y)
+
+	fmt.Printf("\n\n ----------- Mixed Variable Declaration ------------- \n\n")
+	var a, b, c = 3, 4, "foo"
+	fmt.Printf("a is of type %T and value %d \n", a, a)
+	fmt.Printf("b is of type %T and value %d \n", b, b)
+	fmt.Printf("c is of type %T and value %s \n", c, c)
 
 }
