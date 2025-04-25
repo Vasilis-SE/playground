@@ -16,8 +16,8 @@ public class Consumer {
 	public static void main(String[] args) {
 		System.out.println("Starting kafka consumer...");
 
-		String bootstrapServers = "127.0.0.1:9092";
-		String groupId = "my-fifth-application";
+		String bootstrapServers = "host.docker.internal:9092";
+		String groupId = "my-group-id";
 		String topic = "my-first-topic";
 
 		// create consumer configs
@@ -56,8 +56,7 @@ public class Consumer {
 
 			// poll for new data
 			while (true) {
-				ConsumerRecords<String, String> records =
-						consumer.poll(Duration.ofMillis(100));
+				ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
 				for (ConsumerRecord<String, String> record : records) {
 					System.out.println("Key: " + record.key() + ", Value: " + record.value());
