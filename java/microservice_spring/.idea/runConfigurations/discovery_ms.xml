@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="discovery-ms" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="21" />
+    <option name="envFilePaths">
+      <option value="$PROJECT_DIR$/discovery/env/.env.dev" />
+    </option>
+    <option name="MAIN_CLASS_NAME" value="com.discovery.DiscoveryApplication" />
+    <module name="discovery" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,40 @@
+server:
+  hostname: localhost
+  port: ${APP_PORT}
+  eureka-port: ${EUREKA_DISCOVERY_PORT}
+
+spring:
+  application:
+    name: crypto-ms
+
+  profiles:
+    active: "development"
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${server.hostname}:${DB_PORT}/${DB_DATABASE}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: create
+        format_sql: true
+
+eureka:
+  instance:
+    hostname: ${server.hostname}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${server.hostname}:${server.eureka-port}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

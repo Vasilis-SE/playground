@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="gateway-ms" type="Application" factoryName="Application">
+    <option name="envFilePaths">
+      <option value="$PROJECT_DIR$/gateway/env/.env.dev" />
+    </option>
+    <option name="MAIN_CLASS_NAME" value="com.gateway.GatewayApplication" />
+    <module name="gateway" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

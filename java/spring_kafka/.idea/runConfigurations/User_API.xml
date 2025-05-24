@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="User API" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.spring.kafka.SpringKafkaUserApplication" />
+    <module name="spring_kafka_user" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

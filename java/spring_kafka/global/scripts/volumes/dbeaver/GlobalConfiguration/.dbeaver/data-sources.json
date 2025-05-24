@@ -1,0 +1,64 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-19673299fc0-1e591bc0a529c554": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "sk_user",
+			"save-password": true,
+			"configuration": {
+				"host": "host.docker.internal",
+				"port": "3307",
+				"url": "jdbc:mysql://host.docker.internal:3307/",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"properties": {
+					"allowPublicKeyRetrieval": "TRUE"
+				},
+				"auth-model": "native",
+				"bootstrap": {
+					"autocommit": true
+				}
+			}
+		},
+		"mysql8-196734cd6ce-1331c64f2b25c616": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "sk_product",
+			"save-password": true,
+			"configuration": {
+				"host": "host.docker.internal",
+				"port": "3308",
+				"database": "productdb",
+				"url": "jdbc:mysql://host.docker.internal:3308/productdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"properties": {
+					"allowPublicKeyRetrieval": "TRUE"
+				},
+				"auth-model": "native",
+				"bootstrap": {
+					"autocommit": true
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

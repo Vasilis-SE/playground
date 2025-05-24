@@ -1,0 +1,18 @@
+server:
+  port: ${APP_PORT}
+
+spring:
+  application:
+    name: discovery-ms
+
+  profiles:
+    active: "development"
+
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8373005f-7ba4-4527-afc4-2a465e4cea41" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2x1oaUPia2RSis9n0Wnfli8dVmT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.crypto-ms.executor": "Run",
+    "Application.discovery-ms.executor": "Run",
+    "Application.gateway-ms.executor": "Run",
+    "Application.user-ms.executor": "Run",
+    "Maven.crypto-ms [clean].executor": "Run",
+    "Maven.crypto-ms [install].executor": "Run",
+    "Maven.demo [clean].executor": "Run",
+    "Maven.demo [install].executor": "Run",
+    "Maven.demo [verify].executor": "Run",
+    "Maven.discovery [clean].executor": "Run",
+    "Maven.discovery [install].executor": "Run",
+    "Maven.discovery [package].executor": "Run",
+    "Maven.gateway [clean].executor": "Run",
+    "Maven.gateway [install].executor": "Run",
+    "Maven.user-ms [clean].executor": "Run",
+    "Maven.user-ms [compile].executor": "Run",
+    "Maven.user-ms [install].executor": "Run",
+    "Maven.user-ms [org.apache.maven.plugins:maven-clean-plugin:3.4.1:clean].executor": "Run",
+    "Maven.user-ms [package].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/development/repositories/local/microservice_spring/gateway/pom.xml",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "settings.sync"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\development\repositories\local\microservice_spring\crypto" />
+      <recent name="C:\development\repositories\local\microservice_spring\user" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.crypto.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.gateway-ms">
+    <configuration name="Startup" type="CompoundRunConfigurationType">
+      <toRun name="crypto-ms" type="Application" />
+      <toRun name="discovery-ms" type="Application" />
+      <toRun name="gateway-ms" type="Application" />
+      <toRun name="user-ms" type="Application" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.gateway-ms" />
+      <item itemvalue="Application.user-ms" />
+      <item itemvalue="Application.crypto-ms" />
+      <item itemvalue="Application.discovery-ms" />
+      <item itemvalue="Compound.Startup" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8373005f-7ba4-4527-afc4-2a465e4cea41" name="Changes" comment="" />
+      <created>1747115004321</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747115004321</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.ConnectException" package="java.net" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

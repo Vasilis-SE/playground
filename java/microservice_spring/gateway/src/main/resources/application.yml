@@ -1,0 +1,19 @@
+server:
+  hostname: localhost
+  port: ${APP_PORT}
+  eureka-port: ${EUREKA_DISCOVERY_PORT}
+
+spring:
+  application:
+    name: gateway-ms
+
+  profiles:
+    active: "development"
+
+eureka:
+  instance:
+    hostname: ${server.hostname}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${server.hostname}:${server.eureka-port}/eureka/

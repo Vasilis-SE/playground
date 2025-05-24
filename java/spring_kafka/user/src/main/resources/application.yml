@@ -1,0 +1,27 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: spring_kafka_user
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/userdb
+    username: myuser
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jackson:
+    default-property-inclusion: NON_NULL
+
+  kafka:
+    bootstrap-servers: host.docker.internal:9092
+    consumer:
+      group-id: my-group-id
+
+springdoc:
+  override-with-generic-response: false
+  api-docs:
+    path: /docs/api
+  swagger-ui:
+    path: /docs/index.html

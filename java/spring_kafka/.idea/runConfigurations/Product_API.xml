@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Product API" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.spring.kafka.product.SpringKafkaProductApplication" />
+    <module name="spring_kafka_product" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
