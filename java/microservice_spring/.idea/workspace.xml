@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8373005f-7ba4-4527-afc4-2a465e4cea41" name="Changes" comment="" />
+    <list default="true" id="8373005f-7ba4-4527-afc4-2a465e4cea41" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto/env/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/env/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/env/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/env/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/env/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/env/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/env/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/user/env/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +31,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -39,6 +56,7 @@
     "Application.discovery-ms.executor": "Run",
     "Application.gateway-ms.executor": "Run",
     "Application.user-ms.executor": "Run",
+    "Docker.Setup.executor": "Run",
     "Maven.crypto-ms [clean].executor": "Run",
     "Maven.crypto-ms [install].executor": "Run",
     "Maven.demo [clean].executor": "Run",
@@ -55,8 +73,10 @@
     "Maven.user-ms [org.apache.maven.plugins:maven-clean-plugin:3.4.1:clean].executor": "Run",
     "Maven.user-ms [package].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/development/repositories/local/microservice_spring/gateway/pom.xml",
+    "last_opened_file_path": "D:/development/repositories/github/playground/java/microservice_spring/global/docker/docker-compose.yml",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -72,7 +92,7 @@
       <recent name="com.crypto.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.gateway-ms">
+  <component name="RunManager" selected="Docker.Setup">
     <configuration name="Startup" type="CompoundRunConfigurationType">
       <toRun name="crypto-ms" type="Application" />
       <toRun name="discovery-ms" type="Application" />
@@ -86,6 +106,7 @@
       <item itemvalue="Application.crypto-ms" />
       <item itemvalue="Application.discovery-ms" />
       <item itemvalue="Compound.Startup" />
+      <item itemvalue="Docker.Setup" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

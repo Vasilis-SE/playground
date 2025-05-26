@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.discovery</groupId>
-	<artifactId>discovery</artifactId>
+	<artifactId>discovery-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>discovery</name>
 	<description>Discovery microservice</description>

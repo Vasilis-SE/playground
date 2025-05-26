@@ -1,6 +1,6 @@
 server:
   hostname: localhost
-  port: ${APP_PORT}
+  port: ${USER_APP_PORT}
   eureka-port: ${EUREKA_DISCOVERY_PORT}
 
 spring:
@@ -12,9 +12,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${server.hostname}:${DB_PORT}/${DB_DATABASE}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${server.hostname}:${USER_DB_PORT}/${USER_DB_DATABASE}
+    username: ${USER_DB_USER}
+    password: ${USER_DB_PASSWORD}
 
   jpa:
     show-sql: true

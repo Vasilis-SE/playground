@@ -1,6 +1,6 @@
 server:
   hostname: localhost
-  port: ${APP_PORT}
+  port: ${GATEWAY_APP_PORT}
   eureka-port: ${EUREKA_DISCOVERY_PORT}
 
 spring:

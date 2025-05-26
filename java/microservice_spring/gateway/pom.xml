@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gateway</groupId>
-	<artifactId>gateway</artifactId>
+	<artifactId>gateway-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gateway-ms</name>
 	<description>Gateway of the microservice system</description>

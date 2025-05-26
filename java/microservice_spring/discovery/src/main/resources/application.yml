@@ -1,5 +1,5 @@
 server:
-  port: ${APP_PORT}
+  port: ${DISCOVERY_APP_PORT}
 
 spring:
   application:

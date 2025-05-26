@@ -1,0 +1,58 @@
+version: "3"
+name: crypto_example
+
+services:
+
+  crypto-db:
+    image: postgres
+    container_name: crypto-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${CRYPTO_DB_ROOT_PASSWORD}
+      MYSQL_USER: ${CRYPTO_DB_USER}
+      MYSQL_PASSWORD: ${CRYPTO_DB_PASSWORD}
+      MYSQL_DATABASE: ${CRYPTO_DB_DATABASE}
+    ports:
+      - "5434:5432"
+    env_file: "../../crypto/env/.env.dev"
+    networks:
+      - crypto_micro_network
+
+  user-db:
+    image: postgres
+    container_name: user-db
+    restart: always
+    environment:
+      POSTGRES_USER: user-name
+      POSTGRES_PASSWORD: strong-password
+
+      MYSQL_ROOT_PASSWORD: ${USER_DB_ROOT_PASSWORD}
+      MYSQL_USER: ${USER_DB_USER}
+      MYSQL_PASSWORD: ${USER_DB_PASSWORD}
+      MYSQL_DATABASE: ${USER_DB_DATABASE}
+    ports:
+      - "5433:5432"
+    env_file: "../../user/env/.env.dev"
+    networks:
+      - crypto_micro_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: strong-password
+    volumes:
+      - ../volumes/pgadmin:/var/lib/pgadmin
+    networks:
+      - crypto_micro_network
+
+volumes:
+  pgadmin:
+
+networks:
+  crypto_micro_network:
+    driver: bridge
